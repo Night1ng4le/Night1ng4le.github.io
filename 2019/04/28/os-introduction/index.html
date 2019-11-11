@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="明镜">
 <meta property="og:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-11T17:41:54.838Z">
+<meta property="og:updated_time" content="2019-11-11T17:43:28.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS 概述">
 <meta name="twitter:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。">
@@ -176,15 +176,22 @@
 <li>没有调用关系的模块必要时可以相互覆盖</li>
 <li>缺点：<ul>
 <li>增加运行时间</li>
-<li>增加编程难度<h4 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h4>增加正在运行的进程的内存空间</li>
+<li>增加编程难度</li>
 </ul>
 </li>
+</ol>
+<h4 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h4><p>增加正在运行的进程的内存空间</p>
+<ol>
 <li>暂时不能运行的的进程丢进外存（挂起）</li>
 <li>换入换出的基本单位：<code>整个进程</code>的地址空间</li>
 <li>几个问题：<ul>
 <li>何时交换：内存不够/有不够的可能时</li>
 <li>交换区大小：能存放所有用户进程的所有镜像的拷贝</li>
-<li>程序换入时的重定位：动态地址映射的方法<h4 id="覆盖-amp-交换比较"><a href="#覆盖-amp-交换比较" class="headerlink" title="覆盖&amp;交换比较"></a>覆盖&amp;交换比较</h4><blockquote>
+<li>程序换入时的重定位：动态地址映射的方法</li>
+</ul>
+</li>
+</ol>
+<h4 id="覆盖-amp-交换比较"><a href="#覆盖-amp-交换比较" class="headerlink" title="覆盖&amp;交换比较"></a>覆盖&amp;交换比较</h4><blockquote>
 <p>覆盖：（程序员）</p>
 <ul>
 <li>进程无关的模块之间</li>
@@ -192,10 +199,6 @@
 <li>发生在程序内部模块间</li>
 </ul>
 </blockquote>
-</li>
-</ul>
-</li>
-</ol>
 <blockquote>
 <p>交换：（OS）</p>
 <ul>
