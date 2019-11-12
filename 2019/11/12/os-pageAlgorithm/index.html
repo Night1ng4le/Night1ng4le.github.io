@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: OS | Nightingale</title>
+  <title>OS - 页面置换算法 | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nightingale">
-<meta property="og:url" content="http://yoursite.com/tags/OS/index.html">
+  <meta name="description" content="OS页面置换算法简记，不系统">
+<meta name="keywords" content="OS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OS - 页面置换算法">
+<meta property="og:url" content="http://yoursite.com/2019/11/12/os-pageAlgorithm/index.html">
 <meta property="og:site_name" content="Nightingale">
+<meta property="og:description" content="OS页面置换算法简记，不系统">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-12T12:46:56.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nightingale">
+<meta name="twitter:title" content="OS - 页面置换算法">
+<meta name="twitter:description" content="OS页面置换算法简记，不系统">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -148,36 +153,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-os-pageAlgorithm" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      OS - 页面置换算法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/12/os-pageAlgorithm/" class="archive-article-date">
+
+        
+        <a href="/2019/11/12/os-pageAlgorithm/" class="archive-article-date">
   	<time datetime="2019-11-12T10:51:53.896Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/12/os-pageAlgorithm/">OS - 页面置换算法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>OS页面置换算法简记，不系统</p>
+<a id="more"></a>
+<h3 id="置换算法的概念"><a href="#置换算法的概念" class="headerlink" title="置换算法的概念"></a>置换算法的概念</h3><ol>
+<li>功能：选择被置换的物理页面</li>
+<li>目标：尽可能减少调入调出次数</li>
+<li><code>页面锁定</code>：某些页面不可被换出（OS相关、要求响应速度等）<ul>
+<li>依靠页表中锁定标志位解决</li>
+</ul>
+</li>
+</ol>
+<h4 id="评价方法"><a href="#评价方法" class="headerlink" title="评价方法"></a>评价方法</h4><ul>
+<li>模拟页面置换行为，记录缺页次数</li>
+<li>缺页越少性能越好</li>
+</ul>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ol>
+<li>局部置换算法<ul>
+<li>置换页面选择范围仅限当前进程所占物理页面</li>
+</ul>
+</li>
+<li>全局置换算法<ul>
+<li>选择范围：所有可换出物理页面</li>
+</ul>
+</li>
+</ol>
+<h3 id="局部置换算法"><a href="#局部置换算法" class="headerlink" title="局部置换算法"></a>局部置换算法</h3><h4 id="最优算法（OPT）"><a href="#最优算法（OPT）" class="headerlink" title="最优算法（OPT）"></a>最优算法（OPT）</h4><ul>
+<li>置换未来最长时间不访问的页面</li>
+<li><code>无法实现</code>，由于无法预测</li>
+<li>作为其他置换算法的性能评价标准</li>
+</ul>
+<h4 id="先进先出（FIFO）"><a href="#先进先出（FIFO）" class="headerlink" title="先进先出（FIFO）"></a>先进先出（FIFO）</h4><ul>
+<li>实现简单</li>
+<li>性能差</li>
+<li>Belady现象</li>
+<li>很少单独使用</li>
+</ul>
+<h4 id="最近最久未使用（LRU）"><a href="#最近最久未使用（LRU）" class="headerlink" title="最近最久未使用（LRU）"></a>最近最久未使用（LRU）</h4><ul>
+<li>最长时间没有被使用到的(统计时间)</li>
+<li>近似OPT，开销大，难以实现</li>
+<li>栈/链表实现，日常维护开销过大</li>
+</ul>
+<h4 id="时钟置换算法（Clock）"><a href="#时钟置换算法（Clock）" class="headerlink" title="时钟置换算法（Clock）"></a>时钟置换算法（Clock）</h4><ul>
+<li>仅记录页面是否被访问过，不记录访问次数</li>
+<li>数据结构：<ul>
+<li>访问位：访问置1，未访问置0</li>
+<li>环形链表</li>
+</ul>
+</li>
+<li>特征：LRU和FIFO的折中，页面等价的情况下按FIFO</li>
+</ul>
+<h5 id="改进的Clock算法"><a href="#改进的Clock算法" class="headerlink" title="改进的Clock算法"></a>改进的Clock算法</h5><ul>
+<li>添加修改位</li>
+<li>只读修改访问位，写修改两个标志位</li>
+</ul>
+<h4 id="最不常用算法（LFU）"><a href="#最不常用算法（LFU）" class="headerlink" title="最不常用算法（LFU）"></a>最不常用算法（LFU）</h4><ul>
+<li>关注访问次数（次数越多越好）</li>
+<li>对统计次数做定期右移进行衰减，避免有早期内存页长期驻留内存</li>
+<li>对内存访问并不算好用，访问硬盘时相对合适</li>
+</ul>
+<blockquote>
+<p>Clock算法和LFU都是对LRU的某种简化，相应的统计精度会下降<br>选择页面置换算法即近似程度和准确性中做折中</p>
+</blockquote>
+<h3 id="Belady现象"><a href="#Belady现象" class="headerlink" title="Belady现象"></a>Belady现象</h3><ul>
+<li></li>
+</ul>
+<h3 id="全局置换算法"><a href="#全局置换算法" class="headerlink" title="全局置换算法"></a>全局置换算法</h3><ul>
+<li>工作集算法</li>
+<li>缺页率算法</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,7 +260,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -202,66 +273,140 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/12/os-pageAlgorithm/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/28/os-virtualMemory/" class="archive-article-date">
-  	<time datetime="2019-04-28T13:09:08.372Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/28/os-virtualMemory/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OS - 虚拟存储</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/28/os-virtualMemory/">OS - 虚拟存储</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#置换算法的概念"><span class="toc-number">1.</span> <span class="toc-text">置换算法的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#评价方法"><span class="toc-number">1.1.</span> <span class="toc-text">评价方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分类"><span class="toc-number">1.2.</span> <span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部置换算法"><span class="toc-number">2.</span> <span class="toc-text">局部置换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#最优算法（OPT）"><span class="toc-number">2.1.</span> <span class="toc-text">最优算法（OPT）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#先进先出（FIFO）"><span class="toc-number">2.2.</span> <span class="toc-text">先进先出（FIFO）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最近最久未使用（LRU）"><span class="toc-number">2.3.</span> <span class="toc-text">最近最久未使用（LRU）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#时钟置换算法（Clock）"><span class="toc-number">2.4.</span> <span class="toc-text">时钟置换算法（Clock）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#改进的Clock算法"><span class="toc-number">2.4.1.</span> <span class="toc-text">改进的Clock算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最不常用算法（LFU）"><span class="toc-number">2.5.</span> <span class="toc-text">最不常用算法（LFU）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Belady现象"><span class="toc-number">3.</span> <span class="toc-text">Belady现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局置换算法"><span class="toc-number">4.</span> <span class="toc-text">全局置换算法</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'fbeacfa6c8d21a51e76c',
+  	clientSecret: '3750b75a69a70175191376e790b1da038731dcc7',
+  	repo: 'night1ng4le.github.io',
+  	owner: 'Night1ng4le',
+  	admin: ['Night1ng4le'],
+  	id: 'Tue Nov 12 2019 18:51:53 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+  
+
+  
 
 
           </div>
@@ -284,9 +429,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
