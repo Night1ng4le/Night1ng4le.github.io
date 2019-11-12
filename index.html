@@ -171,6 +171,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>OS页面置换算法简记，不系统</p>
+<h3 id="置换算法的概念"><a href="#置换算法的概念" class="headerlink" title="置换算法的概念"></a>置换算法的概念</h3><ol>
+<li>功能：选择被置换的物理页面</li>
+<li>目标：尽可能减少调入调出次数</li>
+<li><code>页面锁定</code>：某些页面不可被换出（OS相关、要求响应速度等）<ul>
+<li>依靠页表中锁定标志位解决</li>
+</ul>
+</li>
+</ol>
         
       
 
@@ -256,6 +264,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。</p>
+<h3 id="覆盖和交换"><a href="#覆盖和交换" class="headerlink" title="覆盖和交换"></a>覆盖和交换</h3><h4 id="覆盖"><a href="#覆盖" class="headerlink" title="覆盖"></a>覆盖</h4><p>将程序分成若干个功能相对独立的模块，将没有调用关系的模块分成一组放入同一个共享内存区域。</p>
+<ol>
+<li>必要部分：主要功能常驻内存</li>
+<li>可选部分：不常用功能，需要时装入内存</li>
+<li>没有调用关系的模块必要时可以相互覆盖</li>
+<li>缺点：<ul>
+<li>增加运行时间</li>
+<li>增加编程难度</li>
+</ul>
+</li>
+</ol>
         
       
 

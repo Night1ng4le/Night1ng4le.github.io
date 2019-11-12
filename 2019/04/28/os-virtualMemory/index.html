@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>OS - 虚拟存储 | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。">
+  <meta name="description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。 覆盖和交换覆盖将程序分成若干个功能相对独立的模块，将没有调用关系的模块分成一组放入同一个共享内存区域。  必要部分：主要功能常驻内存 可选部分：不常用功能，需要时装入内存 没有调用关系的模块必要时可以相互覆盖 缺点： 增加运行时间 增加编程难度">
 <meta name="keywords" content="OS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS - 虚拟存储">
 <meta property="og:url" content="http://yoursite.com/2019/04/28/os-virtualMemory/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。">
+<meta property="og:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。 覆盖和交换覆盖将程序分成若干个功能相对独立的模块，将没有调用关系的模块分成一组放入同一个共享内存区域。  必要部分：主要功能常驻内存 可选部分：不常用功能，需要时装入内存 没有调用关系的模块必要时可以相互覆盖 缺点： 增加运行时间 增加编程难度">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-12T09:16:34.367Z">
+<meta property="og:updated_time" content="2019-11-12T16:58:45.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS - 虚拟存储">
-<meta name="twitter:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。">
+<meta name="twitter:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。 覆盖和交换覆盖将程序分成若干个功能相对独立的模块，将没有调用关系的模块分成一组放入同一个共享内存区域。  必要部分：主要功能常驻内存 可选部分：不常用功能，需要时装入内存 没有调用关系的模块必要时可以相互覆盖 缺点： 增加运行时间 增加编程难度">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -174,7 +174,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。</p>
-<a id="more"></a>
 <h3 id="覆盖和交换"><a href="#覆盖和交换" class="headerlink" title="覆盖和交换"></a>覆盖和交换</h3><h4 id="覆盖"><a href="#覆盖" class="headerlink" title="覆盖"></a>覆盖</h4><p>将程序分成若干个功能相对独立的模块，将没有调用关系的模块分成一组放入同一个共享内存区域。</p>
 <ol>
 <li>必要部分：主要功能常驻内存</li>
@@ -186,6 +185,7 @@
 </ul>
 </li>
 </ol>
+<a id="more"></a>
 <h4 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h4><p>增加正在运行的进程的内存空间</p>
 <ol>
 <li>暂时不能运行的的进程丢进外存（挂起）</li>
