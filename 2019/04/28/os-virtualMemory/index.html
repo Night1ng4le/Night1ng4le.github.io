@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="明镜">
 <meta property="og:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-11T18:36:03.517Z">
+<meta property="og:updated_time" content="2019-11-12T08:42:50.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS - 虚拟存储">
 <meta name="twitter:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。">
@@ -62,9 +62,11 @@
 	        
 				<li><a href="/categories/Explore/">探索</a></li>
 	        
-				<li><a href="/categories/Game/">游戏</a></li>
+				<li><a href="/categories/Learning/">学习</a></li>
 	        
-				<li><a href="/categories/bb/">吐槽</a></li>
+				<li><a href="/categories/Interest/">兴趣</a></li>
+	        
+				<li><a href="/categories/BB/">碎碎念</a></li>
 	        
 			</ul>
 		</nav>
@@ -114,6 +116,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -126,13 +130,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/Explore/">探索</a></li>
+					<li style="width: 20%"><a href="/categories/Explore/">探索</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/Game/">游戏</a></li>
+					<li style="width: 20%"><a href="/categories/Learning/">学习</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/bb/">吐槽</a></li>
+					<li style="width: 20%"><a href="/categories/Interest/">兴趣</a></li>
+		        
+					<li style="width: 20%"><a href="/categories/BB/">碎碎念</a></li>
 		        
 				</ul>
 			</nav>
@@ -218,6 +224,37 @@
 <li>OS将内存中暂时不用的页面/段保存到外存（页面置换算法）</li>
 </ul>
 </li>
+<li>实现方式：<ul>
+<li>虚拟页式存储</li>
+<li>虚拟段式存储</li>
+</ul>
+</li>
+<li>基本特征：<ul>
+<li>不连续性</li>
+<li>大用户空间</li>
+<li></li>
+</ul>
+</li>
+<li>支持技术<ul>
+<li>硬件 - 地址转换机制</li>
+<li>OS - 管理换入换出</li>
+</ul>
+</li>
+</ol>
+<h3 id="虚拟页式存储"><a href="#虚拟页式存储" class="headerlink" title="虚拟页式存储"></a>虚拟页式存储</h3><ol>
+<li>思路：部分页面装入内存</li>
+<li>和页式存储的区别：<ul>
+<li>页式存储所有页面均在内存（不存在缺页异常）</li>
+<li>虚拟页式存储添加请求调页和缺页处理</li>
+</ul>
+</li>
+<li>页表项结构添加的标志位<ul>
+<li>访问位：</li>
+<li>修改位：内存中的该页是否被修改</li>
+<li>保护位：</li>
+<li>驻留位：页面是否在内存（1:在）</li>
+</ul>
+</li>
 </ol>
 
       
@@ -244,7 +281,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Explore//" class="article-tag-list-link color3">Explore</a>
+        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
         		</li>
       		
 		</ul>
@@ -342,7 +379,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#覆盖和交换"><span class="toc-number">1.</span> <span class="toc-text">覆盖和交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#覆盖"><span class="toc-number">1.1.</span> <span class="toc-text">覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#交换"><span class="toc-number">1.2.</span> <span class="toc-text">交换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#覆盖-amp-交换比较"><span class="toc-number">1.3.</span> <span class="toc-text">覆盖&amp;交换比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部性原理"><span class="toc-number">2.</span> <span class="toc-text">局部性原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟存储的概念"><span class="toc-number">3.</span> <span class="toc-text">虚拟存储的概念</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#覆盖和交换"><span class="toc-number">1.</span> <span class="toc-text">覆盖和交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#覆盖"><span class="toc-number">1.1.</span> <span class="toc-text">覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#交换"><span class="toc-number">1.2.</span> <span class="toc-text">交换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#覆盖-amp-交换比较"><span class="toc-number">1.3.</span> <span class="toc-text">覆盖&amp;交换比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部性原理"><span class="toc-number">2.</span> <span class="toc-text">局部性原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟存储的概念"><span class="toc-number">3.</span> <span class="toc-text">虚拟存储的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟页式存储"><span class="toc-number">4.</span> <span class="toc-text">虚拟页式存储</span></a></li></ol>
                     </div>
                 </span>
             </div>
