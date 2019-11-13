@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="OS页面置换算法简记，不系统 置换算法的概念 功能：选择被置换的物理页面 目标：尽可能减少调入调出次数 页面锁定：某些页面不可被换出（OS相关、要求响应速度等） 依靠页表中锁定标志位解决">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-12T16:58:59.203Z">
+<meta property="og:updated_time" content="2019-11-13T03:13:19.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS - 页面置换算法">
 <meta name="twitter:description" content="OS页面置换算法简记，不系统 置换算法的概念 功能：选择被置换的物理页面 目标：尽可能减少调入调出次数 页面锁定：某些页面不可被换出（OS相关、要求响应速度等） 依靠页表中锁定标志位解决">
@@ -174,20 +174,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>OS页面置换算法简记，不系统</p>
-<h3 id="置换算法的概念"><a href="#置换算法的概念" class="headerlink" title="置换算法的概念"></a>置换算法的概念</h3><ol>
+<h3 id="置换算法的概念"><a href="#置换算法的概念" class="headerlink" title="置换算法的概念"></a>置换算法的概念</h3><ul>
 <li>功能：选择被置换的物理页面</li>
 <li>目标：尽可能减少调入调出次数</li>
 <li><code>页面锁定</code>：某些页面不可被换出（OS相关、要求响应速度等）<ul>
 <li>依靠页表中锁定标志位解决</li>
 </ul>
 </li>
-</ol>
+</ul>
 <a id="more"></a>
 <h4 id="评价方法"><a href="#评价方法" class="headerlink" title="评价方法"></a>评价方法</h4><ul>
 <li>模拟页面置换行为，记录缺页次数</li>
 <li>缺页越少性能越好</li>
 </ul>
-<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ol>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
 <li>局部置换算法<ul>
 <li>置换页面选择范围仅限当前进程所占物理页面</li>
 </ul>
@@ -196,7 +196,7 @@
 <li>选择范围：所有可换出物理页面</li>
 </ul>
 </li>
-</ol>
+</ul>
 <h3 id="局部置换算法"><a href="#局部置换算法" class="headerlink" title="局部置换算法"></a>局部置换算法</h3><p>进程所能使用的物理页面数目固定</p>
 <h4 id="最优算法（OPT）"><a href="#最优算法（OPT）" class="headerlink" title="最优算法（OPT）"></a>最优算法（OPT）</h4><ul>
 <li>置换未来最长时间不访问的页面</li>
