@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。视频来源：学堂在线本章笔记主要是文章系统相关知识，这一章概念比较多一些，宜多看几遍尝试理解">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-30T12:27:46.915Z">
+<meta property="og:updated_time" content="2019-11-30T14:13:39.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS - 文件系统">
 <meta name="twitter:description" content="这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。视频来源：学堂在线本章笔记主要是文章系统相关知识，这一章概念比较多一些，宜多看几遍尝试理解">
@@ -366,8 +366,7 @@
 <li>目录项 - 遍历文件路径时进入内存</li>
 </ul>
 <h4 id="文件系统存储结构"><a href="#文件系统存储结构" class="headerlink" title="文件系统存储结构"></a>文件系统存储结构</h4><p>持久的存储在外存中，需要时加载进内存</p>
-<p>####文件的组织方式</p>
-<ul>
+<h4 id="文件的组织方式"><a href="#文件的组织方式" class="headerlink" title="文件的组织方式"></a>文件的组织方式</h4><ul>
 <li>顺序文件（批量存取）<ul>
 <li>串结构：按存入时间的先后进行排序，每次检索从头开始</li>
 <li>顺序结构：按关键字进行排序，利用关键字特征结合查找算法进行查找</li>
@@ -472,6 +471,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/11/30/os-I:OSystem/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          OS - I/O系统
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/11/12/os-pageAlgorithm/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">OS - 页面置换算法</div>
@@ -501,7 +509,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件系统的概念"><span class="toc-number">1.</span> <span class="toc-text">文件系统的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统和文件"><span class="toc-number">1.1.</span> <span class="toc-text">文件系统和文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统的功能"><span class="toc-number">1.2.</span> <span class="toc-text">文件系统的功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件属性"><span class="toc-number">1.3.</span> <span class="toc-text">文件属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打开文件"><span class="toc-number">1.4.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件描述符"><span class="toc-number">1.5.</span> <span class="toc-text">文件描述符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件的用户视图和系统视图"><span class="toc-number">1.6.</span> <span class="toc-text">文件的用户视图和系统视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用户视图到系统视图的转换"><span class="toc-number">1.7.</span> <span class="toc-text">用户视图到系统视图的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#访问模式"><span class="toc-number">1.8.</span> <span class="toc-text">访问模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件内部结构"><span class="toc-number">1.9.</span> <span class="toc-text">文件内部结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件共享和访问控制"><span class="toc-number">1.10.</span> <span class="toc-text">文件共享和访问控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分层文件系统"><span class="toc-number">1.11.</span> <span class="toc-text">分层文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目录实现"><span class="toc-number">1.12.</span> <span class="toc-text">目录实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件别名"><span class="toc-number">1.13.</span> <span class="toc-text">文件别名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟文件系统（VFS）"><span class="toc-number">2.</span> <span class="toc-text">虚拟文件系统（VFS）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概述"><span class="toc-number">2.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统基本数据结构"><span class="toc-number">2.2.</span> <span class="toc-text">文件系统基本数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统存储结构"><span class="toc-number">2.3.</span> <span class="toc-text">文件系统存储结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件缓存和打开文件"><span class="toc-number">3.</span> <span class="toc-text">文件缓存和打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件分配"><span class="toc-number">4.</span> <span class="toc-text">文件分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空闲空间管理"><span class="toc-number">5.</span> <span class="toc-text">空闲空间管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冗余磁盘阵列RAID"><span class="toc-number">6.</span> <span class="toc-text">冗余磁盘阵列RAID</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件系统的概念"><span class="toc-number">1.</span> <span class="toc-text">文件系统的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统和文件"><span class="toc-number">1.1.</span> <span class="toc-text">文件系统和文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统的功能"><span class="toc-number">1.2.</span> <span class="toc-text">文件系统的功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件属性"><span class="toc-number">1.3.</span> <span class="toc-text">文件属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打开文件"><span class="toc-number">1.4.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件描述符"><span class="toc-number">1.5.</span> <span class="toc-text">文件描述符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件的用户视图和系统视图"><span class="toc-number">1.6.</span> <span class="toc-text">文件的用户视图和系统视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用户视图到系统视图的转换"><span class="toc-number">1.7.</span> <span class="toc-text">用户视图到系统视图的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#访问模式"><span class="toc-number">1.8.</span> <span class="toc-text">访问模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件内部结构"><span class="toc-number">1.9.</span> <span class="toc-text">文件内部结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件共享和访问控制"><span class="toc-number">1.10.</span> <span class="toc-text">文件共享和访问控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分层文件系统"><span class="toc-number">1.11.</span> <span class="toc-text">分层文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目录实现"><span class="toc-number">1.12.</span> <span class="toc-text">目录实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件别名"><span class="toc-number">1.13.</span> <span class="toc-text">文件别名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟文件系统（VFS）"><span class="toc-number">2.</span> <span class="toc-text">虚拟文件系统（VFS）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概述"><span class="toc-number">2.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统基本数据结构"><span class="toc-number">2.2.</span> <span class="toc-text">文件系统基本数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统存储结构"><span class="toc-number">2.3.</span> <span class="toc-text">文件系统存储结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件的组织方式"><span class="toc-number">2.4.</span> <span class="toc-text">文件的组织方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件缓存和打开文件"><span class="toc-number">3.</span> <span class="toc-text">文件缓存和打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件分配"><span class="toc-number">4.</span> <span class="toc-text">文件分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空闲空间管理"><span class="toc-number">5.</span> <span class="toc-text">空闲空间管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冗余磁盘阵列RAID"><span class="toc-number">6.</span> <span class="toc-text">冗余磁盘阵列RAID</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -649,11 +657,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bb</a>
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+                <a href="javascript:void(0)" class="js-tag color3">bb</a>
               </li>
             
             <div class="clearfix"></div>
