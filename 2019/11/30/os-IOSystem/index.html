@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。视频来源：学堂在线本章笔记主要是I/O系统相关知识，更为详细的内容推荐阅读课本 I/O特点设备接口类型及特征 字符设备  存取速度慢，如：键盘鼠标串口 特征：以字节为单位顺序访问 I/O命令：get(),put()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-30T16:34:05.032Z">
+<meta property="og:updated_time" content="2019-12-03T16:08:57.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS - I&#x2F;O系统">
 <meta name="twitter:description" content="这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。视频来源：学堂在线本章笔记主要是I/O系统相关知识，更为详细的内容推荐阅读课本 I/O特点设备接口类型及特征 字符设备  存取速度慢，如：键盘鼠标串口 特征：以字节为单位顺序访问 I/O命令：get(),put()">
@@ -237,7 +237,7 @@
 </li>
 </ul>
 <h3 id="I-O数据传输"><a href="#I-O数据传输" class="headerlink" title="I/O数据传输"></a>I/O数据传输</h3><h4 id="CPU与设备控制器的数据传输"><a href="#CPU与设备控制器的数据传输" class="headerlink" title="CPU与设备控制器的数据传输"></a>CPU与设备控制器的数据传输</h4><ul>
-<li>程序控制I/O（PIO）<ul>
+<li>程序直接控制I/O（PIO）<ul>
 <li>通过in/out或者load/store传输所有数据</li>
 <li>特点<ul>
 <li>硬件简单，编程容易</li>
@@ -251,13 +251,16 @@
 <li>设备控制器可直接访问系统总线</li>
 <li>控制器直接与内存互相传输数据</li>
 <li>特点<ul>
+<li>基本单位是控制块</li>
+<li>所传送的数据是设备直接到内存，或相反</li>
 <li>设备传输数据不影响CPU</li>
-<li>需要CPU参与设置</li>
+<li>需要CPU参与设置，仅在一个或多个数据块开始或结束的时候</li>
 </ul>
 </li>
 <li>适用于高吞吐量的设备I/O</li>
 </ul>
 </li>
+<li>中断驱动访问</li>
 </ul>
 <h4 id="I-O设备通知OS的机制"><a href="#I-O设备通知OS的机制" class="headerlink" title="I/O设备通知OS的机制"></a>I/O设备通知OS的机制</h4><ul>
 <li>OS需要了解设备状态<ul>
@@ -296,7 +299,20 @@
 </li>
 <li>实际中会结合设备中断和CPU轮询</li>
 </ul>
-<h3 id="磁盘调度"><a href="#磁盘调度" class="headerlink" title="磁盘调度"></a>磁盘调度</h3><h3 id="磁盘缓存"><a href="#磁盘缓存" class="headerlink" title="磁盘缓存"></a>磁盘缓存</h3>
+<h3 id="磁盘调度"><a href="#磁盘调度" class="headerlink" title="磁盘调度"></a>磁盘调度</h3><ul>
+<li>FCFS</li>
+<li>SSTF（最短寻道时间优先）</li>
+<li>SCAN<ul>
+<li>CSCAN（循环扫描，单向移动）</li>
+<li>FSCAN（NStepSCAN的优化，两个子列）</li>
+<li>NStepSCAN（n个子列）</li>
+</ul>
+</li>
+</ul>
+<h3 id="磁盘缓存"><a href="#磁盘缓存" class="headerlink" title="磁盘缓存"></a>磁盘缓存</h3><ul>
+<li>磁盘冗余阵列<br>  -raid0</li>
+</ul>
+
       
 
       
@@ -567,11 +583,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bb</a>
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+                <a href="javascript:void(0)" class="js-tag color3">bb</a>
               </li>
             
             <div class="clearfix"></div>
