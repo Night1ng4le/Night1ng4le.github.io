@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/1 | Nightingale</title>
+  <title>Network - 数链层 | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nightingale">
-<meta property="og:url" content="http://yoursite.com/archives/2019/01/index.html">
+  <meta name="description" content="介质访问控制相关，随手笔记，方便我自己找ovo，">
+<meta name="keywords" content="Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Network - 数链层">
+<meta property="og:url" content="http://yoursite.com/2019/12/04/Network-DataLinkLayer/index.html">
 <meta property="og:site_name" content="Nightingale">
+<meta property="og:description" content="介质访问控制相关，随手笔记，方便我自己找ovo，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-03T17:26:09.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nightingale">
+<meta name="twitter:title" content="Network - 数链层">
+<meta name="twitter:description" content="介质访问控制相关，随手笔记，方便我自己找ovo，">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -148,71 +153,261 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Network-DataLinkLayer" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/21/hello-world/" class="archive-article-date">
-  	<time datetime="2019-01-20T16:15:22.042Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/21/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      Network - 数链层
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/12/04/Network-DataLinkLayer/" class="archive-article-date">
+  	<time datetime="2019-12-03T16:10:36.409Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>介质访问控制相关，随手笔记，方便我自己找ovo，</p>
+<a id="more"></a>
+<h4 id="性能分析相关"><a href="#性能分析相关" class="headerlink" title="性能分析相关"></a>性能分析相关</h4><ul>
+<li>吞吐率S<ul>
+<li>在发送时间内发送成功的平均帧数</li>
+<li>S越大，信道利用率越高</li>
+<li>0 &lt; S &lt; 1</li>
+</ul>
+</li>
+<li>运载负载/网络负载G<ul>
+<li>一个帧时内所有通信站总共发送的帧平均值（包括原发帧和重发帧）</li>
+<li>G ≥ S</li>
+<li>G = S：无冲突；G &gt; S：有冲突；G &gt; 1：冲突频繁</li>
+</ul>
+</li>
+</ul>
+<h3 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h3><h4 id="MAC子层概述"><a href="#MAC子层概述" class="headerlink" title="MAC子层概述"></a>MAC子层概述</h4><ul>
+<li>数据通信的三种方式<ul>
+<li>单播</li>
+<li>广播</li>
+<li>组播</li>
+</ul>
+</li>
+<li>局域网中主要采用在共享信道上的<code>广播</code></li>
+<li>介质访问控制主要解决：某一时刻由哪个工作站使用共享信道的问题</li>
+</ul>
+<h4 id="ALOHA协议"><a href="#ALOHA协议" class="headerlink" title="ALOHA协议"></a>ALOHA协议</h4><ul>
+<li>纯ALOHA协议<ul>
+<li>想发就发</li>
+<li>冲突可能出现在整个发送过程</li>
+<li>冲突危险期：2t</li>
+<li>信道利用率：18.4%</li>
+</ul>
+</li>
+<li>时隙ALOHA协议<ul>
+<li>只能在时间片开始发送</li>
+<li>开始时没有冲突则不会发生冲突</li>
+<li>冲突危险期：t</li>
+<li>信道利用率：36.8%</li>
+</ul>
+</li>
+</ul>
+<h4 id="CSMA协议"><a href="#CSMA协议" class="headerlink" title="CSMA协议"></a>CSMA协议</h4><ul>
+<li>载波侦听多路访问协议</li>
+<li>“先听后发”</li>
+</ul>
+<p><strong>非持续式</strong></p>
+<ul>
+<li>监听，如果信道占用，则放弃监听，等待一个随机时间重新监听</li>
+</ul>
+<p><strong>持续式</strong><br>一直监听</p>
+<ul>
+<li>1-持续<ul>
+<li>只要监听到信道空闲即发送</li>
+</ul>
+</li>
+<li>p-持续<ul>
+<li>监听到信道空闲后以一个概率p发送</li>
+</ul>
+</li>
+</ul>
+<h4 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h4><ul>
+<li>带冲突检测的载波侦听多路访问协议</li>
+<li>1-持续的CSMA</li>
+<li>“先听后发，边发边听”</li>
+<li><code>半双工以太网</code>中使用</li>
+</ul>
+<p><strong>冲突窗口</strong>：冲突危险期，数值上 = 信号在最远两个工作站的传输延迟的两倍</p>
+<p><strong>冲突检测</strong><br>冲突检测和处理</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">bb</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Explore//" class="article-tag-list-link color3">Explore</a>
+        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/04/Network-DataLinkLayer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/30/os-IOSystem/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OS - I/O系统</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#性能分析相关"><span class="toc-number">1.</span> <span class="toc-text">性能分析相关</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#介质访问控制"><span class="toc-number"></span> <span class="toc-text">介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MAC子层概述"><span class="toc-number">1.</span> <span class="toc-text">MAC子层概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ALOHA协议"><span class="toc-number">2.</span> <span class="toc-text">ALOHA协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA协议"><span class="toc-number">3.</span> <span class="toc-text">CSMA协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-CD"><span class="toc-number">4.</span> <span class="toc-text">CSMA/CD</span></a></li></ol>
+                    </li></div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'fbeacfa6c8d21a51e76c',
+  	clientSecret: '3750b75a69a70175191376e790b1da038731dcc7',
+  	repo: 'night1ng4le.github.io',
+  	owner: 'Night1ng4le',
+  	admin: ['Night1ng4le'],
+  	id: 'Wed Dec 04 2019 00:10:36 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+  
+
+  
 
 
           </div>
@@ -235,8 +430,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
