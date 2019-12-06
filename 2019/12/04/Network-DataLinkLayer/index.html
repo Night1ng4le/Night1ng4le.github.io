@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="介质访问控制相关，随手笔记，方便我自己找ovo，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T12:59:24.997Z">
+<meta property="og:updated_time" content="2019-12-06T13:08:57.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Network - 数链层">
 <meta name="twitter:description" content="介质访问控制相关，随手笔记，方便我自己找ovo，">
@@ -312,7 +312,17 @@
 </li>
 </ul>
 </li>
-<li><p><em>**CD和CA的对比</em></p>
+<li><p><strong>CSMA/CD和CSMA/CA的对比</strong></p>
+<ul>
+<li>CSMA/CD检测冲突但不能避免，CSMA/CA可尽量避免，但无法检测</li>
+<li>传输介质</li>
+<li>检测方式：CSMA/CD采用电缆中的电压变化检测；CSMA/CA用能量检测、载波检测、能量载波混合检测</li>
+<li>此结点不发生冲突不意味着其他的结点也没有冲突</li>
+<li>基本思想：<ul>
+<li>CSMA/CA协议：发送数据时先广播，以免碰撞，CSMA/CD先听后发，边听边发</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -586,11 +596,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bb</a>
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color3">bb</a>
               </li>
              
               <li class="article-tag-list-item">
