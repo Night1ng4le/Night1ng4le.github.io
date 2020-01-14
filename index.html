@@ -170,9 +170,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>Version 1:</strong> k = 1<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = price.length;</span><br><span class="line"><span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* code */</span></span><br><span class="line">	dp[i][<span class="number">0</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">0</span>],dp[i<span class="number">-1</span>][<span class="number">1</span>]+price[i]);</span><br><span class="line">	dp[i][<span class="number">1</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">1</span>],dp[i<span class="number">-1</span>][<span class="number">0</span>]-price[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> dp[n<span class="number">-1</span>][<span class="number">0</span>];</span><br></pre></td></tr></table></figure></p>
-
+        <h3 id="关于动态规划"><a href="#关于动态规划" class="headerlink" title="关于动态规划"></a>关于动态规划</h3><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。<br>动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
+        
       
 
       

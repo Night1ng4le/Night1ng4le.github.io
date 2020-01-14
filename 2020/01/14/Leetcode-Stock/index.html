@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Leetcode - 动态规划和股票问题 | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="状态转移方程12 Version 1: k = 1123456789int n = price.length;int[][] dp = new int[n][2];for (int i = 0; i &amp;lt; n; i++)&amp;#123;	/* code */	dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1]+price[i]);	dp[i][1] = Math.m">
+  <meta name="description" content="关于动态规划动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
 <meta name="keywords" content="Algorithm,动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode - 动态规划和股票问题">
 <meta property="og:url" content="http://yoursite.com/2020/01/14/Leetcode-Stock/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="状态转移方程12 Version 1: k = 1123456789int n = price.length;int[][] dp = new int[n][2];for (int i = 0; i &amp;lt; n; i++)&amp;#123;	/* code */	dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1]+price[i]);	dp[i][1] = Math.m">
+<meta property="og:description" content="关于动态规划动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-14T09:33:28.228Z">
+<meta property="og:updated_time" content="2020-01-14T10:34:54.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode - 动态规划和股票问题">
-<meta name="twitter:description" content="状态转移方程12 Version 1: k = 1123456789int n = price.length;int[][] dp = new int[n][2];for (int i = 0; i &amp;lt; n; i++)&amp;#123;	/* code */	dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1]+price[i]);	dp[i][1] = Math.m">
+<meta name="twitter:description" content="关于动态规划动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -173,8 +173,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>Version 1:</strong> k = 1<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = price.length;</span><br><span class="line"><span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* code */</span></span><br><span class="line">	dp[i][<span class="number">0</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">0</span>],dp[i<span class="number">-1</span>][<span class="number">1</span>]+price[i]);</span><br><span class="line">	dp[i][<span class="number">1</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">1</span>],dp[i<span class="number">-1</span>][<span class="number">0</span>]-price[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> dp[n<span class="number">-1</span>][<span class="number">0</span>];</span><br></pre></td></tr></table></figure></p>
+        <h3 id="关于动态规划"><a href="#关于动态规划" class="headerlink" title="关于动态规划"></a>关于动态规划</h3><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。<br>动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
+<a id="more"></a>
+<p>与分治法不同的是，适合于用动态规划求解的问题，经分解得到子问题往往<code>不是互相独立的</code>。若用分治法来解这类问题，则分解得到的子问题数目太多，有些子问题被重复计算了很多次。如果我们能够保存已解决的子问题的答案，而在需要时再找出已求得的答案，这样就可以避免大量的重复计算，节省时间。<br>我们可以用一个表来记录所有已解的子问题的答案。不管该子问题以后是否被用到，只要它被计算过，就将其结果填入表中。这就是动态规划法的基本思路。具体的动态规划算法多种多样，但它们具有相同的填表格式</p>
+<h3 id="股票问题的三种状态"><a href="#股票问题的三种状态" class="headerlink" title="股票问题的三种状态"></a>股票问题的三种状态</h3><blockquote>
+<p>买入 - buy<br>卖出 - sell<br>持有 - rest<br>第i天的价格 - price[i]</p>
+</blockquote>
+<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><p>尝试用自然语言去理解状态转移方程，这是一个有助于写出并理解状态转移方程的方法<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][<span class="number">0</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">0</span>], dp[i<span class="number">-1</span>][k][<span class="number">1</span>] + prices[i])</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">dp[i][k][0]表示第i天，当前手中未持有股票</span></span><br><span class="line"><span class="comment">导致这种情况的有两种可能：</span></span><br><span class="line"><span class="comment">1. 第i-1天我没有持有股票，第i天选择rest，于是依旧不持有股票</span></span><br><span class="line"><span class="comment">2. 第i-1天我持有股票，第i天选择sell，于是不持有股票</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">dp[i][k][<span class="number">1</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">1</span>], dp[i<span class="number">-1</span>][k<span class="number">-1</span>][<span class="number">0</span>] - prices[i])</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">dp[i][k][1]表示第i天，当前手中持有股票</span></span><br><span class="line"><span class="comment">同样对应两种情况：</span></span><br><span class="line"><span class="comment">1. 第i-1天我持有股票，第i天选择rest，继续持有股票</span></span><br><span class="line"><span class="comment">2. 第i-1天我未持有股票，第i天选择buy，于是持有股票</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><strong>Version 1:</strong> k = 1<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = price.length;</span><br><span class="line"><span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* code */</span></span><br><span class="line">	dp[i][<span class="number">0</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">0</span>],dp[i<span class="number">-1</span>][<span class="number">1</span>]+price[i]);</span><br><span class="line">	dp[i][<span class="number">1</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">1</span>],dp[i<span class="number">-1</span>][<span class="number">0</span>]-price[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> dp[n<span class="number">-1</span>][<span class="number">0</span>];</span><br></pre></td></tr></table></figure></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
+<li>一个方法团灭 6 道股票问题 —— <a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/</a></li>
+</ol>
 
       
 
@@ -302,7 +311,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#状态转移方程"><span class="toc-number">1.</span> <span class="toc-text">状态转移方程</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于动态规划"><span class="toc-number">1.</span> <span class="toc-text">关于动态规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#股票问题的三种状态"><span class="toc-number">2.</span> <span class="toc-text">股票问题的三种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态转移方程"><span class="toc-number">3.</span> <span class="toc-text">状态转移方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
