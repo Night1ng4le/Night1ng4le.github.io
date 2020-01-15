@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Leetcode - 动态规划和股票问题 | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于动态规划动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
+  <meta name="description" content="关于动态规划(穷举思想)动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
 <meta name="keywords" content="Algorithm,动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode - 动态规划和股票问题">
 <meta property="og:url" content="http://yoursite.com/2020/01/14/Leetcode-Stock/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="关于动态规划动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
+<meta property="og:description" content="关于动态规划(穷举思想)动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-14T10:34:54.730Z">
+<meta property="og:updated_time" content="2020-01-15T02:59:12.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode - 动态规划和股票问题">
-<meta name="twitter:description" content="关于动态规划动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
+<meta name="twitter:description" content="关于动态规划(穷举思想)动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -65,6 +65,8 @@
 				<li><a href="/categories/Learning/">学习</a></li>
 	        
 				<li><a href="/categories/Interest/">兴趣</a></li>
+	        
+				<li><a href="/categories/Skill/">技能树</a></li>
 	        
 				<li><a href="/categories/BB/">碎碎念</a></li>
 	        
@@ -118,6 +120,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -130,15 +134,17 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">主页</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/Explore/">探索</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Explore/">探索</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/Learning/">学习</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Learning/">学习</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/Interest/">兴趣</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Interest/">兴趣</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/BB/">碎碎念</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Skill/">技能树</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/BB/">碎碎念</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,16 +179,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="关于动态规划"><a href="#关于动态规划" class="headerlink" title="关于动态规划"></a>关于动态规划</h3><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。<br>动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
+        <h3 id="关于动态规划-穷举思想"><a href="#关于动态规划-穷举思想" class="headerlink" title="关于动态规划(穷举思想)"></a>关于动态规划(穷举思想)</h3><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。<br>动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
 <a id="more"></a>
-<p>与分治法不同的是，适合于用动态规划求解的问题，经分解得到子问题往往<code>不是互相独立的</code>。若用分治法来解这类问题，则分解得到的子问题数目太多，有些子问题被重复计算了很多次。如果我们能够保存已解决的子问题的答案，而在需要时再找出已求得的答案，这样就可以避免大量的重复计算，节省时间。<br>我们可以用一个表来记录所有已解的子问题的答案。不管该子问题以后是否被用到，只要它被计算过，就将其结果填入表中。这就是动态规划法的基本思路。具体的动态规划算法多种多样，但它们具有相同的填表格式</p>
+<p>与分治法不同的是，适合于用动态规划求解的问题，经分解得到子问题往往<code>不是互相独立的</code>。若用分治法来解这类问题，则分解得到的子问题数目太多，有些子问题被重复计算了很多次。如果我们能够保存已解决的子问题的答案，而在需要时再找出已求得的答案，这样就可以避免大量的重复计算，节省时间。<br>我们可以用一个表来记录所有已解的子问题的答案。<code>不管该子问题以后是否被用到，只要它被计算过，就将其结果填入表中</code>。这就是动态规划法的基本思路。具体的动态规划算法多种多样，但它们具有相同的填表格式</p>
 <h3 id="股票问题的三种状态"><a href="#股票问题的三种状态" class="headerlink" title="股票问题的三种状态"></a>股票问题的三种状态</h3><blockquote>
 <p>买入 - buy<br>卖出 - sell<br>持有 - rest<br>第i天的价格 - price[i]</p>
 </blockquote>
-<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><p>尝试用自然语言去理解状态转移方程，这是一个有助于写出并理解状态转移方程的方法<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][<span class="number">0</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">0</span>], dp[i<span class="number">-1</span>][k][<span class="number">1</span>] + prices[i])</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">dp[i][k][0]表示第i天，当前手中未持有股票</span></span><br><span class="line"><span class="comment">导致这种情况的有两种可能：</span></span><br><span class="line"><span class="comment">1. 第i-1天我没有持有股票，第i天选择rest，于是依旧不持有股票</span></span><br><span class="line"><span class="comment">2. 第i-1天我持有股票，第i天选择sell，于是不持有股票</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">dp[i][k][<span class="number">1</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">1</span>], dp[i<span class="number">-1</span>][k<span class="number">-1</span>][<span class="number">0</span>] - prices[i])</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">dp[i][k][1]表示第i天，当前手中持有股票</span></span><br><span class="line"><span class="comment">同样对应两种情况：</span></span><br><span class="line"><span class="comment">1. 第i-1天我持有股票，第i天选择rest，继续持有股票</span></span><br><span class="line"><span class="comment">2. 第i-1天我未持有股票，第i天选择buy，于是持有股票</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><strong>Version 1:</strong> k = 1<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = price.length;</span><br><span class="line"><span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* code */</span></span><br><span class="line">	dp[i][<span class="number">0</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">0</span>],dp[i<span class="number">-1</span>][<span class="number">1</span>]+price[i]);</span><br><span class="line">	dp[i][<span class="number">1</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">1</span>],dp[i<span class="number">-1</span>][<span class="number">0</span>]-price[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> dp[n<span class="number">-1</span>][<span class="number">0</span>];</span><br></pre></td></tr></table></figure></p>
+<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><p>尝试用自然语言去理解状态转移方程，这是一个有助于写出并理解状态转移方程的方法</p>
+<p><strong>状态转移方程：</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][<span class="number">0</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">0</span>], dp[i<span class="number">-1</span>][k][<span class="number">1</span>] + prices[i])</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">dp[i][k][0]表示第i天，当前手中未持有股票</span></span><br><span class="line"><span class="comment">导致这种情况的有两种可能：</span></span><br><span class="line"><span class="comment">1. 第i-1天我没有持有股票，第i天选择rest，于是依旧不持有股票</span></span><br><span class="line"><span class="comment">2. 第i-1天我持有股票，第i天选择sell，于是不持有股票</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">dp[i][k][<span class="number">1</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">1</span>], dp[i<span class="number">-1</span>][k<span class="number">-1</span>][<span class="number">0</span>] - prices[i])</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">dp[i][k][1]表示第i天，当前手中持有股票</span></span><br><span class="line"><span class="comment">同样对应两种情况：</span></span><br><span class="line"><span class="comment">1. 第i-1天我持有股票，第i天选择rest，继续持有股票</span></span><br><span class="line"><span class="comment">2. 第i-1天我未持有股票，第i天选择buy，于是持有股票</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>推出一般情况需要推出<br><strong>base case</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">-1</span>][k][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment">//i是从0开始的，所以i=-1时交易还没开始，所以此时利润是0</span></span><br><span class="line">dp[<span class="number">-1</span>][k][<span class="number">1</span>] = -infinity</span><br><span class="line"><span class="comment">//i=-1时，交易未进行，不可能持有股票，负无穷表示</span></span><br><span class="line">dp[i][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment">//最大交易次数k是从1开始的，所以k=0表示不允许交易，利润为0</span></span><br><span class="line">dp[i][<span class="number">0</span>][<span class="number">1</span>] = -infinity</span><br><span class="line"><span class="comment">//不允许交易的时候，也是不可能持有股票的，负无穷表示</span></span><br></pre></td></tr></table></figure></p>
+<p>合并整理推出完整的状态转移方程<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//base case:</span></span><br><span class="line">dp[<span class="number">-1</span>][k][<span class="number">0</span>] = dp[i][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">dp[<span class="number">-1</span>][k][<span class="number">1</span>] = dp[i][<span class="number">0</span>][<span class="number">1</span>] = -infinity</span><br><span class="line"></span><br><span class="line"><span class="comment">//状态转移方程</span></span><br><span class="line">dp[i][k][<span class="number">0</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">0</span>], dp[i<span class="number">-1</span>][k][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[i][k][<span class="number">1</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">1</span>], dp[i<span class="number">-1</span>][k<span class="number">-1</span>][<span class="number">0</span>] - prices[i])</span><br></pre></td></tr></table></figure></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><strong>Version 1:</strong> k = 1<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = price.length;</span><br><span class="line"><span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* code */</span></span><br><span class="line">	<span class="keyword">if</span> (i<span class="number">-1</span> == <span class="number">-1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">/* code */</span></span><br><span class="line">		dp[i][<span class="number">0</span>] = <span class="number">0</span>;<span class="comment">//dp[i][0] = max(0, -infinity + prices[i]) = 0</span></span><br><span class="line">		dp[i][<span class="number">1</span>] = -price[i];<span class="comment">//dp[i][1] = max(-infinity , 0 - prices[i]) = -price[i]</span></span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	dp[i][<span class="number">0</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">0</span>],dp[i<span class="number">-1</span>][<span class="number">1</span>]+price[i]);</span><br><span class="line">	dp[i][<span class="number">1</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">1</span>],dp[i<span class="number">-1</span>][<span class="number">0</span>]-price[i]);</span><br><span class="line">	<span class="comment">//这里可以直接写成dp[i][1] = Math.max(dp[i-1][1],-price[i]);   不过我没看懂为什么orz</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> dp[n<span class="number">-1</span>][<span class="number">0</span>];</span><br></pre></td></tr></table></figure></p>
+<p>此时问题得以解决，不过可以进行进一步优化。通过状态转移方程可得知第i天的状态仅依靠第i-1天问题的解，所以不需要一个数组记录所有的解，仅需要O(1)的空间记录第i-1天的解即可。即代码可更新为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit_k_1</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = price.length;</span><br><span class="line">	<span class="comment">//base case: dp[-1][0] = 0; dp[-1][1] = -infinity</span></span><br><span class="line">	<span class="keyword">int</span> dp_i_0 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> dp_i_1 = Integer.MIN_VALUE;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">/* code */</span></span><br><span class="line">		dp_i_0 = Math.max(dp_i_0, dp_i_1 + price[i]);</span><br><span class="line">		dp_i_1 = Math.max(dp_i_1, - price[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp_i_0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
-<li>一个方法团灭 6 道股票问题 —— <a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/</a></li>
+<li>一个方法团灭 6 道股票问题 —— labuladong<br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/</a></li>
+<li></li>
 </ol>
 
       
@@ -311,7 +322,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于动态规划"><span class="toc-number">1.</span> <span class="toc-text">关于动态规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#股票问题的三种状态"><span class="toc-number">2.</span> <span class="toc-text">股票问题的三种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态转移方程"><span class="toc-number">3.</span> <span class="toc-text">状态转移方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于动态规划-穷举思想"><span class="toc-number">1.</span> <span class="toc-text">关于动态规划(穷举思想)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#股票问题的三种状态"><span class="toc-number">2.</span> <span class="toc-text">股票问题的三种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态转移方程"><span class="toc-number">3.</span> <span class="toc-text">状态转移方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -475,11 +486,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bb</a>
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+                <a href="javascript:void(0)" class="js-tag color3">bb</a>
               </li>
             
             <div class="clearfix"></div>
@@ -530,7 +541,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">碎碎念，乱七八糟的分享，玻璃心不接受反驳，圈地自萌</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一只试图点亮技能树的小白（探头）</div>
   	  	
     	</section>
     
