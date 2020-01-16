@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="关于动态规划(穷举思想)动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-15T02:59:12.837Z">
+<meta property="og:updated_time" content="2020-01-15T03:45:45.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode - 动态规划和股票问题">
 <meta name="twitter:description" content="关于动态规划(穷举思想)动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4" class="js-avatar">
+			<img src="/source/4acb46cf3bc79f3dff152761b6a1cd11708b29e5.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Nighting4le</a></h1>
@@ -102,7 +102,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4" class="js-avatar">
+				<img src="/source/4acb46cf3bc79f3dff152761b6a1cd11708b29e5.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Nighting4le</h1>
@@ -191,9 +191,10 @@
 <p>合并整理推出完整的状态转移方程<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//base case:</span></span><br><span class="line">dp[<span class="number">-1</span>][k][<span class="number">0</span>] = dp[i][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">dp[<span class="number">-1</span>][k][<span class="number">1</span>] = dp[i][<span class="number">0</span>][<span class="number">1</span>] = -infinity</span><br><span class="line"></span><br><span class="line"><span class="comment">//状态转移方程</span></span><br><span class="line">dp[i][k][<span class="number">0</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">0</span>], dp[i<span class="number">-1</span>][k][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[i][k][<span class="number">1</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">1</span>], dp[i<span class="number">-1</span>][k<span class="number">-1</span>][<span class="number">0</span>] - prices[i])</span><br></pre></td></tr></table></figure></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><strong>Version 1:</strong> k = 1<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = price.length;</span><br><span class="line"><span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* code */</span></span><br><span class="line">	<span class="keyword">if</span> (i<span class="number">-1</span> == <span class="number">-1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">/* code */</span></span><br><span class="line">		dp[i][<span class="number">0</span>] = <span class="number">0</span>;<span class="comment">//dp[i][0] = max(0, -infinity + prices[i]) = 0</span></span><br><span class="line">		dp[i][<span class="number">1</span>] = -price[i];<span class="comment">//dp[i][1] = max(-infinity , 0 - prices[i]) = -price[i]</span></span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	dp[i][<span class="number">0</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">0</span>],dp[i<span class="number">-1</span>][<span class="number">1</span>]+price[i]);</span><br><span class="line">	dp[i][<span class="number">1</span>] = Math.max(dp[i<span class="number">-1</span>][<span class="number">1</span>],dp[i<span class="number">-1</span>][<span class="number">0</span>]-price[i]);</span><br><span class="line">	<span class="comment">//这里可以直接写成dp[i][1] = Math.max(dp[i-1][1],-price[i]);   不过我没看懂为什么orz</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> dp[n<span class="number">-1</span>][<span class="number">0</span>];</span><br></pre></td></tr></table></figure></p>
 <p>此时问题得以解决，不过可以进行进一步优化。通过状态转移方程可得知第i天的状态仅依靠第i-1天问题的解，所以不需要一个数组记录所有的解，仅需要O(1)的空间记录第i-1天的解即可。即代码可更新为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit_k_1</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = price.length;</span><br><span class="line">	<span class="comment">//base case: dp[-1][0] = 0; dp[-1][1] = -infinity</span></span><br><span class="line">	<span class="keyword">int</span> dp_i_0 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> dp_i_1 = Integer.MIN_VALUE;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">/* code */</span></span><br><span class="line">		dp_i_0 = Math.max(dp_i_0, dp_i_1 + price[i]);</span><br><span class="line">		dp_i_1 = Math.max(dp_i_1, - price[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp_i_0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>剩下的等我看懂了再说orz…先溜去看递归</p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
 <li>一个方法团灭 6 道股票问题 —— labuladong<br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/</a></li>
-<li></li>
+<li>动态规划 —— 百度百科<br><a href="https://baike.baidu.com/item/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/529408?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/529408?fr=aladdin</a></li>
 </ol>
 
       
@@ -474,11 +475,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,7 +542,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一只试图点亮技能树的小白（探头）</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一只正在试图点亮技能树的萌新程序员</div>
   	  	
     	</section>
     
