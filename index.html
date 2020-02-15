@@ -178,17 +178,7 @@
       
         <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a href="https://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/</a></p>
 <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Given a linked list, determine if it has a cycle in it.</p>
-<p>To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.</p>
-<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [3,2,0,-4], pos = 1</span><br><span class="line">Output: true</span><br><span class="line">Explanation: There is a cycle in the linked list, where tail connects to the second node.</span><br><span class="line"></span><br><span class="line">3 --&gt; 2 --&gt; 0 --&gt; 4</span><br><span class="line">      ^           |</span><br><span class="line">      |           |</span><br><span class="line">       -----------</span><br></pre></td></tr></table></figure></p>
-<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [1,2], pos = 0</span><br><span class="line">Output: true</span><br><span class="line">Explanation: There is a cycle in the linked list, where tail connects to the first node.</span><br><span class="line"></span><br><span class="line">1 --&gt; 2</span><br><span class="line">^     |</span><br><span class="line">|     |</span><br><span class="line"> -----</span><br></pre></td></tr></table></figure></p>
-<p><strong>Example 3:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [1], pos = -1</span><br><span class="line">Output: false</span><br><span class="line">Explanation: There is no cycle in the linked list.</span><br><span class="line"></span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><blockquote>
-<p>想象一下，有两个速度不同的跑步者。如果他们在直路上行驶，快跑者将首先到达目的地。但是，如果它们在圆形跑道上跑步，那么快跑者如果继续跑步就会追上慢跑者。</p>
-<p>这正是我们在链表中使用两个速度不同的指针时会遇到的情况：</p>
-<p>  <code>1.如果没有环，快指针将停在链表的末尾。</code><br>  <code>2.如果有环，快指针最终将与慢指针相遇。</code><br>所以剩下的问题是：这两个指针的适当速度应该是多少？<br>一个安全的选择是每次移动慢指针<code>一步</code>，而移动快指针<code>两步</code>。每一次迭代，快速指针将额外移动一步。如果环的长度为 M，经过 M 次迭代后，快指针肯定会多绕环一周，并赶上慢指针。<br>—— From Leetcode</p>
-</blockquote>
-<p>根据上述思路，得到如下解法：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">NULL</span> || head-&gt;next==<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//如果链表为空或只有一个节点，没有环</span></span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* SNode = head;</span><br><span class="line">        ListNode* FNode = head-&gt;next;</span><br><span class="line">        <span class="keyword">while</span>(SNode!=FNode)&#123;</span><br><span class="line">            <span class="keyword">if</span>(FNode==<span class="literal">NULL</span> || FNode-&gt;next==<span class="literal">NULL</span>)&#123; <span class="comment">//快指针停在链表末尾，没有环</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            SNode = SNode-&gt;next;<span class="comment">// 慢指针走一步</span></span><br><span class="line">            FNode = FNode-&gt;next-&gt;next;<span class="comment">//快指针走两步</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
       
 
       
@@ -201,11 +191,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data Structure</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data Structure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1189,11 +1179,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1201,15 +1191,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Linked List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
               </li>
              
               <li class="article-tag-list-item">
