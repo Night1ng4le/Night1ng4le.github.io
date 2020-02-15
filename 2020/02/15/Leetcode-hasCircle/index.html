@@ -9,14 +9,14 @@
   <title>Leetcode-141.Linked List Cycle | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Problem Linkhttps://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/ DescriptionGiven a linked list, determine if it has a cycle in it. To represent a cycle in the given l">
-<meta name="keywords" content="Data Structure,Leetcode,Linked List">
+<meta name="keywords" content="Leetcode,Data Structure,Linked List">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode-141.Linked List Cycle">
 <meta property="og:url" content="http://yoursite.com/2020/02/15/Leetcode-hasCircle/index.html">
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="Problem Linkhttps://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/ DescriptionGiven a linked list, determine if it has a cycle in it. To represent a cycle in the given l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-15T09:08:12.066Z">
+<meta property="og:updated_time" content="2020-02-15T09:20:22.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode-141.Linked List Cycle">
 <meta name="twitter:description" content="Problem Linkhttps://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/ DescriptionGiven a linked list, determine if it has a cycle in it. To represent a cycle in the given l">
@@ -188,9 +188,10 @@
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><blockquote>
 <p>想象一下，有两个速度不同的跑步者。如果他们在直路上行驶，快跑者将首先到达目的地。但是，如果它们在圆形跑道上跑步，那么快跑者如果继续跑步就会追上慢跑者。</p>
 <p>这正是我们在链表中使用两个速度不同的指针时会遇到的情况：</p>
-<p>  <code>1.如果没有环，快指针将停在链表的末尾。</code><br>  <code>2.如果有环，快指针最终将与慢指针相遇。</code></p>
+<p>  <code>1.如果没有环，快指针将停在链表的末尾。</code><br>  <code>2.如果有环，快指针最终将与慢指针相遇。</code><br>所以剩下的问题是：这两个指针的适当速度应该是多少？<br>一个安全的选择是每次移动慢指针<code>一步</code>，而移动快指针<code>两步</code>。每一次迭代，快速指针将额外移动一步。如果环的长度为 M，经过 M 次迭代后，快指针肯定会多绕环一周，并赶上慢指针。<br>—— From Leetcode</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">NULL</span> || head-&gt;next==<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* SNode = head;</span><br><span class="line">        ListNode* FNode = head-&gt;next;</span><br><span class="line">        <span class="keyword">while</span>(SNode!=FNode)&#123;</span><br><span class="line">            <span class="keyword">if</span>(FNode==<span class="literal">NULL</span> || FNode-&gt;next==<span class="literal">NULL</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            SNode = SNode-&gt;next;</span><br><span class="line">            FNode = FNode-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>根据上述思路，得到如下解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">NULL</span> || head-&gt;next==<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//如果链表为空或只有一个节点，没有环</span></span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* SNode = head;</span><br><span class="line">        ListNode* FNode = head-&gt;next;</span><br><span class="line">        <span class="keyword">while</span>(SNode!=FNode)&#123;</span><br><span class="line">            <span class="keyword">if</span>(FNode==<span class="literal">NULL</span> || FNode-&gt;next==<span class="literal">NULL</span>)&#123; <span class="comment">//快指针停在链表末尾，没有环</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            SNode = SNode-&gt;next;<span class="comment">// 慢指针走一步</span></span><br><span class="line">            FNode = FNode-&gt;next-&gt;next;<span class="comment">//快指针走两步</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -203,11 +204,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data Structure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data Structure</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -473,11 +474,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,15 +486,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Linked List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
