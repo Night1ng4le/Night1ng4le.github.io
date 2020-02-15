@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: OS | Nightingale</title>
+  <title>Leetcode-141. | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nightingale">
-<meta property="og:url" content="http://yoursite.com/tags/OS/index.html">
+  <meta name="description" content="Problem Linkhttps://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/ DescriptionSolution1234567891011121314151617181920212223242526/** * Definition for singly-linked list.">
+<meta name="keywords" content="Leetcode,Data Structure,Linked List">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode-141.">
+<meta property="og:url" content="http://yoursite.com/2020/02/15/Leetcode-hasCircle/index.html">
 <meta property="og:site_name" content="Nightingale">
+<meta property="og:description" content="Problem Linkhttps://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/ DescriptionSolution1234567891011121314151617181920212223242526/** * Definition for singly-linked list.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-15T08:38:33.618Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nightingale">
+<meta name="twitter:title" content="Leetcode-141.">
+<meta name="twitter:description" content="Problem Linkhttps://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/ DescriptionSolution1234567891011121314151617181920212223242526/** * Definition for singly-linked list.">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -154,48 +159,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Leetcode-hasCircle" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode-141.
+    </h1>
+  
+
+        
+        <a href="/2020/02/15/Leetcode-hasCircle/" class="archive-article-date">
+  	<time datetime="2020-02-15T08:28:43.588Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a href="https://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/</a></p>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">NULL</span> || head-&gt;next==<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* SNode = head;</span><br><span class="line">        ListNode* FNode = head-&gt;next;</span><br><span class="line">        <span class="keyword">while</span>(SNode!=FNode)&#123;</span><br><span class="line">            <span class="keyword">if</span>(FNode==<span class="literal">NULL</span> || FNode-&gt;next==<span class="literal">NULL</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            SNode = SNode-&gt;next;</span><br><span class="line">            FNode = FNode-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/30/os-IOSystem/" class="archive-article-date">
-  	<time datetime="2019-11-30T14:15:19.554Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/30/os-IOSystem/">OS - I/O系统</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data Structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Linked List</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -208,164 +220,140 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/15/Leetcode-hasCircle/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/15/os-fileSystem/" class="archive-article-date">
-  	<time datetime="2019-11-15T07:24:59.033Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/13/Leetcode-minSteps/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leetcode - Minimum Number of Steps to Make Two Strings Anagram</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/15/os-fileSystem/">OS - 文件系统</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Link"><span class="toc-number">1.</span> <span class="toc-text">Problem Link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-number">3.</span> <span class="toc-text">Solution</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/12/os-pageAlgorithm/" class="archive-article-date">
-  	<time datetime="2019-11-12T10:51:53.896Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/12/os-pageAlgorithm/">OS - 页面置换算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/28/os-virtualMemory/" class="archive-article-date">
-  	<time datetime="2019-04-28T13:09:08.372Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/28/os-virtualMemory/">OS - 虚拟存储</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '3a8f5e2b080769aec429',
+  	clientSecret: '7d42915c646cf95f2b7cb5a21ea1e4c47cf730b8',
+  	repo: 'night1ng4le.github.io',
+  	owner: 'Night1ng4le',
+  	admin: ['Night1ng4le'],
+  	id: 'Sat Feb 15 2020 16:28:43 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+  
+
+  
 
 
           </div>
@@ -388,9 +376,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
