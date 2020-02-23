@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 动态规划 | Nightingale</title>
+  <title>Leetcode - 20双周赛 | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nightingale">
-<meta property="og:url" content="http://yoursite.com/tags/动态规划/index.html">
+  <meta name="description" content="5323. 根据数字二进制下 1 的数目排序(Easy)Problem Linkhttps://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/ Description给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。 如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值">
+<meta name="keywords" content="Algorithm,Leetcode,double week">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode - 20双周赛">
+<meta property="og:url" content="http://yoursite.com/2020/02/23/Leetcode-20双周赛/index.html">
 <meta property="og:site_name" content="Nightingale">
+<meta property="og:description" content="5323. 根据数字二进制下 1 的数目排序(Easy)Problem Linkhttps://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/ Description给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。 如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-23T14:04:47.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nightingale">
+<meta name="twitter:title" content="Leetcode - 20双周赛">
+<meta name="twitter:description" content="5323. 根据数字二进制下 1 的数目排序(Easy)Problem Linkhttps://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/ Description给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。 如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -154,36 +159,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Leetcode-20双周赛" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/11/Leetcode-array2/" class="archive-article-date">
-  	<time datetime="2020-01-11T13:39:20.155Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/11/Leetcode-array2/">Leetcode - Best Time to Buy and Sell Stock</a>
+    <h1 class="article-title" itemprop="name">
+      Leetcode - 20双周赛
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/02/23/Leetcode-20双周赛/" class="archive-article-date">
+  	<time datetime="2020-02-23T12:53:16.549Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="5323-根据数字二进制下-1-的数目排序-Easy"><a href="#5323-根据数字二进制下-1-的数目排序-Easy" class="headerlink" title="5323. 根据数字二进制下 1 的数目排序(Easy)"></a>5323. 根据数字二进制下 1 的数目排序(Easy)</h3><h4 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h4><p><a href="https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/</a></p>
+<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p>
+<p>如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值大小升序排列。</p>
+<p>请你返回排序后的数组。</p>
+<p><strong>示例 1：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [0,1,2,3,4,5,6,7,8]</span><br><span class="line">输出：[0,1,2,4,8,3,5,6,7]</span><br><span class="line">解释：[0] 是唯一一个有 0 个 1 的数。</span><br><span class="line">[1,2,4,8] 都有 1 个 1 。</span><br><span class="line">[3,5,6] 有 2 个 1 。</span><br><span class="line">[7] 有 3 个 1 。</span><br><span class="line">按照 1 的个数排序得到的结果数组为 [0,1,2,4,8,3,5,6,7]</span><br></pre></td></tr></table></figure></p>
+<p><strong>示例 2：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [1024,512,256,128,64,32,16,8,4,2,1]</span><br><span class="line">输出：[1,2,4,8,16,32,64,128,256,512,1024]</span><br><span class="line">解释：数组中所有整数二进制下都只有 1 个 1 ，所以你需要按照数值大小将它们排序。</span><br></pre></td></tr></table></figure></p>
+<p><strong>示例 3：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [10000,10000]</span><br><span class="line">输出：[10000,10000]</span><br></pre></td></tr></table></figure></p>
+<p><strong>示例 4：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [2,3,5,7,11,13,17,19]</span><br><span class="line">输出：[2,3,5,17,7,11,13,19]</span><br></pre></td></tr></table></figure></p>
+<p><strong>示例 5：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [10,100,1000,10000]</span><br><span class="line">输出：[10,100,10000,1000]</span><br></pre></td></tr></table></figure></p>
+<p><strong>提示：</strong></p>
+<ol>
+<li>1 &lt;= arr.length &lt;= 500</li>
+<li>0 &lt;= arr[i] &lt;= 10^4</li>
+</ol>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>emmm看起来不是很难的一道题，核心问题是在自定义比较器。分解成两个子问题：</p>
+<ol>
+<li>统计数字二进制表示中1的个数</li>
+<li>按给定规则排序<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Version 1.0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sortByBits(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr) &#123;<span class="comment">//排序方法我没有想到更好的，所以用了冒泡排序</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;arr.size(); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(lessthan(arr[j<span class="number">-1</span>], arr[j])==<span class="literal">false</span>)&#123;</span><br><span class="line">                swap(arr[j<span class="number">-1</span>], arr[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;<span class="comment">//统计数字二进制表达式中1的个数</span></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (a) &#123;</span><br><span class="line">        num += (<span class="number">1</span>&amp;a);<span class="comment">//判断最低位是不是1，第一次尝试位运算orz</span></span><br><span class="line">        a&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">lessthan</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;<span class="comment">//自定义比较器</span></span><br><span class="line">        <span class="keyword">if</span> (count(a)==count(b)) &#123;</span><br><span class="line">            <span class="keyword">return</span> a&lt;b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count(a)&lt;count(b);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p>写这个的时候快睡着了，题解是第二天写出来的，一开始自己写的时候没想到怎么定义比较器比较好（其实是因为懒得单独拎出来写成一个函数），后来发现功能模块越独立代码越清楚简单。所以下次没思路的时候可以考虑先写出会的功能模块，按子问题解决。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,17 +217,17 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Array</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">double week</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -216,17 +240,140 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/23/Leetcode-20双周赛/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/02/23/Leetcode-177周赛/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leetcode - 177周赛</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#5323-根据数字二进制下-1-的数目排序-Easy"><span class="toc-number">1.</span> <span class="toc-text">5323. 根据数字二进制下 1 的数目排序(Easy)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-Link"><span class="toc-number">1.1.</span> <span class="toc-text">Problem Link</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Description"><span class="toc-number">1.2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Solution"><span class="toc-number">1.3.</span> <span class="toc-text">Solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#碎碎念"><span class="toc-number">2.</span> <span class="toc-text">碎碎念</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '3a8f5e2b080769aec429',
+  	clientSecret: '7d42915c646cf95f2b7cb5a21ea1e4c47cf730b8',
+  	repo: 'night1ng4le.github.io',
+  	owner: 'Night1ng4le',
+  	admin: ['Night1ng4le'],
+  	id: 'Sun Feb 23 2020 20:53:16 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+  
+
+  
 
 
           </div>
@@ -249,9 +396,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
