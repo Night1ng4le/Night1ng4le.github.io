@@ -383,25 +383,7 @@
 <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p>
 <p>如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值大小升序排列。</p>
 <p>请你返回排序后的数组。</p>
-<p><strong>示例 1：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [0,1,2,3,4,5,6,7,8]</span><br><span class="line">输出：[0,1,2,4,8,3,5,6,7]</span><br><span class="line">解释：[0] 是唯一一个有 0 个 1 的数。</span><br><span class="line">[1,2,4,8] 都有 1 个 1 。</span><br><span class="line">[3,5,6] 有 2 个 1 。</span><br><span class="line">[7] 有 3 个 1 。</span><br><span class="line">按照 1 的个数排序得到的结果数组为 [0,1,2,4,8,3,5,6,7]</span><br></pre></td></tr></table></figure></p>
-<p><strong>示例 2：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [1024,512,256,128,64,32,16,8,4,2,1]</span><br><span class="line">输出：[1,2,4,8,16,32,64,128,256,512,1024]</span><br><span class="line">解释：数组中所有整数二进制下都只有 1 个 1 ，所以你需要按照数值大小将它们排序。</span><br></pre></td></tr></table></figure></p>
-<p><strong>示例 3：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [10000,10000]</span><br><span class="line">输出：[10000,10000]</span><br></pre></td></tr></table></figure></p>
-<p><strong>示例 4：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [2,3,5,7,11,13,17,19]</span><br><span class="line">输出：[2,3,5,17,7,11,13,19]</span><br></pre></td></tr></table></figure></p>
-<p><strong>示例 5：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [10,100,1000,10000]</span><br><span class="line">输出：[10,100,10000,1000]</span><br></pre></td></tr></table></figure></p>
-<p><strong>提示：</strong></p>
-<ol>
-<li>1 &lt;= arr.length &lt;= 500</li>
-<li>0 &lt;= arr[i] &lt;= 10^4</li>
-</ol>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>emmm看起来不是很难的一道题，核心问题是在自定义比较器。分解成两个子问题：</p>
-<ol>
-<li>统计数字二进制表示中1的个数</li>
-<li>按给定规则排序<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Version 1.0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sortByBits(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr) &#123;<span class="comment">//排序方法我没有想到更好的，所以用了冒泡排序</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;arr.size(); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(lessthan(arr[j<span class="number">-1</span>], arr[j])==<span class="literal">false</span>)&#123;</span><br><span class="line">                swap(arr[j<span class="number">-1</span>], arr[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;<span class="comment">//统计数字二进制表达式中1的个数</span></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (a) &#123;</span><br><span class="line">        num += (<span class="number">1</span>&amp;a);<span class="comment">//判断最低位是不是1，第一次尝试位运算orz</span></span><br><span class="line">        a&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">lessthan</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;<span class="comment">//自定义比较器</span></span><br><span class="line">        <span class="keyword">if</span> (count(a)==count(b)) &#123;</span><br><span class="line">            <span class="keyword">return</span> a&lt;b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count(a)&lt;count(b);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p>写这个的时候快睡着了，题解是第二天写出来的，一开始自己写的时候没想到怎么定义比较器比较好（其实是因为懒得单独拎出来写成一个函数），后来发现功能模块越独立代码越清楚简单。所以下次没思路的时候可以考虑先写出会的功能模块，按子问题解决。<br>这里记录自己愚蠢而不细心的错误：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (a) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num%<span class="number">2</span>==<span class="number">1</span>) &#123;<span class="comment">//这里判断条件应该是a%2==1</span></span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">            a=a/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>以后会添加自己的错误模块，以便督促自己努力QAQ</p>
-
+        
       
 
       
@@ -1249,19 +1231,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">double week</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,6 +1248,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">week contest - Medium</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">

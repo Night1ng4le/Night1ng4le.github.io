@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="5323. 根据数字二进制下 1 的数目排序(Easy)Problem Linkhttps://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/ Description给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。 如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-23T14:34:33.665Z">
+<meta property="og:updated_time" content="2020-03-04T11:58:41.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode - 20双周赛">
 <meta name="twitter:description" content="5323. 根据数字二进制下 1 的数目排序(Easy)Problem Linkhttps://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/ Description给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。 如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值">
@@ -183,6 +183,7 @@
 <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p>
 <p>如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值大小升序排列。</p>
 <p>请你返回排序后的数组。</p>
+ <a id="more"></a>
 <p><strong>示例 1：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [0,1,2,3,4,5,6,7,8]</span><br><span class="line">输出：[0,1,2,4,8,3,5,6,7]</span><br><span class="line">解释：[0] 是唯一一个有 0 个 1 的数。</span><br><span class="line">[1,2,4,8] 都有 1 个 1 。</span><br><span class="line">[3,5,6] 有 2 个 1 。</span><br><span class="line">[7] 有 3 个 1 。</span><br><span class="line">按照 1 的个数排序得到的结果数组为 [0,1,2,4,8,3,5,6,7]</span><br></pre></td></tr></table></figure></p>
 <p><strong>示例 2：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [1024,512,256,128,64,32,16,8,4,2,1]</span><br><span class="line">输出：[1,2,4,8,16,32,64,128,256,512,1024]</span><br><span class="line">解释：数组中所有整数二进制下都只有 1 个 1 ，所以你需要按照数值大小将它们排序。</span><br></pre></td></tr></table></figure></p>
 <p><strong>示例 3：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [10000,10000]</span><br><span class="line">输出：[10000,10000]</span><br></pre></td></tr></table></figure></p>
@@ -505,19 +506,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">double week</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,6 +523,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">week contest - Medium</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
