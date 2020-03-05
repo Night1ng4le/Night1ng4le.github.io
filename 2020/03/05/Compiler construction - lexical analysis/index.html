@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Leetcode - Best Time to Buy and Sell Stock | Nightingale</title>
+  <title>Compiler construction - Lexical Analysis | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem linkhttps://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/ DescriptionSay you have an array for which the ith element is the price of a given stock on day i. If you were only permit">
-<meta name="keywords" content="Algorithm,Array,动态规划">
+  <meta name="description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键字 标识符 常数 运算符 界符">
+<meta name="keywords" content="Compiler,Theroy &amp; Practice">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode - Best Time to Buy and Sell Stock">
-<meta property="og:url" content="http://yoursite.com/2020/01/11/Leetcode-array2/index.html">
+<meta property="og:title" content="Compiler construction - Lexical Analysis">
+<meta property="og:url" content="http://yoursite.com/2020/03/05/Compiler construction - lexical analysis/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="Problem linkhttps://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/ DescriptionSay you have an array for which the ith element is the price of a given stock on day i. If you were only permit">
+<meta property="og:description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键字 标识符 常数 运算符 界符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-14T09:36:26.199Z">
+<meta property="og:updated_time" content="2020-03-05T09:04:07.420Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode - Best Time to Buy and Sell Stock">
-<meta name="twitter:description" content="Problem linkhttps://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/ DescriptionSay you have an array for which the ith element is the price of a given stock on day i. If you were only permit">
+<meta name="twitter:title" content="Compiler construction - Lexical Analysis">
+<meta name="twitter:description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键字 标识符 常数 运算符 界符">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -159,42 +159,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Leetcode-array2" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Compiler construction - lexical analysis" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Leetcode - Best Time to Buy and Sell Stock
+      Compiler construction - Lexical Analysis
     </h1>
   
 
         
-        <a href="/2020/01/11/Leetcode-array2/" class="archive-article-date">
-  	<time datetime="2020-01-11T13:39:20.155Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
+        <a href="/2020/03/05/Compiler construction - lexical analysis/" class="archive-article-date">
+  	<time datetime="2020-03-05T07:58:11.199Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Problem-link"><a href="#Problem-link" class="headerlink" title="Problem link"></a>Problem link</h3><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/</a></p>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Say you have an array for which the i<sup>th</sup> element is the price of a given stock on day i.</p>
-<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
-<p>Note that you cannot sell a stock before you buy one.</p>
-<a id="more"></a>
-<p><strong>Example 1:</strong></p>
-<blockquote>
-<p><strong>Input:</strong> [7,1,5,3,6,4]<br><strong>Output:</strong> 5<br><strong>Explanation:</strong> Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.</p>
-<p> Not 7-1 = 6, as selling price needs to be larger than buying price.</p>
-</blockquote>
-<p><strong>Example 2:</strong></p>
-<blockquote>
-<p><strong>Input:</strong> [7,6,4,3,1]<br><strong>Output:</strong> 0<br><strong>Explanation:</strong> In this case, no transaction is done, i.e. max profit = 0.</p>
-</blockquote>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>Version1<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit_k_any</span><span class="params">(<span class="keyword">int</span> max_k, <span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = prices.length;</span><br><span class="line">    <span class="keyword">if</span> (max_k &gt; n / <span class="number">2</span>) </span><br><span class="line">        <span class="keyword">return</span> maxProfit_k_inf(prices);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[][][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][max_k + <span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = max_k; k &gt;= <span class="number">1</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i - <span class="number">1</span> == <span class="number">-1</span>) &#123; </span><br><span class="line">                <span class="comment">/* 处理 base case */</span></span><br><span class="line">                dp[i][k][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                dp[i][k][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][k][<span class="number">0</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">0</span>], dp[i<span class="number">-1</span>][k][<span class="number">1</span>] + prices[i]);</span><br><span class="line">            dp[i][k][<span class="number">1</span>] = max(dp[i<span class="number">-1</span>][k][<span class="number">1</span>], dp[i<span class="number">-1</span>][k<span class="number">-1</span>][<span class="number">0</span>] - prices[i]);     </span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[n - <span class="number">1</span>][max_k][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Loading…</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>词法分析器 - 从输入串提取带个独立的基本语法符号（token）<br>主要提取的token有五种：</p>
+<ul>
+<li>关键字</li>
+<li>标识符</li>
+<li>常数</li>
+<li>运算符</li>
+<li>界符</li>
+</ul>
 
       
 
@@ -208,15 +200,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Compiler</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Array</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Theroy & Practice</a>
         		</li>
       		
 		</ul>
@@ -283,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/11/Leetcode-array2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/05/Compiler construction - lexical analysis/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -297,18 +285,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/13/Leetcode-minSteps/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Leetcode - Minimum Number of Steps to Make Two Strings Anagram
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/25/Leetcode_array1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Leetcode - Remove Duplicates from Sorted Array</div>
+    <a href="/2020/03/04/Compiler construction - Base of compiling/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Compiler construction - Base of Compiling</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -335,7 +314,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-link"><span class="toc-number">1.</span> <span class="toc-text">Problem link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-number">3.</span> <span class="toc-text">Solution</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -368,7 +347,7 @@ if(true){
   	repo: 'night1ng4le.github.io',
   	owner: 'Night1ng4le',
   	admin: ['Night1ng4le'],
-  	id: 'Sat Jan 11 2020 21:39:20 GMT+0800',
+  	id: 'Thu Mar 05 2020 15:58:11 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
