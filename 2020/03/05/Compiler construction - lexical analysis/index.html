@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Compiler construction - Lexical Analysis | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键字 标识符 常数 运算符 界符">
+  <meta name="description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键词 - 保留字 标识符 - 变量名、常量名、数组名、子过程名等 常数 运算符 界符 - 逗号、分号、括号等">
 <meta name="keywords" content="Compiler,Theroy &amp; Practice">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Compiler construction - Lexical Analysis">
 <meta property="og:url" content="http://yoursite.com/2020/03/05/Compiler construction - lexical analysis/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键字 标识符 常数 运算符 界符">
+<meta property="og:description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键词 - 保留字 标识符 - 变量名、常量名、数组名、子过程名等 常数 运算符 界符 - 逗号、分号、括号等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-05T09:11:47.574Z">
+<meta property="og:updated_time" content="2020-03-06T14:26:45.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compiler construction - Lexical Analysis">
-<meta name="twitter:description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键字 标识符 常数 运算符 界符">
+<meta name="twitter:description" content="概述词法分析器 - 从输入串提取带个独立的基本语法符号（token）主要提取的token有五种：  关键词 - 保留字 标识符 - 变量名、常量名、数组名、子过程名等 常数 运算符 界符 - 逗号、分号、括号等">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -181,13 +181,51 @@
       
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>词法分析器 - 从输入串提取带个独立的基本语法符号（token）<br>主要提取的token有五种：</p>
 <ul>
-<li>关键字</li>
-<li>标识符</li>
+<li>关键词 - 保留字</li>
+<li>标识符 - 变量名、常量名、数组名、子过程名等</li>
 <li>常数</li>
 <li>运算符</li>
-<li>界符</li>
+<li>界符 - 逗号、分号、括号等</li>
 </ul>
 <a id="more"></a>
+<p>分词输出的内容应该包括：</p>
+<ul>
+<li>单词类别（token的类别）<ul>
+<li>分类的时候以处理方便为标准</li>
+</ul>
+</li>
+<li>属性值（如数字的数值，用于区分同类别中不同的token）</li>
+</ul>
+<h4 id="设计策略"><a href="#设计策略" class="headerlink" title="设计策略"></a>设计策略</h4><ul>
+<li>词法分析器作为主程序——词法和语法分开</li>
+<li>词法分析器作为子程序——词法是语法的子程序</li>
+</ul>
+<p>一般将词法分析器设计成独立程序<br>流程：输入-&gt;预处理（清除空白字符）-&gt;扫描<br><code>注：</code>当某些token是另一些token的前缀时，会需要多读取一些字符以判断当前单词是否结束，如果已经结束，需要使用回退操作放回多读取的字符</p>
+<h3 id="正规文法和状态转换图"><a href="#正规文法和状态转换图" class="headerlink" title="正规文法和状态转换图"></a>正规文法和状态转换图</h3><p>左右线型正规不可以混用</p>
+<h4 id="状态转换图"><a href="#状态转换图" class="headerlink" title="状态转换图"></a>状态转换图</h4><p>状态转换图可识别相应的正规文法所产生的句子，也就是单词。凡是用正规文法描述的语言都可以用<code>状态转换图</code>分析</p>
+<ul>
+<li>状态用圆圈⭕️</li>
+<li>终态用双层圆圈</li>
+<li>状态间用有向边</li>
+</ul>
+<h4 id="状态转化图的构建"><a href="#状态转化图的构建" class="headerlink" title="状态转化图的构建"></a>状态转化图的构建</h4><p>右线型文法-&gt;状态转化图</p>
+<ul>
+<li>设有k个非终结符</li>
+<li>所构建的状态转化图有k+1个状态</li>
+<li>S是初始状态</li>
+<li>其中+1是额外添件的终止状态</li>
+<li>每次的一步转换都模拟了一步推导 —— 自上而下</li>
+</ul>
+<p>左线性文法-&gt;状态转换图</p>
+<ul>
+<li>设有k个非终结符</li>
+<li>所构建的状态转化图有k+1个状态</li>
+<li>S是终止状态</li>
+<li>添加起始状态R，+1就是新的起始状态</li>
+<li>自下而上</li>
+</ul>
+<h4 id="状态矩阵"><a href="#状态矩阵" class="headerlink" title="状态矩阵"></a>状态矩阵</h4><p>各个状态为行，各输入符号为列，组成矩阵B<br>（没太明白，再议）</p>
+
       
 
       
@@ -285,6 +323,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/03/12/Compiler construction- AST/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Compiler construction - Abstract Syntax Trees
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/03/04/Compiler construction - Base of compiling/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Compiler construction - Base of Compiling</div>
@@ -314,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设计策略"><span class="toc-number">1.1.</span> <span class="toc-text">设计策略</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正规文法和状态转换图"><span class="toc-number">2.</span> <span class="toc-text">正规文法和状态转换图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#状态转换图"><span class="toc-number">2.1.</span> <span class="toc-text">状态转换图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#状态转化图的构建"><span class="toc-number">2.2.</span> <span class="toc-text">状态转化图的构建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#状态矩阵"><span class="toc-number">2.3.</span> <span class="toc-text">状态矩阵</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -470,7 +517,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color2">BaseCS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data Structure</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,7 +529,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
+                <a href="javascript:void(0)" class="js-tag color2">Linked List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,27 +545,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">double week</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data Structure</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linked List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">week contest - Medium</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color2">double week</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
