@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Compiler construction - Abstract Syntax Trees | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From concrete to abstractDefinition：抽象语法树（AST）本质是是精简的解析树。解析树的核心是一个句子语法结构的图示。编译器设计中“AST”和语法树是可以等价的”  语法解析树是一个句子的图解结构，任何一种语言都可以来实现这个句子，这意味着他可以遵循任何语法规则。  如何构建语法树？我们尝试切割句子中最小单位的有区别的部分。例如句子：”Vaidehi ate th">
+  <meta name="description" content="From concrete to abstract抽象语法树（AST）本质是是精简的解析树。解析树的核心是一个句子语法结构的图示。编译器设计中“AST”和语法树是可以等价的”  语法解析树是一个句子的图解结构，任何一种语言都可以来实现这个句子，这意味着他可以遵循任何语法规则。">
 <meta name="keywords" content="Compiler,Theroy &amp; Practice,BaseCS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Compiler construction - Abstract Syntax Trees">
 <meta property="og:url" content="http://yoursite.com/2020/03/12/Compiler construction- AST/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="From concrete to abstractDefinition：抽象语法树（AST）本质是是精简的解析树。解析树的核心是一个句子语法结构的图示。编译器设计中“AST”和语法树是可以等价的”  语法解析树是一个句子的图解结构，任何一种语言都可以来实现这个句子，这意味着他可以遵循任何语法规则。  如何构建语法树？我们尝试切割句子中最小单位的有区别的部分。例如句子：”Vaidehi ate th">
+<meta property="og:description" content="From concrete to abstract抽象语法树（AST）本质是是精简的解析树。解析树的核心是一个句子语法结构的图示。编译器设计中“AST”和语法树是可以等价的”  语法解析树是一个句子的图解结构，任何一种语言都可以来实现这个句子，这意味着他可以遵循任何语法规则。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://miro.medium.com/max/2496/1*zQ_bUppUhjPj3JjJ-uQv0w.jpeg">
-<meta property="og:updated_time" content="2020-03-13T09:50:11.299Z">
+<meta property="og:updated_time" content="2020-03-20T03:26:09.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compiler construction - Abstract Syntax Trees">
-<meta name="twitter:description" content="From concrete to abstractDefinition：抽象语法树（AST）本质是是精简的解析树。解析树的核心是一个句子语法结构的图示。编译器设计中“AST”和语法树是可以等价的”  语法解析树是一个句子的图解结构，任何一种语言都可以来实现这个句子，这意味着他可以遵循任何语法规则。  如何构建语法树？我们尝试切割句子中最小单位的有区别的部分。例如句子：”Vaidehi ate th">
+<meta name="twitter:description" content="From concrete to abstract抽象语法树（AST）本质是是精简的解析树。解析树的核心是一个句子语法结构的图示。编译器设计中“AST”和语法树是可以等价的”  语法解析树是一个句子的图解结构，任何一种语言都可以来实现这个句子，这意味着他可以遵循任何语法规则。">
 <meta name="twitter:image" content="https://miro.medium.com/max/2496/1*zQ_bUppUhjPj3JjJ-uQv0w.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
@@ -181,11 +181,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="From-concrete-to-abstract"><a href="#From-concrete-to-abstract" class="headerlink" title="From concrete to abstract"></a>From concrete to abstract</h3><p>Definition：<code>抽象语法树（AST）本质是是精简的解析树。</code>解析树的核心是一个句子语法结构的图示。编译器设计中<em>“AST”</em>和<strong>语法树</strong>是可以等价的”</p>
+        <h3 id="From-concrete-to-abstract"><a href="#From-concrete-to-abstract" class="headerlink" title="From concrete to abstract"></a>From concrete to abstract</h3><p><code>抽象语法树（AST）本质是是精简的解析树。</code>解析树的核心是一个句子语法结构的图示。编译器设计中<em>“AST”</em>和<strong>语法树</strong>是可以等价的”</p>
 <blockquote>
 <p>语法解析树是一个句子的图解结构，任何一种语言都可以来实现这个句子，这意味着他可以遵循任何语法规则。</p>
 </blockquote>
-<p><em>如何构建语法树？</em><br>我们尝试切割句子中最小单位的有区别的部分。<br>例如句子：”Vaidehi ate the pie”<br><img src="https://miro.medium.com/max/2496/1*zQ_bUppUhjPj3JjJ-uQv0w.jpeg" alt="alt"><br>首先把句子切割为名词和动词短语</p>
+<a id="more"></a>
+<p><em>如何构建语法树？</em><br>我们尝试切割句子中最小单位的有区别的部分。<br>例如句子：<code>&quot;Vaidehi ate the pie&quot;</code><br><img src="https://miro.medium.com/max/2496/1*zQ_bUppUhjPj3JjJ-uQv0w.jpeg" alt="alt"><br>首先把句子切割为<strong>noun</strong>和<strong>verb phrase</strong>，因为一个名词不能继续往下划分，所以这个分支叶子结点直接为<code>“Vaidehi”</code>。对于动词短语<code>“ate the pie”</code>，可以分为<strong>verb</strong>和<strong>noun phrase</strong>，因为动词也无法继续划分，所以该分支叶子结点为<code>“ate”</code>。最后对于名词短语<code>&quot;the pie&quot;</code>，可以分为<strong>determiner</strong>和<strong>noun</strong>，其叶子结点分别为<code>“the”</code>，<code>“pie”</code>。</p>
+<blockquote>
+<p>In the case of the English language, the smallest “part” of every sentence is a word; words can be combined into phrases, like noun phrases or verb phrases, which can, in turn, be joined with other phrases to create a sentence epression.</p>
+</blockquote>
+<p><em>通常来说，一个语言的语法和句法包含了这个语言句子结构化的方式，成为语言定义的规则。规定我们如何写，如何理解。</em></p>
+<p>有趣的是，我们知道如何用图表表示简单句“Vaidehi ate the pie”，因为我们已经熟悉了英语的语法。想象一下，如果我们的句子中少了一个名词或一个动词?将会发生什么?嗯，我们可能第一次读到这个句子时，很快就会意识到它根本不是一个句子!甚至，当我们读到它，几乎立刻意识到到我们处理的是一个句子片段，或者说是一个不完整的句子片段。</p>
+<p>我们能够识别之歌句子的原因就是我们知道英语的语法，即大多数句子都需要一个名词和一个动词才被认为有效。<code>语言的语法是我们检查一个句子在一种语言中是否有效的方法;这种“检查”有效性的过程被称为分析一个句子。</code></p>
+<p>当我们第一次阅读一个句子时，解析它以理解它的过程和与绘制一个句子图有着相同的思维步骤，而绘制一个句子图与构建一个解析树有相同的步骤。当我们第一次读一个句子的时候，我们是在做一种思维上的解构和解析。</p>
+<p>事实证明，计算机对我们编写的代码所做的事情是完全相同的!</p>
+<h3 id="Parsing-expressions-like-it’s-our-job"><a href="#Parsing-expressions-like-it’s-our-job" class="headerlink" title="Parsing expressions like it’s our job"></a>Parsing expressions like it’s our job</h3><p>我们可以把一个解析树看作是我们代码表达式的一个图示。如果我们把代码、程序、甚至是最简单的脚本想象成句子的形式，我们可能很快就会意识到我们写的所有代码都可以简化成表达式集。</p>
+<p>一棵解析树可以对应一个句子，解析树是唯一的，但是生成的结果并不一定惟一（由于树本身的遍历方式可以不同）。当我们的机器对这些树进行解释时，需要对如何解析这些树制定<code>严格</code>的规则，以便我们最终得到正确的表达式，所有术语的顺序和位置都正确。</p>
 
       
 
@@ -288,6 +299,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/04/01/Leetcode-912sortArray/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Leetcode - 912. sortArray
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/03/05/Compiler construction - lexical analysis/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Compiler construction - Lexical Analysis</div>
@@ -317,7 +337,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#From-concrete-to-abstract"><span class="toc-number">1.</span> <span class="toc-text">From concrete to abstract</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#From-concrete-to-abstract"><span class="toc-number">1.</span> <span class="toc-text">From concrete to abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parsing-expressions-like-it’s-our-job"><span class="toc-number">2.</span> <span class="toc-text">Parsing expressions like it’s our job</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -477,7 +497,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data Structure</a>
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,23 +505,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linked List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">week contest - Medium</a>
+                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,11 +513,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">week contest</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法训练营</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+                <a href="javascript:void(0)" class="js-tag color1">Stack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Leedcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data Structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Linked List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">week contest - Medium</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,6 +554,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">bb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
             
             <div class="clearfix"></div>
