@@ -7,19 +7,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Leetcode - 739. dailyTemperatures | Nightingale</title>
+  <title>Leetcode - 739. 每日温度 | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Description根据每日 气温 列表，请重新生成一个列表，对应位置的输出是需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。 例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。">
 <meta name="keywords" content="Stack,Leetcode,Explore">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode - 739. dailyTemperatures">
+<meta property="og:title" content="Leetcode - 739. 每日温度">
 <meta property="og:url" content="http://yoursite.com/2020/05/02/Leetcode-739.dailyTemp/index.html">
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="Description根据每日 气温 列表，请重新生成一个列表，对应位置的输出是需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。 例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-02T13:20:31.141Z">
+<meta property="og:updated_time" content="2020-05-03T00:45:09.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode - 739. dailyTemperatures">
+<meta name="twitter:title" content="Leetcode - 739. 每日温度">
 <meta name="twitter:description" content="Description根据每日 气温 列表，请重新生成一个列表，对应位置的输出是需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。 例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Leetcode - 739. dailyTemperatures
+      Leetcode - 739. 每日温度
     </h1>
   
 
@@ -198,7 +198,7 @@
 <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a href="https://leetcode-cn.com/problems/daily-temperatures" target="_blank" rel="noopener">https://leetcode-cn.com/problems/daily-temperatures</a></p>
 <h3 id="我自己的思考过程"><a href="#我自己的思考过程" class="headerlink" title="我自己的思考过程"></a>我自己的思考过程</h3><p>辅助栈不存温度，存下标（有利于更新）<br>栈中下标所对应元素必然单调递减<br>辅助数组每层循环都更新<br>栈空的时候，元素入栈<br>无论元素是否出栈，都需要+1，因为找到所需元素的位置，至少需要右移一位。<br>判断当前元素和栈顶元素的关系，如果当前元素大于栈顶元素，弹出栈顶元素的位置，过程持续到当前元素小于等于（不大于）栈顶元素。此时当前元素入栈。</p>
 <p>优化更新，直接利用下标相减<br>根据蛮力算法，找出问题的本质是找到a[i]右边第一个比它大的元素，并且返回二者下标的差值。</p>
-<p><strong>小结：</strong></p>
+<p><strong>小结：</strong><br>坚持从蛮力算法入手，比较容易看清问题的本质，少走弯路。不过在边界情况的考虑上有所进步～冲鸭🎉</p>
 
       
 
@@ -486,10 +486,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BaseCS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data Structure</a>
               </li>
              
@@ -502,11 +498,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color3">Explore</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">BaseCS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +522,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Explore</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法训练营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,10 +531,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法训练营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,11 +550,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Network</a>
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
