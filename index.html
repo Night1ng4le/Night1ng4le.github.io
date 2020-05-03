@@ -165,17 +165,67 @@
     <article id="post-Leetcode-187周赛" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/03/Leetcode-187周赛/">Leetcode 5401. 是否所有 1 都至少相隔 k 个元素</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/03/Leetcode-187周赛/" class="archive-article-date">
+  	<time datetime="2020-05-03T03:43:06.774Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="5401-是否所有-1-都至少相隔-k-个元素"><a href="#5401-是否所有-1-都至少相隔-k-个元素" class="headerlink" title="5401. 是否所有 1 都至少相隔 k 个元素"></a>5401. 是否所有 1 都至少相隔 k 个元素</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">kLengthApart</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; S;</span><br><span class="line">        <span class="keyword">bool</span> ans = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!S.empty()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i-S.top()<span class="number">-1</span>&lt;k) &#123;</span><br><span class="line">                    ans = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            S.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>给你一个由若干 0 和 1 组成的数组 nums 以及整数 k。如果所有 1 都至少相隔 k 个元素，则返回 True ；否则，返回 False 。<br>
+        
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Stack</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data Structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leedcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">week contest</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -1183,10 +1233,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BaseCS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data Structure</a>
               </li>
              
@@ -1195,15 +1241,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">week contest</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">double week</a>
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">BaseCS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1223,7 +1269,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">double week</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Linked List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">week contest - Medium</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1231,7 +1285,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">week contest - Medium</a>
+                <a href="javascript:void(0)" class="js-tag color3">bb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1240,10 +1294,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bb</a>
               </li>
              
               <li class="article-tag-list-item">
