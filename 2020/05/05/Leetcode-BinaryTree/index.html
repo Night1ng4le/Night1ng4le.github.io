@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Tree | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二叉树的遍历遍历：按照特定次序访问节点，每个节点恰好被访问一次。$$T = V ∪ L ∪ R$$ 分类先序：V|L|R中序：L|V|R后序：L|R|V层次遍历注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。  无论各种递归式遍历算法还是各种迭代式遍历算法，都只需要渐进的线性时间；而且相对而言，前者更加简明。递归版遍历算法时间、空间复杂度的常系数，相对于迭代版">
-<meta name="keywords" content="Leetcode,Explore,Data structure">
+  <meta name="description" content="二叉树的遍历遍历：按照特定次序访问节点，每个节点恰好被访问一次。$$T = V ∪ L ∪ R$$ 分类先序：V|L|R中序：L|V|R后序：L|R|V层次遍历注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。">
+<meta name="keywords" content="Leetcode,Data structure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tree">
 <meta property="og:url" content="http://yoursite.com/2020/05/05/Leetcode-BinaryTree/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="二叉树的遍历遍历：按照特定次序访问节点，每个节点恰好被访问一次。$$T = V ∪ L ∪ R$$ 分类先序：V|L|R中序：L|V|R后序：L|R|V层次遍历注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。  无论各种递归式遍历算法还是各种迭代式遍历算法，都只需要渐进的线性时间；而且相对而言，前者更加简明。递归版遍历算法时间、空间复杂度的常系数，相对于迭代版">
+<meta property="og:description" content="二叉树的遍历遍历：按照特定次序访问节点，每个节点恰好被访问一次。$$T = V ∪ L ∪ R$$ 分类先序：V|L|R中序：L|V|R后序：L|R|V层次遍历注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-10T15:38:50.489Z">
+<meta property="og:updated_time" content="2020-05-10T15:40:43.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tree">
-<meta name="twitter:description" content="二叉树的遍历遍历：按照特定次序访问节点，每个节点恰好被访问一次。$$T = V ∪ L ∪ R$$ 分类先序：V|L|R中序：L|V|R后序：L|R|V层次遍历注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。  无论各种递归式遍历算法还是各种迭代式遍历算法，都只需要渐进的线性时间；而且相对而言，前者更加简明。递归版遍历算法时间、空间复杂度的常系数，相对于迭代版">
+<meta name="twitter:description" content="二叉树的遍历遍历：按照特定次序访问节点，每个节点恰好被访问一次。$$T = V ∪ L ∪ R$$ 分类先序：V|L|R中序：L|V|R后序：L|R|V层次遍历注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -187,6 +187,7 @@
       
         <h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><p><strong>遍历：</strong>按照<code>特定次序</code>访问节点，每个节点<code>恰好</code>被访问一次。<br>$$T = V ∪ L ∪ R$$</p>
 <p><strong>分类</strong><br>先序：V|L|R<br>中序：L|V|R<br>后序：L|R|V<br>层次遍历<br><code>注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。</code></p>
+<a id="more"></a>
 <blockquote>
 <p>无论各种递归式遍历算法还是各种迭代式遍历算法，都只需要渐进的线性时间；而且相对而言，前者更加简明。递归版遍历算法时间、空间复杂度的常系数，相对于迭代版更大。同时从学习的角度来看，从底层实现迭代式遍历，也是加深对相关过程和技巧理解的有效途径。              ——《数据结构（第3版）》，邓俊辉</p>
 </blockquote>
@@ -219,10 +220,6 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Explore</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data structure</a>
         		</li>
       		
@@ -235,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Explore//" class="article-tag-list-link color3">Explore</a>
+        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
         		</li>
       		
 		</ul>
@@ -521,11 +518,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Binary search</a>
+                <a href="javascript:void(0)" class="js-tag color2">double week</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">double week</a>
+                <a href="javascript:void(0)" class="js-tag color4">Binary search</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,15 +554,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">bb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
