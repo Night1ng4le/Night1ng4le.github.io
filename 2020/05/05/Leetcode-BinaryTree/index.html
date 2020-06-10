@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Nightingale">
 <meta property="og:description" content="二叉树的遍历遍历：按照特定次序访问节点，每个节点恰好被访问一次。$$T = V ∪ L ∪ R$$ 分类先序：V|L|R中序：L|V|R后序：L|R|V层次遍历注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-10T15:40:43.982Z">
+<meta property="og:updated_time" content="2020-05-16T01:27:38.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tree">
 <meta name="twitter:description" content="二叉树的遍历遍历：按照特定次序访问节点，每个节点恰好被访问一次。$$T = V ∪ L ∪ R$$ 分类先序：V|L|R中序：L|V|R后序：L|R|V层次遍历注：除层次遍历外，其他的分类取决于根节点的遍历顺序，在遍历子树时，顺序一直是先左后右。">
@@ -66,6 +66,8 @@
 				<li><a href="/categories/Learning/">学习</a></li>
 	        
 				<li><a href="/categories/Interest/">兴趣</a></li>
+	        
+				<li><a href="/categories/Memo/">便签</a></li>
 	        
 				<li><a href="/categories/Skill/">技能树</a></li>
 	        
@@ -128,6 +130,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -140,17 +144,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/Explore/">探索</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/Explore/">探索</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/Learning/">学习</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/Learning/">学习</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/Interest/">兴趣</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/Interest/">兴趣</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/Skill/">技能树</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/Memo/">便签</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/BB/">碎碎念</a></li>
+					<li style="width: 14.285714285714286%"><a href="/categories/Skill/">技能树</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/categories/BB/">碎碎念</a></li>
 		        
 				</ul>
 			</nav>
@@ -199,10 +205,11 @@
 <p>1) 自顶而下地依次访问左侧链的沿途节点<br>2) 自底而上地遍历各层的每一棵右子树</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Version 2.0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; preorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; S;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; visit;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">			<span class="comment">// visitAlongLeftBranch();</span></span><br><span class="line">            <span class="keyword">while</span> (root) &#123;</span><br><span class="line">                visit.push_back(root-&gt;val);</span><br><span class="line">                S.push(root-&gt;right);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">if</span> (S.empty()) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            root = S.top();</span><br><span class="line">            S.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> visit;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>比较便于理解的版本可以拆成两个函数，<br>一个是沿左侧分支下行的函数，一个是主流程。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; preorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; S;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; visit;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">			visitAlongLeftBranch(S, visit, root);</span><br><span class="line">            <span class="keyword">if</span> (S.empty()) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            root = S.top();<span class="comment">//将起点换到下一子树</span></span><br><span class="line">            S.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> visit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">visitAlongLeftBranch</span><span class="params">(<span class="built_in">stack</span>&lt;TreeNode*&gt; S, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; visit, TreeNode* x)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">while</span> (x) &#123;</span><br><span class="line">                visit.push_back(x-&gt;val);<span class="comment">//访问当前节点</span></span><br><span class="line">                S.push(x-&gt;right);<span class="comment">//右孩子入栈</span></span><br><span class="line">                x = x-&gt;left;<span class="comment">//沿左侧下行</span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><h4 id="递归-1"><a href="#递归-1" class="headerlink" title="递归"></a>递归</h4><p>参考先序递归的写法，中序的递归并不难写出来。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; visit;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; inorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root!=<span class="literal">NULL</span>) &#123;</span><br><span class="line">            inorderTraversal(root-&gt;left);</span><br><span class="line">            visit.push_back(root-&gt;val);</span><br><span class="line">            inorderTraversal(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> visit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="迭代-1"><a href="#迭代-1" class="headerlink" title="迭代"></a>迭代</h4><h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><h4 id="递归-2"><a href="#递归-2" class="headerlink" title="递归"></a>递归</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; visit;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; postorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root!=<span class="literal">NULL</span>) &#123;</span><br><span class="line">            postorderTraversal(root-&gt;left);</span><br><span class="line">            postorderTraversal(root-&gt;right);</span><br><span class="line">            visit.push_back(root-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> visit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="迭代-2"><a href="#迭代-2" class="headerlink" title="迭代"></a>迭代</h4><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="">《数据结构》- 邓俊辉</a></p>
+<h4 id="迭代-1"><a href="#迭代-1" class="headerlink" title="迭代"></a>迭代</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; visit;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; inorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; S;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line"><span class="comment">//            visitAlongLeftBranch(root, S);</span></span><br><span class="line">            <span class="keyword">while</span> (root) &#123;</span><br><span class="line">                S.push(root);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (S.empty()) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            root = S.top();</span><br><span class="line">            S.pop();</span><br><span class="line">            visit.push_back(root-&gt;val);</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> visit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><h4 id="递归-2"><a href="#递归-2" class="headerlink" title="递归"></a>递归</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; visit;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; postorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root!=<span class="literal">NULL</span>) &#123;</span><br><span class="line">            postorderTraversal(root-&gt;left);</span><br><span class="line">            postorderTraversal(root-&gt;right);</span><br><span class="line">            visit.push_back(root-&gt;val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> visit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="迭代-2"><a href="#迭代-2" class="headerlink" title="迭代"></a>迭代</h4><p>这里是两个辅助栈的版本。这里的思路是这样的，stack2的作用是纯粹的辅助输出，利用栈后进先出的特性。需要注意的是，这里push(node)等操作，一定要注意判断指针不为空。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; postorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; S1;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; S2;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        S1.push(root);</span><br><span class="line">        <span class="keyword">while</span> (!S1.empty()) &#123;</span><br><span class="line">            TreeNode* node = S1.top();</span><br><span class="line">            S1.pop();</span><br><span class="line">            <span class="keyword">if</span>(node)&#123;<span class="comment">//注意这里，一定要保证node本身是非空的，增加代码的健壮性</span></span><br><span class="line">                S2.push(node-&gt;val);</span><br><span class="line">                <span class="keyword">if</span> (node-&gt;left!=<span class="literal">NULL</span>) &#123;</span><br><span class="line">                    S1.push(node-&gt;left);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (node-&gt;right!=<span class="literal">NULL</span>) &#123;</span><br><span class="line">                    S1.push(node-&gt;right);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (!S2.empty()) &#123;</span><br><span class="line">            res.push_back(S2.top());</span><br><span class="line">            S2.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="">《数据结构》- 邓俊辉</a></p>
 
       
 
@@ -300,6 +307,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/05/10/Day1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          365 - Day1：学习CTF Wiki栈溢出基础和ROP基础
+        
+      </div>
+    </a>
   
   
     <a href="/2020/05/04/Leetcode-374-guessNum/" id="article-nav-older" class="article-nav-link-wrap">
@@ -490,6 +506,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Security</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CTF Wiki</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Stack Overflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ROP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Stack</a>
               </li>
              
@@ -534,15 +566,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data structure</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法训练营</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data structure</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,11 +590,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bb</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">note</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
