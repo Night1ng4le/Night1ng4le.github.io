@@ -9,19 +9,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>365 - Day1：学习CTF Wiki栈溢出基础和ROP基础 | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写在最前《365天获取玄武实验室的工作》，推荐原版。 我不会的比较多，所以记的多一点，阅读体验并没有很好。 栈溢出基础Canary栈帧结构 栈溢出原理Stack Overflow Principle:通过栈溢出覆盖掉函数栈帧的返回地址, 当函数返回时就会跳入攻击者覆写的地址继续执行代码.栈溢出前提：  程序必须向栈上写入数据。 写入的数据大小没有被良好地控制。   i. 确认溢出的长度可以到达栈帧">
+  <meta name="description" content="写在最前《365天获取玄武实验室的工作》，推荐原版。">
 <meta name="keywords" content="Security,CTF Wiki,Stack Overflow,ROP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="365 - Day1：学习CTF Wiki栈溢出基础和ROP基础">
 <meta property="og:url" content="http://yoursite.com/2020/05/10/Day1/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="写在最前《365天获取玄武实验室的工作》，推荐原版。 我不会的比较多，所以记的多一点，阅读体验并没有很好。 栈溢出基础Canary栈帧结构 栈溢出原理Stack Overflow Principle:通过栈溢出覆盖掉函数栈帧的返回地址, 当函数返回时就会跳入攻击者覆写的地址继续执行代码.栈溢出前提：  程序必须向栈上写入数据。 写入的数据大小没有被良好地控制。   i. 确认溢出的长度可以到达栈帧">
+<meta property="og:description" content="写在最前《365天获取玄武实验室的工作》，推荐原版。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-c16e2bc9d6b8aecf1f1f891e12897c9a_1440w.jpg">
-<meta property="og:updated_time" content="2020-06-10T00:58:32.370Z">
+<meta property="og:updated_time" content="2020-06-10T02:31:17.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="365 - Day1：学习CTF Wiki栈溢出基础和ROP基础">
-<meta name="twitter:description" content="写在最前《365天获取玄武实验室的工作》，推荐原版。 我不会的比较多，所以记的多一点，阅读体验并没有很好。 栈溢出基础Canary栈帧结构 栈溢出原理Stack Overflow Principle:通过栈溢出覆盖掉函数栈帧的返回地址, 当函数返回时就会跳入攻击者覆写的地址继续执行代码.栈溢出前提：  程序必须向栈上写入数据。 写入的数据大小没有被良好地控制。   i. 确认溢出的长度可以到达栈帧">
+<meta name="twitter:description" content="写在最前《365天获取玄武实验室的工作》，推荐原版。">
 <meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-c16e2bc9d6b8aecf1f1f891e12897c9a_1440w.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
@@ -194,7 +194,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h3><p><a href="https://github.com/Vancir/365-days-get-xuanwulab-job" target="_blank" rel="noopener">《365天获取玄武实验室的工作》</a>，推荐原版。</p>
-<p>我不会的比较多，所以记的多一点，阅读体验并没有很好。</p>
+<a id="more"></a>
 <h3 id="栈溢出基础"><a href="#栈溢出基础" class="headerlink" title="栈溢出基础"></a>栈溢出基础</h3><h4 id="Canary"><a href="#Canary" class="headerlink" title="Canary"></a>Canary</h4><h4 id="栈帧结构"><a href="#栈帧结构" class="headerlink" title="栈帧结构"></a>栈帧结构</h4><p><img src="https://pic3.zhimg.com/80/v2-c16e2bc9d6b8aecf1f1f891e12897c9a_1440w.jpg" alt="alt"></p>
 <h4 id="栈溢出原理"><a href="#栈溢出原理" class="headerlink" title="栈溢出原理"></a>栈溢出原理</h4><p><a href="https://ctf-wiki.github.io/ctf-wiki/pwn/linux/stackoverflow/stackoverflow-basic-zh/" target="_blank" rel="noopener">Stack Overflow Principle:</a>通过栈溢出覆盖掉函数栈帧的返回地址, 当函数返回时就会跳入攻击者覆写的地址继续执行代码.<br>栈溢出前提：</p>
 <ul>
@@ -577,15 +577,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法训练营</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Array</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法训练营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,11 +625,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">novel</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">novel</a>
               </li>
             
             <div class="clearfix"></div>
