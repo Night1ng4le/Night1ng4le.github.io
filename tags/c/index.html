@@ -7,20 +7,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Leetcode - Minimum Number of Steps to Make Two Strings Anagram | Nightingale</title>
+  <title>Tag: c++ | Nightingale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem Linkhttps://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/ DescriptionGiven two equal-size strings s and t. In one step you can choose any character of t and rep">
-<meta name="keywords" content="Leetcode,Algorithm,week contest - Medium">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode - Minimum Number of Steps to Make Two Strings Anagram">
-<meta property="og:url" content="http://yoursite.com/2020/02/13/Leetcode-minSteps/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Nightingale">
+<meta property="og:url" content="http://yoursite.com/tags/c/index.html">
 <meta property="og:site_name" content="Nightingale">
-<meta property="og:description" content="Problem Linkhttps://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/ DescriptionGiven two equal-size strings s and t. In one step you can choose any character of t and rep">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-23T12:18:01.582Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode - Minimum Number of Steps to Make Two Strings Anagram">
-<meta name="twitter:description" content="Problem Linkhttps://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/ DescriptionGiven two equal-size strings s and t. In one step you can choose any character of t and rep">
+<meta name="twitter:title" content="Nightingale">
   
     <link rel="alternative" href="/atom.xml" title="Nightingale" type="application/atom+xml">
   
@@ -171,235 +166,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Leetcode-minSteps" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Leetcode - Minimum Number of Steps to Make Two Strings Anagram
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/24/c++/" class="archive-article-date">
+  	<time datetime="2020-05-24T03:14:52.836Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/24/c++/">c++ 备忘</a>
     </h1>
   
 
-        
-        <a href="/2020/02/13/Leetcode-minSteps/" class="archive-article-date">
-  	<time datetime="2020-02-13T10:45:36.006Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a href="https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/</a></p>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Given two equal-size strings s and t. In one step you can choose any character of t and replace it with another character.</p>
-<p>Return the minimum number of steps to make t an anagram of s.</p>
-<a id="more"></a>
-<p>An Anagram of a string is a string that contains the same characters with a different (or the same) ordering.</p>
-<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;bab&quot;, t = &quot;aba&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: Replace the first &apos;a&apos; in t with b, t = &quot;bba&quot; which is anagram of s.</span><br></pre></td></tr></table></figure></p>
-<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;leetcode&quot;, t = &quot;practice&quot;</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: Replace &apos;p&apos;, &apos;r&apos;, &apos;a&apos;, &apos;i&apos; and &apos;c&apos; from t with proper characters to make t anagram of s.</span><br></pre></td></tr></table></figure></p>
-<p><strong>Example 3:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;anagram&quot;, t = &quot;mangaar&quot;</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: &quot;anagram&quot; and &quot;mangaar&quot; are anagrams.</span><br></pre></td></tr></table></figure></p>
-<p><strong>Example 4:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;xxyyzz&quot;, t = &quot;xxyyzz&quot;</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure></p>
-<p><strong>Example 5:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;friend&quot;, t = &quot;family&quot;</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure></p>
-<p><strong>Constraints:</strong></p>
-<blockquote>
-<p>   1 &lt;= s.length &lt;= 50000<br>   s.length == t.length<br>   s and t contain lower-case English letters only.</p>
-</blockquote>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>肺炎阻止了我出门的脚步，于是，我人生中第一次周赛就这样开始了🎐.这是175周周赛，四道题，一道简单，两道中等，一道难。1347是其中的一道中等题（也叫5333）。<br>第一眼看见以为是字符串匹配，细看发现不是。又很久不写代码了，隐约感觉有思路，但是抓不住它。我决定从最朴素最简单的思路开始写。</p>
-<h4 id="Version1-0-暴力解题"><a href="#Version1-0-暴力解题" class="headerlink" title="Version1.0 - 暴力解题"></a>Version1.0 - 暴力解题</h4><p>这个真的是最朴素的写法，真的很暴力，穷举思想，所以自然时间复杂度非常高，达到O(n^2)。不出意料，我失败了，n较大的测试用例会运行超时。<br>p.s: 这个写到一半的时候我才意识到，这个问题的重点是如何计数，并不是真的让你去替换不同的字符<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//version 1.0  - O(n^2) 暴力解题</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="built_in">string</span> content;</span><br><span class="line">    <span class="keyword">bool</span> flag;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> s1[<span class="number">50000</span>];</span><br><span class="line">    Node t1[<span class="number">50000</span>];</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minSteps</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.size(); i++) &#123;</span><br><span class="line">            s1[i] = s.substr(i,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;t.size(); j++) &#123;</span><br><span class="line">            t1[j].content = t.substr(j,<span class="number">1</span>);</span><br><span class="line">            t1[j].flag = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;t.size(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s1[i] == t1[j].content &amp;&amp; t1[j].flag != <span class="literal">true</span>) &#123;</span><br><span class="line">                    t1[j].flag = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;t.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t1[i].flag == <span class="literal">false</span>) &#123;</span><br><span class="line">                result += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Version2-0-统计差别数"><a href="#Version2-0-统计差别数" class="headerlink" title="Version2.0 - 统计差别数"></a>Version2.0 - 统计差别数</h4><p>穷举的思路显然是不明智的，所以继续观察题目，尝试简化问题。写Version1.0的时候，我所遇到的问题是：1. 不知道遍历字符串中字符的合适的方法；2. 没有找到合适的计数策略。这两个问题后续都会被解决。<br>观察到问题的本质是计数，而计数的对象应该是s和t的差别数，更具体来说就是s中有而t中没有的部分。所以2.0的思路大致是这样的：遍历s，用计数数组统计s中出现过的26个字母及出现次数，每出现一次，就在相应位置+1；遍历t，如果对应位置数字大于0，说明s和t都出现一次这个字符，做-1操作。如果对应位置小于等于0，说明这是s中没有出现而t中出现的字符，计数一次。计数器count的结果，即我们需要的差别数。<br>特殊🌰：如果两个字符串中的字符完全相同，则表示遍历s时所有加的值，都在遍历t时被减去，即count应该为0。</p>
-<p>这个方法的时间复杂度是O(n)。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Version2.0 - 统计差别数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minSteps</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> flag[<span class="number">26</span>]=&#123;<span class="number">0</span>&#125;;<span class="comment">//计数数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> i:s) &#123;<span class="comment">//这里的循环是遍历字符串，访问每个字符</span></span><br><span class="line">            flag[i-<span class="string">'a'</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> i:t) &#123;</span><br><span class="line">            <span class="keyword">if</span> (flag[i-<span class="string">'a'</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                flag[i-<span class="string">'a'</span>]--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Version3-0-统计差别数（双指针）"><a href="#Version3-0-统计差别数（双指针）" class="headerlink" title="Version3.0 - 统计差别数（双指针）"></a>Version3.0 - 统计差别数（双指针）</h4><p>最后这种解法是看题解的时候参考了一个小姐姐的解法～很有趣的思路，所以就自己写了一下mark下来<br>我觉得她讲的特别清楚，附上主页链接🔗：<a href="https://leetcode-cn.com/u/yisin/" target="_blank" rel="noopener">https://leetcode-cn.com/u/yisin/</a><br>附上她的题解链接🔗：<a href="https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/solution/shuang-zhi-zhen-fa-bu-xu-yao-shi-yong-e-wai-kong-j/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/solution/shuang-zhi-zhen-fa-bu-xu-yao-shi-yong-e-wai-kong-j/</a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minSteps</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = s.size();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        sort(s.begin(), s.end());</span><br><span class="line">        sort(t.begin(), t.end());</span><br><span class="line">        <span class="keyword">while</span> (i&lt;len&amp;&amp;j&lt;len) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] == t[j]) &#123;<span class="comment">//匹配成功</span></span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (s[i]&gt;t[j])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;<span class="comment">//s字符串中的字符没有匹配项，指针后移</span></span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len-count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><ul>
-<li>清楚的认识到自己依旧是个小菜鸡，不过总是会一点点进步的嘛～镜子会加油的～❤</li>
-<li>小小的立个flag：接下来的一个月，每天坚持磕一道题</li>
-<li>一个月之后来反馈自己有没有进步</li>
-</ul>
-<p><em>See you next time～❤</em></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">week contest - Medium</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Learning//" class="article-tag-list-link color4">Learning</a>
+        			<a href="/categories/Memo//" class="article-tag-list-link color5">Memo</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/13/Leetcode-minSteps/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/02/15/Leetcode-hasCircle/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Leetcode-141.Linked List Cycle
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/01/11/Leetcode-array2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Leetcode - Best Time to Buy and Sell Stock</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Link"><span class="toc-number">1.</span> <span class="toc-text">Problem Link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Description"><span class="toc-number">2.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-number">3.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Version1-0-暴力解题"><span class="toc-number">3.1.</span> <span class="toc-text">Version1.0 - 暴力解题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Version2-0-统计差别数"><span class="toc-number">3.2.</span> <span class="toc-text">Version2.0 - 统计差别数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Version3-0-统计差别数（双指针）"><span class="toc-number">3.3.</span> <span class="toc-text">Version3.0 - 统计差别数（双指针）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写在最后"><span class="toc-number">4.</span> <span class="toc-text">写在最后</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '3a8f5e2b080769aec429',
-  	clientSecret: '7d42915c646cf95f2b7cb5a21ea1e4c47cf730b8',
-  	repo: 'night1ng4le.github.io',
-  	owner: 'Night1ng4le',
-  	admin: ['Night1ng4le'],
-  	id: 'Thu Feb 13 2020 18:45:36 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-  
-
-  
+    
 
 
           </div>
@@ -422,9 +257,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
