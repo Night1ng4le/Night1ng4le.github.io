@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,18 +9,22 @@
   
   
   <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
 <div class="Shell">
-    <aside class="SideBar">
-    <section class="avatar" style="background-image: url(/assets/header.png)">
-        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(/assets/header.png)">
+        <div class='av-pic' style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
         </div>
     </section>
-    <section class="menu">
+    <section class='menu'>
         <div>Nightingale</div>
         
         <ul>
@@ -29,19 +33,19 @@
               <li>Home</li>
             </a>  
           
-            <a href="/archives" class="Btn">
+            <a href="/archives/" class="Btn">
               <li>Archive</li>
             </a>  
           
-            <a href="/tags" class="Btn">
+            <a href="/tags/" class="Btn">
               <li>Tags</li>
             </a>  
           
-            <a href="/categories" class="Btn">
+            <a href="/categories/" class="Btn">
               <li>Categories</li>
             </a>  
           
-            <a href="/about" class="Btn">
+            <a href="/about/" class="Btn">
               <li>About</li>
             </a>  
           
@@ -55,8 +59,8 @@
     <div class="container">
         <div data-pager-shell>
             <div>
-  <article class="ContentView">
-    <header class="PageTitle">
+  <article class='ContentView'>
+    <header class='PageTitle'>
         <h1>OS - 页面置换算法</h1>
     </header>
 
@@ -71,6 +75,7 @@
 </li>
 </ul>
 <a id="more"></a>
+
 <h4 id="评价方法"><a href="#评价方法" class="headerlink" title="评价方法"></a>评价方法</h4><ul>
 <li>模拟页面置换行为，记录缺页次数</li>
 <li>缺页越少性能越好</li>
@@ -155,7 +160,7 @@
 <li>当前时刻前t个内存访问的页的引用是工作集，t为窗口大小</li>
 <li>开销相对较大</li>
 </ul>
-<h4 id="缺页率算法"><a href="#缺页率算法" class="headerlink" title="缺页率算法"></a>缺页率算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">缺页率 = 缺页次数/内存访问次数</span><br><span class="line">or</span><br><span class="line">缺页率 = 缺页平均时间间隔的倒数</span><br></pre></td></tr></table></figure>
+<h4 id="缺页率算法"><a href="#缺页率算法" class="headerlink" title="缺页率算法"></a>缺页率算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">缺页率 &#x3D; 缺页次数&#x2F;内存访问次数</span><br><span class="line">or</span><br><span class="line">缺页率 &#x3D; 缺页平均时间间隔的倒数</span><br></pre></td></tr></table></figure>
 <p>缺页率影响因素：</p>
 <ul>
 <li><code>页面置换算法</code></li>
@@ -190,7 +195,7 @@
 
     </section>
     
-      <section class="ArticleMeta">
+      <section class='ArticleMeta'>
           <div>
             发布于&nbsp;
             <time datetime="2019-11-12T10:51:53.896Z" itemprop="datePublished">
@@ -219,11 +224,11 @@
     <div>© 2020 - Le4f </div>
     <div>
         <span>
-            Powered by <a href="https://hexo.io">Hexo</a>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
         </span>
         ,
         <span>
-            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
         </span>
     </div>
 </footer>
@@ -231,7 +236,9 @@
         </div>
     </div>
 </div>
+
 <script src="/js/pager/dist/singlepager.js"></script>
+
 <script>
 var sp = new Pager('data-pager-shell')
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,18 +9,22 @@
   
   
   <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
 <div class="Shell">
-    <aside class="SideBar">
-    <section class="avatar" style="background-image: url(/assets/header.png)">
-        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(/assets/header.png)">
+        <div class='av-pic' style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
         </div>
     </section>
-    <section class="menu">
+    <section class='menu'>
         <div>Nightingale</div>
         
         <ul>
@@ -29,19 +33,19 @@
               <li>Home</li>
             </a>  
           
-            <a href="/archives" class="Btn">
+            <a href="/archives/" class="Btn">
               <li>Archive</li>
             </a>  
           
-            <a href="/tags" class="Btn">
+            <a href="/tags/" class="Btn">
               <li>Tags</li>
             </a>  
           
-            <a href="/categories" class="Btn">
+            <a href="/categories/" class="Btn">
               <li>Categories</li>
             </a>  
           
-            <a href="/about" class="Btn">
+            <a href="/about/" class="Btn">
               <li>About</li>
             </a>  
           
@@ -55,17 +59,18 @@
     <div class="container">
         <div data-pager-shell>
             <div>
-  <article class="ContentView">
-    <header class="PageTitle">
+  <article class='ContentView'>
+    <header class='PageTitle'>
         <h1>PHP grammar</h1>
     </header>
 
     <section>
       <p>弱类型语言，自动识别合适的类型。</p>
 <a id="more"></a>
+
 <ul>
 <li><p>变量：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a = <span class="string">"123"</span>;</span><br><span class="line">$x = <span class="number">5</span>;</span><br><span class="line">$y = <span class="keyword">false</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="variable">$x</span> = <span class="number">5</span>;</span><br><span class="line"><span class="variable">$y</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>输出</p>
 <ul>
@@ -75,20 +80,20 @@
 </ul>
 </li>
 <li><p>EOF（heredoc）</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$name = <span class="string">"run"</span></span><br><span class="line">$a= <span class="string">&lt;&lt;&lt;EOF</span></span><br><span class="line"><span class="string">		"abc"<span class="subst">$name</span></span></span><br><span class="line"><span class="string">		"123"</span></span><br><span class="line"><span class="string">EOF;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;run&quot;</span></span><br><span class="line"><span class="variable">$a</span>= &lt;&lt;&lt;EOF</span><br><span class="line">		<span class="string">&quot;abc&quot;</span><span class="variable">$name</span></span><br><span class="line">		<span class="string">&quot;123&quot;</span></span><br><span class="line">EOF;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>PHP 定界符 EOF 的作用就是按照原样，包括换行格式什么的，输出在其内部的东西；</li>
 <li>可以解析变量名，双引号内的转义字符，html格式，不能解析函数。</li>
 </ul>
 </li>
 <li><p>类型比较</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">== <span class="comment">//值相等</span></span><br><span class="line">=== <span class="comment">//值和类型都相同</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">== <span class="comment">//值相等</span></span><br><span class="line">=== <span class="comment">//值和类型都相同</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>字符串</p>
 <ul>
 <li>strlen() - 字符串长度</li>
 <li>strpos(“指定文本”,”指定查找内容”) - 返回文本中第一个指定内容的位置</li>
-<li>字符串链接，并置运算符<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a = <span class="string">"hello"</span>;</span><br><span class="line">$b = $a . <span class="string">"world"</span>;</span><br><span class="line"><span class="keyword">echo</span> $b; <span class="comment">//pring "hello world"</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<li>字符串链接，并置运算符<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="variable">$a</span> . <span class="string">&quot;world&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$b</span>; <span class="comment">//pring &quot;hello world&quot;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -101,10 +106,10 @@
 </ul>
 </li>
 <li><p>数组</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);<span class="comment">//数值数组</span></span><br><span class="line"></span><br><span class="line">count($cars); <span class="comment">//get lenght of array</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$age=<span class="keyword">array</span>(<span class="string">"Peter"</span>=&gt;<span class="string">"35"</span>,<span class="string">"Ben"</span>=&gt;<span class="string">"37"</span>,<span class="string">"Joe"</span>=&gt;<span class="string">"43"</span>);<span class="comment">//关联数组</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Peter is "</span> . $age[<span class="string">'Peter'</span>] . <span class="string">" years old."</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//关联数组遍历</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$age=<span class="keyword">array</span>(<span class="string">"Peter"</span>=&gt;<span class="string">"35"</span>,<span class="string">"Ben"</span>=&gt;<span class="string">"37"</span>,<span class="string">"Joe"</span>=&gt;<span class="string">"43"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">foreach</span>($age <span class="keyword">as</span> $x=&gt;$x_value)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Key="</span> . $x . <span class="string">", Value="</span> . $x_value;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$cars</span>=<span class="keyword">array</span>(<span class="string">&quot;Volvo&quot;</span>,<span class="string">&quot;BMW&quot;</span>,<span class="string">&quot;Toyota&quot;</span>);<span class="comment">//数值数组</span></span><br><span class="line"></span><br><span class="line">count(<span class="variable">$cars</span>); <span class="comment">//get lenght of array</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$age</span>=<span class="keyword">array</span>(<span class="string">&quot;Peter&quot;</span>=&gt;<span class="string">&quot;35&quot;</span>,<span class="string">&quot;Ben&quot;</span>=&gt;<span class="string">&quot;37&quot;</span>,<span class="string">&quot;Joe&quot;</span>=&gt;<span class="string">&quot;43&quot;</span>);<span class="comment">//关联数组</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;Peter is &quot;</span> . <span class="variable">$age</span>[<span class="string">&#x27;Peter&#x27;</span>] . <span class="string">&quot; years old.&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//关联数组遍历</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$age</span>=<span class="keyword">array</span>(<span class="string">&quot;Peter&quot;</span>=&gt;<span class="string">&quot;35&quot;</span>,<span class="string">&quot;Ben&quot;</span>=&gt;<span class="string">&quot;37&quot;</span>,<span class="string">&quot;Joe&quot;</span>=&gt;<span class="string">&quot;43&quot;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$age</span> <span class="keyword">as</span> <span class="variable">$x</span>=&gt;<span class="variable">$x_value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Key=&quot;</span> . <span class="variable">$x</span> . <span class="string">&quot;, Value=&quot;</span> . <span class="variable">$x_value</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>排序</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数值数组排序</span></span><br><span class="line">sort(<span class="keyword">array</span>);<span class="comment">//升</span></span><br><span class="line">rsort(<span class="keyword">array</span>);<span class="comment">//降</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//关联数组排序</span></span><br><span class="line">asort(<span class="keyword">array</span>);<span class="comment">//按值升序</span></span><br><span class="line">ksort(<span class="keyword">array</span>);<span class="comment">//按key升序</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数值数组排序</span></span><br><span class="line">sort(<span class="keyword">array</span>);<span class="comment">//升</span></span><br><span class="line">rsort(<span class="keyword">array</span>);<span class="comment">//降</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//关联数组排序</span></span><br><span class="line">asort(<span class="keyword">array</span>);<span class="comment">//按值升序</span></span><br><span class="line">ksort(<span class="keyword">array</span>);<span class="comment">//按key升序</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>超全局变量</p>
 <ul>
@@ -126,7 +131,11 @@
 </ul>
 </li>
 <li><p>面向对象</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line">fuction __construct($par1,$par2)&#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;url = $par1;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;title = $par2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//析构函数</span></span><br><span class="line">fuction __destruct()&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line">fuction __construct(<span class="variable">$par1</span>,<span class="variable">$par2</span>)&#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;url = <span class="variable">$par1</span>;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;title = <span class="variable">$par2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//析构函数</span></span><br><span class="line">fuction __destruct()&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 </li>
 </ul>
 
@@ -135,7 +144,7 @@
 
     </section>
     
-      <section class="ArticleMeta">
+      <section class='ArticleMeta'>
           <div>
             发布于&nbsp;
             <time datetime="2020-05-17T02:57:15.917Z" itemprop="datePublished">
@@ -168,11 +177,11 @@
     <div>© 2020 - Le4f </div>
     <div>
         <span>
-            Powered by <a href="https://hexo.io">Hexo</a>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
         </span>
         ,
         <span>
-            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
         </span>
     </div>
 </footer>
@@ -180,7 +189,9 @@
         </div>
     </div>
 </div>
+
 <script src="/js/pager/dist/singlepager.js"></script>
+
 <script>
 var sp = new Pager('data-pager-shell')
 

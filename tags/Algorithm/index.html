@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,18 +9,22 @@
   
   
   <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
 <div class="Shell">
-    <aside class="SideBar">
-    <section class="avatar" style="background-image: url(/assets/header.png)">
-        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(/assets/header.png)">
+        <div class='av-pic' style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
         </div>
     </section>
-    <section class="menu">
+    <section class='menu'>
         <div>Nightingale</div>
         
         <ul>
@@ -29,19 +33,19 @@
               <li>Home</li>
             </a>  
           
-            <a href="/archives" class="Btn">
+            <a href="/archives/" class="Btn">
               <li>Archive</li>
             </a>  
           
-            <a href="/tags" class="Btn">
+            <a href="/tags/" class="Btn">
               <li>Tags</li>
             </a>  
           
-            <a href="/categories" class="Btn">
+            <a href="/categories/" class="Btn">
               <li>Categories</li>
             </a>  
           
-            <a href="/about" class="Btn">
+            <a href="/about/" class="Btn">
               <li>About</li>
             </a>  
           
@@ -56,20 +60,20 @@
         <div data-pager-shell>
             <ul class="Index">
   
-    <header class="PageTitle">
+    <header class='PageTitle'>
         <h1>{ Algorithm }</h1>
     </header>
   
   
     <li>
-      <article class="ListView">
+      <article class='ListView'>
     <header class="title">
       
         <h1>
           <a href="/2020/04/03/Leetcode-8-atoi/">Leetcode - 8. 字符串转换整数 (atoi)</a>
         </h1>
       
-      <div class="ListMeta">
+      <div class='ListMeta'>
   <time datetime="2020-04-03T12:38:03.913Z" itemprop="datePublished">
     2020-04-03
   </time>
@@ -108,7 +112,7 @@
     </header>
     <div>
       
-        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>请你来实现一个 atoi 函数，使其能将字符串转换成整数。</p>
+        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>请你来实现一个 atoi 函数，使其能将字符串转换成整数。</p>
 <p>首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。接下来的转化规则如下：</p>
         
           <div class="more-link">
@@ -122,14 +126,14 @@
     </li>
   
     <li>
-      <article class="ListView">
+      <article class='ListView'>
     <header class="title">
       
         <h1>
           <a href="/2020/04/01/Leetcode-912sortArray/">Leetcode - 912. sortArray</a>
         </h1>
       
-      <div class="ListMeta">
+      <div class='ListMeta'>
   <time datetime="2020-04-01T01:21:35.624Z" itemprop="datePublished">
     2020-04-01
   </time>
@@ -169,9 +173,12 @@
     <div>
       
         <a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//BuubleSort</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sortArray(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size()<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;nums.size()<span class="number">-1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&gt;nums[j+<span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = nums[j];</span><br><span class="line">                    nums[j] = nums[j+<span class="number">1</span>];</span><br><span class="line">                    nums[j+<span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MergeSort</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;nums, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp, <span class="keyword">int</span> low, <span class="keyword">int</span> high, <span class="keyword">int</span> mid)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=low;k&lt;=high;k++) &#123;</span><br><span class="line">                temp[k] = nums[k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i = low, j = mid+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=low;k&lt;=high;k++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;mid) nums[k] = temp[j++];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(j&gt;high) nums[k] = temp[i++];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(temp[j]&lt;temp[i]) &#123;</span><br><span class="line">                nums[k] = temp[j++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> nums[k] = temp[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sortarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;nums, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(high&lt;=low) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = (low+high)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid] &lt; nums[mid+<span class="number">1</span>]) <span class="keyword">return</span>;</span><br><span class="line">        sortarray(nums,temp,low,mid);</span><br><span class="line">        sortarray(nums,temp,mid+<span class="number">1</span>,high);</span><br><span class="line">        <span class="keyword">if</span> (nums[mid+<span class="number">1</span>]&lt;nums[mid]) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        merge(nums,temp,low,high,mid);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sortArray(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp = nums;</span><br><span class="line">        sortarray(nums,temp,<span class="number">0</span>,<span class="keyword">int</span>(nums.size()<span class="number">-1</span>));</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Mergesort version 2.0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; t;  <span class="comment">// 临时排序的数的，然后在合并回原数组</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> l, <span class="keyword">int</span> mid, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = l, j = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt;= nums[j]) t[len++] = nums[i++];</span><br><span class="line">            <span class="keyword">else</span> t[len++] = nums[j++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= mid) t[len++] = nums[i++];</span><br><span class="line">        <span class="keyword">while</span> (j &lt;= r) t[len++] = nums[j++];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            nums[l+i] = t[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        mergeSort(nums, l, mid);</span><br><span class="line">        mergeSort(nums, mid + <span class="number">1</span>, r);</span><br><span class="line">        merge(nums, l, mid, r);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sortArray(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        t = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n);</span><br><span class="line">        mergeSort(nums, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//BuubleSort</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size()<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;nums.size()<span class="number">-1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&gt;nums[j+<span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = nums[j];</span><br><span class="line">                    nums[j] = nums[j+<span class="number">1</span>];</span><br><span class="line">                    nums[j+<span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MergeSort</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;nums, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp, <span class="keyword">int</span> low, <span class="keyword">int</span> high, <span class="keyword">int</span> mid)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=low;k&lt;=high;k++) &#123;</span><br><span class="line">                temp[k] = nums[k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i = low, j = mid+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=low;k&lt;=high;k++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;mid) nums[k] = temp[j++];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(j&gt;high) nums[k] = temp[i++];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(temp[j]&lt;temp[i]) &#123;</span><br><span class="line">                nums[k] = temp[j++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> nums[k] = temp[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sortarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;nums, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(high&lt;=low) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = (low+high)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid] &lt; nums[mid+<span class="number">1</span>]) <span class="keyword">return</span>;</span><br><span class="line">        sortarray(nums,temp,low,mid);</span><br><span class="line">        sortarray(nums,temp,mid+<span class="number">1</span>,high);</span><br><span class="line">        <span class="keyword">if</span> (nums[mid+<span class="number">1</span>]&lt;nums[mid]) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        merge(nums,temp,low,high,mid);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp = nums;</span><br><span class="line">        sortarray(nums,temp,<span class="number">0</span>,<span class="keyword">int</span>(nums.size()<span class="number">-1</span>));</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Mergesort version 2.0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; t;  <span class="comment">// 临时排序的数的，然后在合并回原数组</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> l, <span class="keyword">int</span> mid, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = l, j = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt;= nums[j]) t[len++] = nums[i++];</span><br><span class="line">            <span class="keyword">else</span> t[len++] = nums[j++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= mid) t[len++] = nums[i++];</span><br><span class="line">        <span class="keyword">while</span> (j &lt;= r) t[len++] = nums[j++];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            nums[l+i] = t[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        mergeSort(nums, l, mid);</span><br><span class="line">        mergeSort(nums, mid + <span class="number">1</span>, r);</span><br><span class="line">        merge(nums, l, mid, r);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        t = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n);</span><br><span class="line">        mergeSort(nums, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
 </article>
@@ -179,14 +186,14 @@
     </li>
   
     <li>
-      <article class="ListView">
+      <article class='ListView'>
     <header class="title">
       
         <h1>
-          <a href="/2020/02/23/Leetcode-20双周赛/">Leetcode - 20双周赛</a>
+          <a href="/2020/02/23/Leetcode-20%E5%8F%8C%E5%91%A8%E8%B5%9B/">Leetcode - 20双周赛</a>
         </h1>
       
-      <div class="ListMeta">
+      <div class='ListMeta'>
   <time datetime="2020-02-23T12:53:16.549Z" itemprop="datePublished">
     2020-02-23
   </time>
@@ -225,13 +232,13 @@
     </header>
     <div>
       
-        <h3 id="5323-根据数字二进制下-1-的数目排序-Easy"><a href="#5323-根据数字二进制下-1-的数目排序-Easy" class="headerlink" title="5323. 根据数字二进制下 1 的数目排序(Easy)"></a>5323. 根据数字二进制下 1 的数目排序(Easy)</h3><h4 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h4><p><a href="https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/</a></p>
+        <h3 id="5323-根据数字二进制下-1-的数目排序-Easy"><a href="#5323-根据数字二进制下-1-的数目排序-Easy" class="headerlink" title="5323. 根据数字二进制下 1 的数目排序(Easy)"></a>5323. 根据数字二进制下 1 的数目排序(Easy)</h3><h4 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/">https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/</a></p>
 <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p>
 <p>如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值大小升序排列。</p>
 <p>请你返回排序后的数组。</p>
         
           <div class="more-link">
-            <a href="/2020/02/23/Leetcode-20双周赛/#more">Read On »</a>
+            <a href="/2020/02/23/Leetcode-20%E5%8F%8C%E5%91%A8%E8%B5%9B/#more">Read On »</a>
           </div>
         
       
@@ -241,14 +248,14 @@
     </li>
   
     <li>
-      <article class="ListView">
+      <article class='ListView'>
     <header class="title">
       
         <h1>
-          <a href="/2020/02/23/Leetcode-177周赛/">Leetcode - 177周赛</a>
+          <a href="/2020/02/23/Leetcode-177%E5%91%A8%E8%B5%9B/">Leetcode - 177周赛</a>
         </h1>
       
-      <div class="ListMeta">
+      <div class='ListMeta'>
   <time datetime="2020-02-23T12:14:58.149Z" itemprop="datePublished">
     2020-02-23
   </time>
@@ -261,11 +268,11 @@
   </li>
 
   <li class="meta-text">
-  { <a href="/tags/week-contest/">week contest</a> }
+  { <a href="/tags/Algorithm/">Algorithm</a> }
   </li>
 
   <li class="meta-text">
-  { <a href="/tags/Algorithm/">Algorithm</a> }
+  { <a href="/tags/week-contest/">week contest</a> }
   </li>
 
 
@@ -287,12 +294,12 @@
     </header>
     <div>
       
-        <h3 id="5169-日期之间隔几天-Easy"><a href="#5169-日期之间隔几天-Easy" class="headerlink" title="5169. 日期之间隔几天(Easy)"></a>5169. 日期之间隔几天(Easy)</h3><h4 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h4><p><a href="https://leetcode-cn.com/problems/number-of-days-between-two-dates/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-days-between-two-dates/</a></p>
+        <h3 id="5169-日期之间隔几天-Easy"><a href="#5169-日期之间隔几天-Easy" class="headerlink" title="5169. 日期之间隔几天(Easy)"></a>5169. 日期之间隔几天(Easy)</h3><h4 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-days-between-two-dates/">https://leetcode-cn.com/problems/number-of-days-between-two-dates/</a></p>
 <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>请你编写一个程序来计算两个日期之间隔了多少天。</p>
 <p>日期以字符串形式给出，格式为 YYYY-MM-DD，如示例所示。</p>
         
           <div class="more-link">
-            <a href="/2020/02/23/Leetcode-177周赛/#more">Read On »</a>
+            <a href="/2020/02/23/Leetcode-177%E5%91%A8%E8%B5%9B/#more">Read On »</a>
           </div>
         
       
@@ -302,14 +309,14 @@
     </li>
   
     <li>
-      <article class="ListView">
+      <article class='ListView'>
     <header class="title">
       
         <h1>
-          <a href="/2020/02/16/Leetcode-176周赛/">Leetcode-176周赛</a>
+          <a href="/2020/02/16/Leetcode-176%E5%91%A8%E8%B5%9B/">Leetcode-176周赛</a>
         </h1>
       
-      <div class="ListMeta">
+      <div class='ListMeta'>
   <time datetime="2020-02-16T04:47:27.217Z" itemprop="datePublished">
     2020-02-16
   </time>
@@ -322,11 +329,11 @@
   </li>
 
   <li class="meta-text">
-  { <a href="/tags/week-contest/">week contest</a> }
+  { <a href="/tags/Algorithm/">Algorithm</a> }
   </li>
 
   <li class="meta-text">
-  { <a href="/tags/Algorithm/">Algorithm</a> }
+  { <a href="/tags/week-contest/">week contest</a> }
   </li>
 
 
@@ -348,11 +355,11 @@
     </header>
     <div>
       
-        <h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p><a href="https://leetcode-cn.com/contest/weekly-contest-176" target="_blank" rel="noopener">https://leetcode-cn.com/contest/weekly-contest-176</a></p>
+        <h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-176">https://leetcode-cn.com/contest/weekly-contest-176</a></p>
 <h3 id="5340-Count-Negative-Numbers-in-a-Sorted-Matrix"><a href="#5340-Count-Negative-Numbers-in-a-Sorted-Matrix" class="headerlink" title="5340. Count Negative Numbers in a Sorted Matrix"></a>5340. Count Negative Numbers in a Sorted Matrix</h3><h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given a m * n matrix grid which is sorted in non-increasing order both row-wise and column-wise. </p>
         
           <div class="more-link">
-            <a href="/2020/02/16/Leetcode-176周赛/#more">Read On »</a>
+            <a href="/2020/02/16/Leetcode-176%E5%91%A8%E8%B5%9B/#more">Read On »</a>
           </div>
         
       
@@ -362,14 +369,14 @@
     </li>
   
     <li>
-      <article class="ListView">
+      <article class='ListView'>
     <header class="title">
       
         <h1>
           <a href="/2020/02/13/Leetcode-minSteps/">Leetcode - Minimum Number of Steps to Make Two Strings Anagram</a>
         </h1>
       
-      <div class="ListMeta">
+      <div class='ListMeta'>
   <time datetime="2020-02-13T10:45:36.006Z" itemprop="datePublished">
     2020-02-13
   </time>
@@ -408,7 +415,7 @@
     </header>
     <div>
       
-        <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a href="https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/</a></p>
+        <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/">https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/</a></p>
 <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Given two equal-size strings s and t. In one step you can choose any character of t and replace it with another character.</p>
 <p>Return the minimum number of steps to make t an anagram of s.</p>
         
@@ -423,14 +430,14 @@
     </li>
   
     <li>
-      <article class="ListView">
+      <article class='ListView'>
     <header class="title">
       
         <h1>
           <a href="/2020/01/11/Leetcode-array2/">Leetcode - Best Time to Buy and Sell Stock</a>
         </h1>
       
-      <div class="ListMeta">
+      <div class='ListMeta'>
   <time datetime="2020-01-11T13:39:20.155Z" itemprop="datePublished">
     2020-01-11
   </time>
@@ -447,7 +454,7 @@
   </li>
 
   <li class="meta-text">
-  { <a href="/tags/动态规划/">动态规划</a> }
+  { <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a> }
   </li>
 
 
@@ -469,7 +476,7 @@
     </header>
     <div>
       
-        <h3 id="Problem-link"><a href="#Problem-link" class="headerlink" title="Problem link"></a>Problem link</h3><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/</a></p>
+        <h3 id="Problem-link"><a href="#Problem-link" class="headerlink" title="Problem link"></a>Problem link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/</a></p>
 <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Say you have an array for which the i<sup>th</sup> element is the price of a given stock on day i.</p>
 <p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
 <p>Note that you cannot sell a stock before you buy one.</p>
@@ -485,14 +492,14 @@
     </li>
   
     <li>
-      <article class="ListView">
+      <article class='ListView'>
     <header class="title">
       
         <h1>
           <a href="/2019/12/25/Leetcode_array1/">Leetcode - Remove Duplicates from Sorted Array</a>
         </h1>
       
-      <div class="ListMeta">
+      <div class='ListMeta'>
   <time datetime="2019-12-25T04:15:26.218Z" itemprop="datePublished">
     2019-12-25
   </time>
@@ -527,7 +534,7 @@
     </header>
     <div>
       
-        <h3 id="Problem-link"><a href="#Problem-link" class="headerlink" title="Problem link"></a>Problem link</h3><p><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/</a></p>
+        <h3 id="Problem-link"><a href="#Problem-link" class="headerlink" title="Problem link"></a>Problem link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/</a></p>
 <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.</p>
 <p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
         
@@ -548,11 +555,11 @@
     <div>© 2020 - Le4f </div>
     <div>
         <span>
-            Powered by <a href="https://hexo.io">Hexo</a>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
         </span>
         ,
         <span>
-            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
         </span>
     </div>
 </footer>
@@ -560,7 +567,9 @@
         </div>
     </div>
 </div>
+
 <script src="/js/pager/dist/singlepager.js"></script>
+
 <script>
 var sp = new Pager('data-pager-shell')
 
