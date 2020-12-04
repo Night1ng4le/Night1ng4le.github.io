@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stack | Nightingale</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class="SideBar">
+    <section class="avatar" style="background-image: url(/assets/header.png)">
+        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+        </div>
+    </section>
+    <section class="menu">
+        <div>Nightingale</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class="ContentView">
+    <header class="PageTitle">
+        <h1>Stack</h1>
+    </header>
+
+    <section>
+      <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>复习栈的数据结构的一些笔记，比较零碎。</p>
+<a id="more"></a>
+<p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/06/03/screen-shot-2018-06-02-at-203523.png" alt="alt"></p>
+<h4 id="栈的实现"><a href="#栈的实现" class="headerlink" title="栈的实现:"></a>栈的实现:</h4><p><strong>Leetcode版</strong><br>利用向量实现，直接调用向量的接口。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; data;               <span class="comment">// store elements</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="comment">/** Insert an element into the stack. */</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">            data.push_back(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/** Checks whether the queue is empty or not. */</span></span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> data.empty();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/** Get the top item from the queue. */</span></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> data.back();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/** Delete an element from the queue. Return true if the operation is successful. */</span></span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (isEmpty()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            data.pop_back();</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>原始版</strong><br>使用普通数组实现<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个是我自己写的，也可能哪里不对？</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> _size;</span><br><span class="line">    <span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Stack()&#123;</span><br><span class="line">        _size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">char</span>* <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a[--_size];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> e)</span></span>&#123;</span><br><span class="line">        a[_size++]=e;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _size&lt;=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">char</span>* <span class="title">find</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a[index<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><p>c++内置栈库是可以直接调用的。使用栈的操作时，需要注意的是，调用pop函数时，一定要先判断栈是否为空。</p>
+<h3 id="栈应用"><a href="#栈应用" class="headerlink" title="栈应用"></a>栈应用</h3><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li><p>逆序输出（conversion）</p>
+</li>
+<li><p>递归嵌套（stack permutation+parenthesis）</p>
+</li>
+<li><p>延迟缓冲（evaluation）</p>
+<ul>
+<li>线性扫描算法模式中，在预读足够长之后，方能确定可处理的前缀</li>
+</ul>
+</li>
+<li>栈式计算（RPN）<ul>
+<li>逆波兰表达式</li>
+</ul>
+</li>
+</ul>
+<h4 id="逆序输出"><a href="#逆序输出" class="headerlink" title="逆序输出"></a>逆序输出</h4><p><strong>特点</strong></p>
+<ul>
+<li>输出次序与处理过程颠倒</li>
+<li>递归深度和输出长度不易预知</li>
+</ul>
+<p><strong>实例：进制转换</strong></p>
+<ul>
+<li>短除法</li>
+<li>借助辅助栈，每计算出一个就push进栈</li>
+<li>全部计算完成后，连续的pop直至栈空</li>
+</ul>
+<h4 id="递归嵌套"><a href="#递归嵌套" class="headerlink" title="递归嵌套"></a>递归嵌套</h4><p><strong>特点</strong></p>
+<ul>
+<li>具有自相似性的问题可递归描述，但分支位置和嵌套深度不固定</li>
+</ul>
+<p><strong>实例：括号匹配</strong></p>
+<h3 id="经典题目"><a href="#经典题目" class="headerlink" title="经典题目"></a>经典题目</h3><p><a href="https://nighting4le.com/2020/04/21/Leetcode-155-minStack/" target="_blank" rel="noopener">最小栈</a><br><a href="https://nighting4le.com/2020/04/21/Leetcode-20-isValid/" target="_blank" rel="noopener">有效的括号</a><br><a href="https://nighting4le.com/2020/04/11/Leetcode-84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/" target="_blank" rel="noopener">柱状图中最大矩形</a><br><a href="https://nighting4le.com/2020/04/13/Leetcode-85-%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/" target="_blank" rel="noopener">最大矩形</a><br><a href="https://nighting4le.com/2020/05/02/Leetcode-739.dailyTemp/" target="_blank" rel="noopener">每日温度</a><br><a href="https://nighting4le.com/2020/05/03/Leetcode-150-evalRPN/" target="_blank" rel="noopener">逆波兰表达式</a></p>
+<p><strong>参考链接</strong></p>
+<ul>
+<li>《数据结构》，邓俊辉 —— <a href="https://next.xuetangx.com/course/THU08091000384/1516243" target="_blank" rel="noopener">https://next.xuetangx.com/course/THU08091000384/1516243</a></li>
+<li>Leetcode探索【栈和队列】—— <a href="https://leetcode-cn.com/explore/learn/card/queue-stack/218/stack-last-in-first-out-data-structure/875/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/learn/card/queue-stack/218/stack-last-in-first-out-data-structure/875/</a></li>
+</ul>
+
+
+      
+
+    </section>
+    
+      <section class="ArticleMeta">
+          <div>
+            发布于&nbsp;
+            <time datetime="2020-05-02T00:11:11.489Z" itemprop="datePublished">
+              2020-05-02
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/Leetcode/">Leetcode</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/Data-structure/">Data structure</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2020 - Le4f </div>
+    <div>
+        <span>
+            Powered by <a href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>84. 柱状图中最大矩形 | Nightingale</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class="SideBar">
+    <section class="avatar" style="background-image: url(/assets/header.png)">
+        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+        </div>
+    </section>
+    <section class="menu">
+        <div>Nightingale</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class="ContentView">
+    <header class="PageTitle">
+        <h1>84. 柱状图中最大矩形</h1>
+    </header>
+
+    <section>
+      <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a href="https://leetcode-cn.com/problems/largest-rectangle-in-histogram/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/largest-rectangle-in-histogram/</a></p>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
+<p>求在该柱状图中，能够勾勒出来的矩形的最大面积。<br><a id="more"></a></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/histogram.png" alt="alt"></p>
+<p>以上是柱状图的示例，其中每个柱子的宽度为 1，给定的高度为 <code>[2,1,5,6,2,3]</code>。</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/histogram_area.png" alt="alt"><br>图中阴影部分为所能勾勒出的最大矩形面积，其面积为 10 个单位。</p>
+<blockquote>
+<p><strong>示例:</strong></p>
+<p>输入: [2,1,5,6,2,3]<br>输出: 10</p>
+</blockquote>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>问题分析：</p>
+<ul>
+<li>若矩形的底是从位置a到位置b</li>
+<li>底 = b-a+1，高 = min{hi|a≤i≤b}</li>
+<li>S = (b-a+1)*min{hi|a≤i≤b} </li>
+</ul>
+<h4 id="Version-0-蛮力算法"><a href="#Version-0-蛮力算法" class="headerlink" title="Version 0 - 蛮力算法"></a>Version 0 - 蛮力算法</h4><p>基于问题分析，最容易想到的是蛮力算法。通过二重循环枚举求出底边（a≤b），再利用第三重循环枚举最小的底边高度。此时的时间复杂度是O(n<sup>3</sup>)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> S;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> a=<span class="number">0</span>;a&lt;heights.size();a++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> b=a;b&lt;heights.size();b++)&#123;</span><br><span class="line">                <span class="keyword">int</span> minH = <span class="number">2147483647</span>;<span class="comment">//这个数是我根据测试数据设的，正无穷更好一点</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> c=a; c&lt;=b; c++) &#123;<span class="comment">//求min&#123;hi|a≤i≤b&#125;</span></span><br><span class="line">                    minH = min(minH,heights[c]);</span><br><span class="line">                &#125;</span><br><span class="line">                ans = max(ans,(b-a+<span class="number">1</span>)*minH);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Version-1-蛮力算法优化"><a href="#Version-1-蛮力算法优化" class="headerlink" title="Version 1 - 蛮力算法优化"></a>Version 1 - 蛮力算法优化</h4><p>显然无法优化枚举底边的过程，只能优化求高的过程。这里注意到a到b的最小高度H<sub>1</sub>和a到b+1的最小高度H<sub>2</sub>之间的关系为<br>H<sub>2</sub> = min{H<sub>1</sub>,h<sub>b+1</sub>}，此时轻易的可以去掉一层循环。此时的时间复杂度是O(n<sup>2</sup>)。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> a=<span class="number">0</span>;a&lt;heights.size();a++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minH = INT_MAX;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> b=a;b&lt;heights.size();b++)&#123;<span class="comment">//把最里层循环去掉</span></span><br><span class="line">                minH = min(minH,heights[b]);</span><br><span class="line">                ans = max(ans,(b-a+<span class="number">1</span>)*minH);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Version-2-单调栈"><a href="#Version-2-单调栈" class="headerlink" title="Version 2 - 单调栈"></a>Version 2 - 单调栈</h4><p>优化后的蛮力算法，时间复杂度依旧不令人满意，所以使用第二种方法。这里利用单调栈，实现时间复杂度为O(n)的算法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">          ----</span><br><span class="line">         |    |         ---</span><br><span class="line">  ---    |    |        |   |</span><br><span class="line"> |   |   |    |        |   |</span><br><span class="line"> |   |   |    |        |   |</span><br><span class="line"> |   |   |    |        |   |</span><br><span class="line"> |   |   |    |        |   |</span><br><span class="line"> |   |   |    |        |   |</span><br><span class="line">--------------------------------------</span><br><span class="line"> i(k)      k            j(k)</span><br><span class="line"></span><br><span class="line">  --------------------------------</span><br><span class="line"> |                    ----   ---                    </span><br><span class="line"> |                   |i(k)| | k |</span><br><span class="line"> |                    ----   ---</span><br><span class="line">  --------------------------------</span><br><span class="line"></span><br><span class="line">  小----------------------------&gt;大</span><br></pre></td></tr></table></figure>
+<p>k为当前时刻的局部最小值，对于每一个k来说它的两侧，必有一个卡点（可能是哨兵）。遍历直方图的高，栈中存储的是当前时刻元素左边经过筛选的元素。i(k)是k左侧第一个小于k的元素，同理i(k)的前一个元素应该是i<br>(k)左侧第一个小于它的元素。显然，栈中元素是单调的，当前遍历至第一个小于栈顶元素的元素，则应该是栈顶元素对应的右侧卡点，此时即可计算出maxRect的候选者之一。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; myStack;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myHeight(heights.size()+<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;heights.size()+<span class="number">1</span>;i++)&#123;</span><br><span class="line">            myHeight[i] = heights[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        myStack.push(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=heights.size()+<span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (myHeight[i]&lt;myHeight[myStack.top()]) &#123;</span><br><span class="line">                <span class="keyword">int</span> nowheight = myHeight[myStack.top()];</span><br><span class="line">                myStack.pop();</span><br><span class="line">                ans = max(nowheight*(i-myStack.top()<span class="number">-1</span>), ans);</span><br><span class="line">            &#125;</span><br><span class="line">            myStack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Some-tips"><a href="#Some-tips" class="headerlink" title="Some tips"></a>Some tips</h3><blockquote>
+<ul>
+<li>n ≤ i * 1000 —–&gt; O(n<sup>2</sup>)，O(n<sup>2</sup>logn)的算法可用</li>
+<li>n ≤ i * 10000 —-&gt; O(n)，O(nlogn)，O(nlog<sup>2</sup>n)的算法可用</li>
+</ul>
+</blockquote>
+
+
+      
+
+    </section>
+    
+      <section class="ArticleMeta">
+          <div>
+            发布于&nbsp;
+            <time datetime="2020-04-11T05:39:52.309Z" itemprop="datePublished">
+              2020-04-11
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/Stack/">Stack</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/Leedcode/">Leedcode</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/算法训练营/">算法训练营</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2020 - Le4f </div>
+    <div>
+        <span>
+            Powered by <a href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Leetcode - 69. x的平方根 | Nightingale</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class="SideBar">
+    <section class="avatar" style="background-image: url(/assets/header.png)">
+        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+        </div>
+    </section>
+    <section class="menu">
+        <div>Nightingale</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class="ContentView">
+    <header class="PageTitle">
+        <h1>Leetcode - 69. x的平方根</h1>
+    </header>
+
+    <section>
+      <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>实现 int sqrt(int x) 函数。<br>计算并返回 x 的平方根，其中 x 是非负整数。<br>由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。</p>
+<a id="more"></a>
+<p><strong>示例 1:</strong><br>输入: 4<br>输出: 2</p>
+<p><strong>示例 2:</strong><br>输入: 8<br>输出: 2<br>说明: 8 的平方根是 2.82842…,<br>     由于返回类型是整数，小数部分将被舍去。</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><p>这是一个比较粗略的解法。对于x&lt;2的情况，直接返回x；对x≥2，x的平方根必然在(0,x/2)之间。所以这个问题就变成了折半查找特定值的问题。<br><img src="https://pic.leetcode-cn.com/Figures/69/binary.png" alt="alt"></p>
+<p><strong>算法</strong></p>
+<ul>
+<li>如果 <code>x &lt; 2</code>，返回 <code>x</code></li>
+<li>令左边界为 <code>2</code>，右边界为 <code>x/2</code></li>
+<li>当 <code>left &lt;= right</code> 时：<ul>
+<li>令 <code>num = (left + right) / 2</code>，比较 <code>num * num</code> 与 <code>x</code>：<ul>
+<li>如果 <code>num * num &gt; x</code>，更新右边界为<code>right = pivot -1</code></li>
+<li>如果 <code>num * num &lt; x</code>，更新左边界为 <code>left = pivot + 1</code></li>
+<li>如果 <code>num * num == x</code>，即整数平方根为 <code>num</code>，返回 <code>num</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>返回 <code>right</code></li>
+</ul>
+<p><strong>代码</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x&lt;<span class="number">2</span>)  <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">long</span> ans;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> right = x/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (left&lt;=right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (left + right)/<span class="number">2</span>;</span><br><span class="line">            ans = (<span class="keyword">long</span>)mid*mid;</span><br><span class="line">            <span class="keyword">if</span> (ans&gt;x) right = mid<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ans&lt;x) left = mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+
+      
+
+    </section>
+    
+      <section class="ArticleMeta">
+          <div>
+            发布于&nbsp;
+            <time datetime="2020-05-04T01:10:10.158Z" itemprop="datePublished">
+              2020-05-04
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/Leetcode/">Leetcode</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/Binary-search/">Binary search</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2020 - Le4f </div>
+    <div>
+        <span>
+            Powered by <a href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

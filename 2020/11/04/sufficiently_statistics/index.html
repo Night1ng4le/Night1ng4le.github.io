@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sufficient statistics | Nightingale</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class="SideBar">
+    <section class="avatar" style="background-image: url(/assets/header.png)">
+        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+        </div>
+    </section>
+    <section class="menu">
+        <div>Nightingale</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class="ContentView">
+    <header class="PageTitle">
+        <h1>Sufficient statistics</h1>
+    </header>
+
+    <section>
+      <h3 id="什么是充分统计量？"><a href="#什么是充分统计量？" class="headerlink" title="什么是充分统计量？"></a>什么是充分统计量？</h3><blockquote>
+<p>Definition 1: Sufficient Statistics<br>若给定统计量的值，样本联合密度的条件分布与未知参数无关，则这个统计量为充分统计量</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>Theorem 1: Factorization theorem<br>设总体概率函数为 [公式] , [公式] 为样本，那么 [公式] 为充分统计量的充要条件为：存在函数 [公式] 与 [公式] 使得对任意的 [公式] 和任意一组的观测值 [公式] ，都有 [公式]</p>
+</blockquote>
+<p>所以求充分统计量的问题基本上就变成了一个高考数学的第一小问，解题步骤也很清晰：</p>
+<blockquote>
+<ol>
+<li>求出联合概率密度</li>
+<li>再找出它与 [公式] 都相关的因子</li>
+<li>剩下的再看它是不是仅仅与样本有关就完事了</li>
+</ol>
+</blockquote>
+<h3 id="极小充分统计量"><a href="#极小充分统计量" class="headerlink" title="极小充分统计量"></a>极小充分统计量</h3><h3 id="完备充分统计量"><a href="#完备充分统计量" class="headerlink" title="完备充分统计量"></a>完备充分统计量</h3><h4 id="分布族的完备性"><a href="#分布族的完备性" class="headerlink" title="分布族的完备性"></a>分布族的完备性</h4><h4 id="统计量的完备性"><a href="#统计量的完备性" class="headerlink" title="统计量的完备性"></a>统计量的完备性</h4><h4 id="Basu定理"><a href="#Basu定理" class="headerlink" title="Basu定理"></a>Basu定理</h4>
+
+      
+
+    </section>
+    
+      <section class="ArticleMeta">
+          <div>
+            发布于&nbsp;
+            <time datetime="2020-11-04T11:54:01.343Z" itemprop="datePublished">
+              2020-11-04
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/digital-signal/">digital signal</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2020 - Le4f </div>
+    <div>
+        <span>
+            Powered by <a href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

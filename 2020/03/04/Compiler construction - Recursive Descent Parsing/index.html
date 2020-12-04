@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Compiler construction - Recursive Descent Parsing | Nightingale</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class="SideBar">
+    <section class="avatar" style="background-image: url(/assets/header.png)">
+        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+        </div>
+    </section>
+    <section class="menu">
+        <div>Nightingale</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class="ContentView">
+    <header class="PageTitle">
+        <h1>Compiler construction - Recursive Descent Parsing</h1>
+    </header>
+
+    <section>
+      <h3 id="自顶向下的语法分析"><a href="#自顶向下的语法分析" class="headerlink" title="自顶向下的语法分析"></a>自顶向下的语法分析</h3><p>根据生成树的不同，语法分析分为自顶向下和自底向上两种方式。</p>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>自顶向下的语法分析：从文法开始符号出发，自上而下的为输入串建立一棵语法树，使语法树的末端结点与给定符号串相匹配。如果最终没有相匹配的语法树，则说明给顶符号串不符合语法规则。</p>
+<a id="more"></a>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>分析过程是带有预测的，对输入符号串要预测属于什么语法成分，然后根据该语法成分的文法建立语法树</li>
+<li>分析过程是一种试探过程，是尽一切办法(选用不同规则) 设法建立语法树的过程，由于是试探过程，故难免有失败， 所以分析过程需进行<code>回溯</code>，因此我们也称这种方法是带回溯的自顶向下分析方法。</li>
+</ul>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ul>
+<li>回溯：分析工作需要部分或者全部重做<ul>
+<li>原因：非终结符的规则其右有多个可能的产生式</li>
+<li>结果：效率低下，理论意义大于实际意义</li>
+</ul>
+</li>
+<li>左递归<ul>
+<li>左递归有可能使自顶向下分析陷入死循环</li>
+</ul>
+</li>
+</ul>
+<h3 id="文法的等价转化"><a href="#文法的等价转化" class="headerlink" title="文法的等价转化"></a>文法的等价转化</h3><h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>为了解决穷举试探所面临的问题（如上）</p>
+<ul>
+<li>消除左递归<ul>
+<li>对于产生式A-&gt;Aa|ß，改写为A-&gt;ßA’，A’-&gt;aA’|ɛ</li>
+</ul>
+</li>
+</ul>
+
+
+      
+
+    </section>
+    
+      <section class="ArticleMeta">
+          <div>
+            发布于&nbsp;
+            <time datetime="2020-03-04T11:11:35.089Z" itemprop="datePublished">
+              2020-03-04
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/Compiler/">Compiler</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/Theroy-Practice/">Theroy &amp; Practice</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2020 - Le4f </div>
+    <div>
+        <span>
+            Powered by <a href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

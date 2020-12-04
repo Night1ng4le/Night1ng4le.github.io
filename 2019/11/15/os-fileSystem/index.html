@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>OS - 文件系统 | Nightingale</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class="SideBar">
+    <section class="avatar" style="background-image: url(/assets/header.png)">
+        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+        </div>
+    </section>
+    <section class="menu">
+        <div>Nightingale</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class="ContentView">
+    <header class="PageTitle">
+        <h1>OS - 文件系统</h1>
+    </header>
+
+    <section>
+      <p>这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。<br>视频来源：学堂在线<br>本章笔记主要是文章系统相关知识，这一章概念比较多一些，宜多看几遍尝试理解</p>
+<a id="more"></a>
+<h3 id="文件系统的概念"><a href="#文件系统的概念" class="headerlink" title="文件系统的概念"></a>文件系统的概念</h3><h4 id="文件系统和文件"><a href="#文件系统和文件" class="headerlink" title="文件系统和文件"></a>文件系统和文件</h4><p>文件系统是操作系统中管理持久数据的子系统，提供数据存储和访问功能。</p>
+<ul>
+<li>组织、检索、读写访问功能</li>
+</ul>
+<p>文件是具有符号名，由字节序列构成的数据项的集合</p>
+<ul>
+<li>文件系统的基本数据单位</li>
+<li>文件名是文件的标识符号</li>
+</ul>
+<h4 id="文件系统的功能"><a href="#文件系统的功能" class="headerlink" title="文件系统的功能"></a>文件系统的功能</h4><ul>
+<li>分配文件磁盘空间<ul>
+<li>管理文件块（位置和顺序）</li>
+<li>管理空闲空间（位置）</li>
+<li>分配算法（策略）</li>
+</ul>
+</li>
+<li>管理文件集合<ul>
+<li>定位：找到文件的位置</li>
+<li>命名：通过名字找到文件</li>
+<li>文件系统结构：文件组织方式</li>
+</ul>
+</li>
+<li>数据可靠和安全<ul>
+<li>安全：多层次保护数据安全</li>
+<li>可靠：<ul>
+<li>持久保存文件</li>
+<li>避免系统崩溃、媒体错误、攻击等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h4><ul>
+<li>文件头：文件系统元数据中的文件信息<ul>
+<li>文件属性</li>
+<li>文件存储位置和顺序</li>
+</ul>
+</li>
+</ul>
+<h4 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h4><ul>
+<li>文件访问模式<ul>
+<li>进程访问文件数据前必须先“打开”文件</li>
+</ul>
+</li>
+<li>内核跟踪进程打开的所有文件<ul>
+<li>OS为<code>每个进程</code>维护一个打开文件表</li>
+<li>文件描述符是打开文件的标识（文件描述符比文件标识更简单）</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h4><p>操作系统在打开文件表中维护的打开文件的状态和信息</p>
+<ul>
+<li>文件指针：<ul>
+<li>指向最近一次读写位置</li>
+<li>每个进程分别维护自己的打开文件指针</li>
+</ul>
+</li>
+<li>文件打开计数<ul>
+<li>当前打开文件的次数</li>
+<li>用于最后一个进程关闭文件的时候，将其从打开文件列表移除</li>
+</ul>
+</li>
+<li>文件的磁盘位置：缓存数据访问信息</li>
+<li>访问权限：每个进程的文件访问模式</li>
+</ul>
+<h4 id="文件的用户视图和系统视图"><a href="#文件的用户视图和系统视图" class="headerlink" title="文件的用户视图和系统视图"></a>文件的用户视图和系统视图</h4><ul>
+<li><p>文件的用户视图</p>
+<ul>
+<li>持久的数据结构</li>
+</ul>
+</li>
+<li><p>系统访问接口</p>
+<ul>
+<li>字节序列的集合</li>
+<li>系统不关心存储在磁盘上的数据结构</li>
+</ul>
+</li>
+<li><p>系统视图</p>
+<ul>
+<li>数据块的集合</li>
+<li>数据块是逻辑存储单元，扇区是物理存储单元</li>
+<li>块大小和扇区大小的关系（通常是几个扇区构成一个数据块）</li>
+</ul>
+</li>
+</ul>
+<h4 id="用户视图到系统视图的转换"><a href="#用户视图到系统视图的转换" class="headerlink" title="用户视图到系统视图的转换"></a>用户视图到系统视图的转换</h4><ul>
+<li>进程读文件</li>
+<li>进程写文件</li>
+<li><code>文系统中的基本操作单位是数据块</code>。对磁盘的访问中，读一个字节要整块读出来，写一个字节要整块重新写。</li>
+</ul>
+<h4 id="访问模式"><a href="#访问模式" class="headerlink" title="访问模式"></a>访问模式</h4><ul>
+<li>顺序访问：按字节依次读取（大多数文件）</li>
+<li>随机访问：从中间读写<ul>
+<li>不常用，例如虚拟存储中把内存页存储在对换文件中，即随机访问</li>
+</ul>
+</li>
+<li>索引访问：依据数据特征索引<ul>
+<li>通常操作系统不完整提供索引访问</li>
+<li>数据库是建立在索引内容的磁盘访问上</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件内部结构"><a href="#文件内部结构" class="headerlink" title="文件内部结构"></a>文件内部结构</h4><ul>
+<li>无结构<ul>
+<li>单词、字节序列</li>
+</ul>
+</li>
+<li>简单的记录结构<ul>
+<li>分列（定长or不定长）</li>
+</ul>
+</li>
+<li>复杂结构</li>
+</ul>
+<h4 id="文件共享和访问控制"><a href="#文件共享和访问控制" class="headerlink" title="文件共享和访问控制"></a>文件共享和访问控制</h4><ul>
+<li>多用户系统中文件共享是必要的</li>
+<li>访问控制<ul>
+<li>每个用户能够获得的文件访问权限</li>
+<li>模式：读、写、执行、删除、列表</li>
+</ul>
+</li>
+<li>文件访问控制表（ACL）</li>
+</ul>
+<h4 id="分层文件系统"><a href="#分层文件系统" class="headerlink" title="分层文件系统"></a>分层文件系统</h4><ul>
+<li>文件以目录的方式组织起来</li>
+<li>目录是一类特殊的文件<ul>
+<li>目录的内容是文件索引表&lt;文件名，指向文件的指针&gt;</li>
+</ul>
+</li>
+<li>目录和文件的树形结构<ul>
+<li>早起的文件系统是扁平的（一层目录）</li>
+<li>每个文件都对应唯一一条从根目录到文件本身的路径</li>
+</ul>
+</li>
+<li>目录操作<ul>
+<li>搜索、创建、删除、列目录</li>
+<li>重命名、遍历路径</li>
+</ul>
+</li>
+<li>操作系统只允许内核修改目录<ul>
+<li>确保映射完整性</li>
+<li>应用程序通过系统调用访问目录</li>
+</ul>
+</li>
+</ul>
+<h4 id="目录实现"><a href="#目录实现" class="headerlink" title="目录实现"></a>目录实现</h4><ul>
+<li>线性列表（含指向数据块的指针）<ul>
+<li>编程简单</li>
+<li>执行耗时</li>
+</ul>
+</li>
+<li><code>哈希表</code> - 哈希结构的线性表<ul>
+<li>减少目录搜索时间</li>
+<li>文件名哈希值相同时产生冲突</li>
+<li>目录表每一项固定大小</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件别名"><a href="#文件别名" class="headerlink" title="文件别名"></a>文件别名</h4><p>两个或多个文件名关联同一个文件</p>
+<ul>
+<li>硬连接：多个文件指向一个文件<ul>
+<li>最后一个指向该文件的指针删除的时候，文件才是真的删除</li>
+</ul>
+</li>
+<li>软连接：以“快捷方式”指向其他文件<ul>
+<li>通过存储真实文件的逻辑名称来实现</li>
+<li>删除文件别名和删除文件是一样的</li>
+</ul>
+</li>
+<li>保证文件目录中的循环<ul>
+<li>只允许到文件的链接，不允许在子目录的链接</li>
+<li>增加链接时，用循环检测算法确定是否合理（）</li>
+</ul>
+</li>
+</ul>
+<h3 id="虚拟文件系统（VFS）"><a href="#虚拟文件系统（VFS）" class="headerlink" title="虚拟文件系统（VFS）"></a>虚拟文件系统（VFS）</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><ul>
+<li>分层结构</li>
+<li>目的：对所有不同文件系统的抽象</li>
+<li>功能：<ul>
+<li>相同的文件和文件系统接口</li>
+<li>管理相关数据结构</li>
+<li>查询例程（高效遍历）</li>
+<li>与特定文件系统模块交互</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件系统基本数据结构"><a href="#文件系统基本数据结构" class="headerlink" title="文件系统基本数据结构"></a>文件系统基本数据结构</h4><ul>
+<li>文件卷控制块（文件系统）- 挂载时进入内存</li>
+<li>文件控制块（文件）- 文件被访问时进入内存</li>
+<li>目录项 - 遍历文件路径时进入内存</li>
+</ul>
+<h4 id="文件系统存储结构"><a href="#文件系统存储结构" class="headerlink" title="文件系统存储结构"></a>文件系统存储结构</h4><p>持久的存储在外存中，需要时加载进内存</p>
+<h4 id="文件的组织方式"><a href="#文件的组织方式" class="headerlink" title="文件的组织方式"></a>文件的组织方式</h4><ul>
+<li>顺序文件（批量存取）<ul>
+<li>串结构：按存入时间的先后进行排序，每次检索从头开始</li>
+<li>顺序结构：按关键字进行排序，利用关键字特征结合查找算法进行查找</li>
+</ul>
+</li>
+<li><p>索引文件（增删查改单个记录）</p>
+</li>
+<li><p>索引顺序文件</p>
+</li>
+</ul>
+<h3 id="文件缓存和打开文件"><a href="#文件缓存和打开文件" class="headerlink" title="文件缓存和打开文件"></a>文件缓存和打开文件</h3><h3 id="文件分配"><a href="#文件分配" class="headerlink" title="文件分配"></a>文件分配</h3><h3 id="空闲空间管理"><a href="#空闲空间管理" class="headerlink" title="空闲空间管理"></a>空闲空间管理</h3><h3 id="冗余磁盘阵列RAID"><a href="#冗余磁盘阵列RAID" class="headerlink" title="冗余磁盘阵列RAID"></a>冗余磁盘阵列RAID</h3>
+
+      
+
+    </section>
+    
+      <section class="ArticleMeta">
+          <div>
+            发布于&nbsp;
+            <time datetime="2019-11-15T07:24:59.033Z" itemprop="datePublished">
+              2019-11-15
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/OS/">OS</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2020 - Le4f </div>
+    <div>
+        <span>
+            Powered by <a href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

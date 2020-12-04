@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>365 - Day1：学习CTF Wiki栈溢出基础和ROP基础 | Nightingale</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class="SideBar">
+    <section class="avatar" style="background-image: url(/assets/header.png)">
+        <div class="av-pic" style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
+        </div>
+    </section>
+    <section class="menu">
+        <div>Nightingale</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class="ContentView">
+    <header class="PageTitle">
+        <h1>365 - Day1：学习CTF Wiki栈溢出基础和ROP基础</h1>
+    </header>
+
+    <section>
+      <h3 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h3><p><a href="https://github.com/Vancir/365-days-get-xuanwulab-job" target="_blank" rel="noopener">《365天获取玄武实验室的工作》</a>，推荐原版。</p>
+<a id="more"></a>
+<h3 id="栈溢出基础"><a href="#栈溢出基础" class="headerlink" title="栈溢出基础"></a>栈溢出基础</h3><h4 id="Canary"><a href="#Canary" class="headerlink" title="Canary"></a>Canary</h4><h4 id="栈帧结构"><a href="#栈帧结构" class="headerlink" title="栈帧结构"></a>栈帧结构</h4><p><img src="https://pic3.zhimg.com/80/v2-c16e2bc9d6b8aecf1f1f891e12897c9a_1440w.jpg" alt="alt"></p>
+<h4 id="栈溢出原理"><a href="#栈溢出原理" class="headerlink" title="栈溢出原理"></a>栈溢出原理</h4><p><a href="https://ctf-wiki.github.io/ctf-wiki/pwn/linux/stackoverflow/stackoverflow-basic-zh/" target="_blank" rel="noopener">Stack Overflow Principle:</a>通过栈溢出覆盖掉函数栈帧的返回地址, 当函数返回时就会跳入攻击者覆写的地址继续执行代码.<br>栈溢出前提：</p>
+<ul>
+<li>程序必须向栈上写入数据。</li>
+<li>写入的数据大小没有被良好地控制。</li>
+</ul>
+<blockquote>
+<p>i. 确认溢出的长度可以到达栈帧返回地址<br>ii. 确认没有开启Stack Canary<br>iii. 确认覆写的地址所在的段具有<strong>可执行权限</strong></p>
+<ul>
+<li>编译选项<code>-fno-stack-protector</code>用于关闭Stack Canary</li>
+<li>编译时需要加<code>-no-pie</code>确保不会生成位置无关文件，PIE（Position Independent Executable）</li>
+<li>关闭ASLR: <code>echo 0 &gt; /proc/sys/kernel/randomize_va_space</code></li>
+<li><code>-m32</code> - 生成32位程序</li>
+<li><code>gcc -v</code>查看默认PIE设置</li>
+</ul>
+</blockquote>
+<p>关于ASLR：</p>
+<ul>
+<li>0，关闭 ASLR，没有随机化。栈、堆、.so 的基地址每次都相同。</li>
+<li>1，普通的 ASLR。栈基地址、mmap 基地址、.so 加载基地址都将被随机化，但是堆基地址没有随机化。</li>
+<li>2，增强的 ASLR，在 1 的基础上，增加了堆基地址随机化。<br>修改命令<code>echo 0 &gt; /proc/sys/kernel/randomize_va_space</code></li>
+</ul>
+<p>🌰：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">success</span><span class="params">()</span> </span>&#123; <span class="built_in">puts</span>(<span class="string">"You Hava already controlled it."</span>); &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">vulnerable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s[<span class="number">12</span>];</span><br><span class="line">  gets(s);</span><br><span class="line">  <span class="built_in">puts</span>(s);</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">  vulnerable();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里<code>gets()</code>是一个危险函数，gets()以回车判断输入结束，不检验输入长度。</p>
+<p>在这个例子中，目的是希望程序运行的时候可以跳到success函数执行。<br>丢入IDA反编译之后的结果是：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">vulnerable</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+4h] [ebp-14h]</span></span><br><span class="line"></span><br><span class="line">  gets(&amp;s);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">puts</span>(&amp;s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>该字符串距离 ebp 的长度为 0x14（注意这里是16进制），所以对应的栈结构为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">             +-----------------+</span><br><span class="line">             |     retaddr     |</span><br><span class="line">             +-----------------+</span><br><span class="line">             |     saved ebp   |</span><br><span class="line">      ebp---&gt;+-----------------+</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |</span><br><span class="line">s,ebp-0x14--&gt;+-----------------+</span><br></pre></td></tr></table></figure></p>
+<p>同时可以从IDA获取success函数的起始地址为“0x08048456”<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.text:<span class="number">08048456</span> ; <span class="keyword">int</span> __<span class="function">cdecl <span class="title">success</span><span class="params">()</span></span></span><br><span class="line">.text:08048456                 public success</span><br><span class="line">.text:<span class="number">08048456</span> success         proc near</span><br><span class="line">.text:<span class="number">08048456</span></span><br><span class="line">.text:<span class="number">08048456</span> var_4           = dword ptr <span class="number">-4</span></span><br><span class="line">.text:<span class="number">08048456</span></span><br><span class="line">.text:<span class="number">08048456</span> ; __unwind &#123;</span><br><span class="line">.text:<span class="number">08048456</span>                 push    ebp</span><br><span class="line">.text:<span class="number">08048457</span>                 mov     ebp, esp</span><br><span class="line">.text:<span class="number">08048459</span>                 push    ebx</span><br><span class="line">.text:<span class="number">0804845</span>A                 sub     esp, <span class="number">4</span></span><br><span class="line">.text:<span class="number">0804845</span>D                 call    __x86_get_pc_thunk_ax</span><br><span class="line">.text:<span class="number">08048462</span>                 add     eax, <span class="number">1B</span>9Eh</span><br><span class="line">.text:<span class="number">08048467</span>                 sub     esp, <span class="number">0</span>Ch</span><br><span class="line">.text:<span class="number">0804846</span>A                 lea     edx, (aYouHaveAlready - <span class="number">804</span>A000h)[eax] ; <span class="string">"You Have already controlled it."</span></span><br><span class="line">.text:<span class="number">08048470</span>                 push    edx             ; s</span><br><span class="line">.text:<span class="number">08048471</span>                 mov     ebx, eax</span><br><span class="line">.text:<span class="number">08048473</span>                 call    _puts</span><br><span class="line">.text:<span class="number">08048478</span>                 add     esp, <span class="number">10</span>h</span><br><span class="line">.text:<span class="number">0804847B</span>                 nop</span><br><span class="line">.text:<span class="number">0804847</span>C                 mov     ebx, [ebp+var_4]</span><br><span class="line">.text:<span class="number">0804847F</span>                 leave</span><br><span class="line">.text:<span class="number">08048480</span>                 retn</span><br><span class="line">.text:<span class="number">08048480</span> ; &#125; <span class="comment">// starts at 8048456</span></span><br><span class="line">.text:<span class="number">08048480</span> success         endp</span><br></pre></td></tr></table></figure></p>
+<p>注：IDA使用空格切换反汇编窗口的图形和文本。</p>
+<p>因为gets函数不检查输入长度，所以输入的字符串可以设定为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x14*&apos;a&apos;+&apos;bbbb&apos;+success_addr</span><br></pre></td></tr></table></figure></p>
+<p>此时新的栈结构为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">             +-----------------+</span><br><span class="line">             |     0x08048456  |</span><br><span class="line">             +-----------------+</span><br><span class="line">             |      bbbb       |</span><br><span class="line">      ebp---&gt;+-----------------+</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |  #这部分填充a</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |</span><br><span class="line">             |                 |</span><br><span class="line">s,ebp-0x14--&gt;+-----------------+</span><br></pre></td></tr></table></figure></p>
+
+
+      
+
+    </section>
+    
+      <section class="ArticleMeta">
+          <div>
+            发布于&nbsp;
+            <time datetime="2020-05-10T15:49:20.483Z" itemprop="datePublished">
+              2020-05-10
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/Security/">Security</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/CTF-Wiki/">CTF Wiki</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/Stack-Overflow/">Stack Overflow</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/ROP/">ROP</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2020 - Le4f </div>
+    <div>
+        <span>
+            Powered by <a href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>
