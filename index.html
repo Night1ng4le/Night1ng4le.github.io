@@ -17,7 +17,11 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
 <div class="Shell">
@@ -68,6 +72,57 @@
         <div data-pager-shell>
             <ul class="Index">
   
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2020/12/05/fft/">快速傅立叶变换（Fast Fourier Transform）</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2020-12-05T01:18:34.642Z" itemprop="datePublished">
+    2020-12-05
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/Algorithm/">Algorithm</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/Advanced/">Advanced</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>mathjax: true</p>
+<h3 id="0x1-傅立叶变换"><a href="#0x1-傅立叶变换" class="headerlink" title="0x1 傅立叶变换"></a>0x1 傅立叶变换</h3><p>快速傅里叶变换（Fast Fourier Transform，FFT）是一种可在  时间内完成的离散傅里叶变换（Discrete Fourier transform，DFT）算法。</p>
+<p>在算法竞赛中的运用主要是用来加速多项式的乘法。</p>
+<p>$\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$</p>
+<h3 id="0x2-关于多项式"><a href="#0x2-关于多项式" class="headerlink" title="0x2 关于多项式"></a>0x2 关于多项式</h3><h3 id="0x3-关于复数"><a href="#0x3-关于复数" class="headerlink" title="0x3 关于复数"></a>0x3 关于复数</h3><h3 id="0x4-离散傅立叶变换（Discrete-Fourier-Transform）"><a href="#0x4-离散傅立叶变换（Discrete-Fourier-Transform）" class="headerlink" title="0x4 离散傅立叶变换（Discrete Fourier Transform）"></a>0x4 离散傅立叶变换（Discrete Fourier Transform）</h3><h3 id="0x5-离散傅里叶反变换（Inverse-Discrete-Fourier-Transform）"><a href="#0x5-离散傅里叶反变换（Inverse-Discrete-Fourier-Transform）" class="headerlink" title="0x5 离散傅里叶反变换（Inverse Discrete Fourier Transform）"></a>0x5 离散傅里叶反变换（Inverse Discrete Fourier Transform）</h3><h3 id="0x06-关于FFT在C-的实现"><a href="#0x06-关于FFT在C-的实现" class="headerlink" title="0x06 关于FFT在C++的实现"></a>0x06 关于FFT在C++的实现</h3><h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31584464">一小时学会快速傅里叶变换</a></p>
+
+      
+    </div>
+</article>
+
+    </li>
   
     <li>
       <article class='ListView'>
@@ -539,58 +594,6 @@
         
           <div class="more-link">
             <a href="/2020/05/03/Leetcode-150-evalRPN/#more">Read On »</a>
-          </div>
-        
-      
-    </div>
-</article>
-
-    </li>
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
-      
-        <h1>
-          <a href="/2020/05/02/Leetcode-739.dailyTemp/">Leetcode - 739. 每日温度</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2020-05-02T03:37:55.847Z" itemprop="datePublished">
-    2020-05-02
-  </time>
-  
-  | 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/tags/Stack/">Stack</a> }
-  </li>
-
-
-  </ul>
-  
-  
-  / 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/categories/Leetcode/">Leetcode</a> }
-  </li>
-
-
-  </ul>
-  
-</div>
-
-    </header>
-    <div>
-      
-        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>根据每日 气温 列表，请重新生成一个列表，对应位置的输出是需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。</p>
-<p>例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。</p>
-        
-          <div class="more-link">
-            <a href="/2020/05/02/Leetcode-739.dailyTemp/#more">Read On »</a>
           </div>
         
       
