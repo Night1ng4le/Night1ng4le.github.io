@@ -1,136 +1,401 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="0x1 傅立叶变换快速傅里叶变换（Fast Fourier Transform，FFT）是一种可在时间内完成的离散傅里叶变换（Discrete Fourier transform，DFT）算法。 在算法竞赛中的运用主要是用来加速多项式的乘法。 0x2 关于多项式0x3 关于复数0x4 离散傅立叶变换（Discrete Fourier Transform）0x5 离散傅里叶反变换（Inverse D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速傅立叶变换（Fast Fourier Transform）">
+<meta property="og:url" content="http://yoursite.com/2020/12/05/fft/index.html">
+<meta property="og:site_name" content="Le4f">
+<meta property="og:description" content="0x1 傅立叶变换快速傅里叶变换（Fast Fourier Transform，FFT）是一种可在时间内完成的离散傅里叶变换（Discrete Fourier transform，DFT）算法。 在算法竞赛中的运用主要是用来加速多项式的乘法。 0x2 关于多项式0x3 关于复数0x4 离散傅立叶变换（Discrete Fourier Transform）0x5 离散傅里叶反变换（Inverse D">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-12-05T01:18:34.642Z">
+<meta property="article:modified_time" content="2020-12-05T02:29:53.889Z">
+<meta property="article:author" content="Le4f">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/12/05/fft/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
   <title>快速傅立叶变换（Fast Fourier Transform） | Le4f</title>
   
-    <link rel="icon" href="/assets/github.svg">
-  
-  
-  
-  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
-  
-<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
 
-  
-<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
-<body>
-<div class="Shell">
-    <aside class='SideBar'>
-    <section class='avatar' style="background-image: url(/assets/header.png)">
-        <div class='av-pic' style="background-image: url(https://avatars2.githubusercontent.com/u/19544795?s=400&amp;u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&amp;v=4)">
-        </div>
-    </section>
-    <section class='menu'>
-        <div>Le4f</div>
-        
-        <ul>
-          
-            <a href="/" class="Btn">
-              <li>Home</li>
-            </a>  
-          
-            <a href="/archives/" class="Btn">
-              <li>Archive</li>
-            </a>  
-          
-            <a href="/tags/" class="Btn">
-              <li>Tags</li>
-            </a>  
-          
-            <a href="/categories/" class="Btn">
-              <li>Categories</li>
-            </a>  
-          
-            <a href="/about/" class="Btn">
-              <li>About</li>
-            </a>  
-          
-        </ul>
-    </section>
-    <section class="media">
-        
-            
-                <a target="_blank" rel="noopener" href="https://github.com/Night1ng4le">
-                    <img src="/assets/github.svg" />
-                </a>
-            
-        
-    </section>
-</aside>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
-    <div class="container">
-        <div data-pager-shell>
-            <div>
-  <article class='ContentView'>
-    <header class='PageTitle'>
-        <h1>快速傅立叶变换（Fast Fourier Transform）</h1>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Le4f</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
     </header>
 
-    <section>
-      <h3 id="0x1-傅立叶变换"><a href="#0x1-傅立叶变换" class="headerlink" title="0x1 傅立叶变换"></a>0x1 傅立叶变换</h3><p>快速傅里叶变换（Fast Fourier Transform，FFT）是一种可在  时间内完成的离散傅里叶变换（Discrete Fourier transform，DFT）算法。</p>
-<p>在算法竞赛中的运用主要是用来加速多项式的乘法。$E=mc^2$</p>
-<h3 id="0x2-关于多项式"><a href="#0x2-关于多项式" class="headerlink" title="0x2 关于多项式"></a>0x2 关于多项式</h3><h3 id="0x3-关于复数"><a href="#0x3-关于复数" class="headerlink" title="0x3 关于复数"></a>0x3 关于复数</h3><h3 id="0x4-离散傅立叶变换（Discrete-Fourier-Transform）"><a href="#0x4-离散傅立叶变换（Discrete-Fourier-Transform）" class="headerlink" title="0x4 离散傅立叶变换（Discrete Fourier Transform）"></a>0x4 离散傅立叶变换（Discrete Fourier Transform）</h3><h3 id="0x5-离散傅里叶反变换（Inverse-Discrete-Fourier-Transform）"><a href="#0x5-离散傅里叶反变换（Inverse-Discrete-Fourier-Transform）" class="headerlink" title="0x5 离散傅里叶反变换（Inverse Discrete Fourier Transform）"></a>0x5 离散傅里叶反变换（Inverse Discrete Fourier Transform）</h3><h3 id="0x06-关于FFT在C-的实现"><a href="#0x06-关于FFT在C-的实现" class="headerlink" title="0x06 关于FFT在C++的实现"></a>0x06 关于FFT在C++的实现</h3><h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31584464">一小时学会快速傅里叶变换</a></p>
-
-
-      
-
-    </section>
     
-      <section class='ArticleMeta'>
-          <div>
-            发布于&nbsp;
-            <time datetime="2020-12-05T01:18:34.642Z" itemprop="datePublished">
-              2020-12-05
-            </time>
-          </div>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
           
-            <div>
-              tags: 
-  <li class="meta-text">
-  { <a href="/tags/Algorithm/">Algorithm</a> }
-  </li>
 
+          <div class="content post posts-expand">
+            
 
-            </div>
-          
-      </section>
     
-    
-</article>
-
   
-</div>
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/05/fft/">
 
-            <footer>
-    <div>© 2020 - Le4f </div>
-    <div>
-        <span>
-            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
-        </span>
-        ,
-        <span>
-            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
-        </span>
-    </div>
-</footer>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Le4f">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Le4f">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          快速傅立叶变换（Fast Fourier Transform）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-05 09:18:34 / Modified: 10:29:53" itemprop="dateCreated datePublished" datetime="2020-12-05T09:18:34+08:00">2020-12-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Advanced/" itemprop="url" rel="index"><span itemprop="name">Advanced</span></a>
+                </span>
+            </span>
+
+          
 
         </div>
-    </div>
-</div>
+      </header>
 
-<script src="/js/pager/dist/singlepager.js"></script>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="0x1-傅立叶变换"><a href="#0x1-傅立叶变换" class="headerlink" title="0x1 傅立叶变换"></a>0x1 傅立叶变换</h3><p>快速傅里叶变换（Fast Fourier Transform，FFT）是一种可在时间内完成的离散傅里叶变换（Discrete Fourier transform，DFT）算法。</p>
+<p>在算法竞赛中的运用主要是用来加速多项式的乘法。</p>
+<h3 id="0x2-关于多项式"><a href="#0x2-关于多项式" class="headerlink" title="0x2 关于多项式"></a>0x2 关于多项式</h3><h3 id="0x3-关于复数"><a href="#0x3-关于复数" class="headerlink" title="0x3 关于复数"></a>0x3 关于复数</h3><h3 id="0x4-离散傅立叶变换（Discrete-Fourier-Transform）"><a href="#0x4-离散傅立叶变换（Discrete-Fourier-Transform）" class="headerlink" title="0x4 离散傅立叶变换（Discrete Fourier Transform）"></a>0x4 离散傅立叶变换（Discrete Fourier Transform）</h3><h3 id="0x5-离散傅里叶反变换（Inverse-Discrete-Fourier-Transform）"><a href="#0x5-离散傅里叶反变换（Inverse-Discrete-Fourier-Transform）" class="headerlink" title="0x5 离散傅里叶反变换（Inverse Discrete Fourier Transform）"></a>0x5 离散傅里叶反变换（Inverse Discrete Fourier Transform）</h3><h3 id="0x06-关于FFT在C-的实现"><a href="#0x06-关于FFT在C-的实现" class="headerlink" title="0x06 关于FFT在C++的实现"></a>0x06 关于FFT在C++的实现</h3><h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31584464">一小时学会快速傅里叶变换</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/04/sufficiently_statistics/" rel="prev" title="Sufficient statistics">
+      <i class="fa fa-chevron-left"></i> Sufficient statistics
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
 
 <script>
-var sp = new Pager('data-pager-shell')
-
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x1-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">0x1 傅立叶变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x2-%E5%85%B3%E4%BA%8E%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">0x2 关于多项式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x3-%E5%85%B3%E4%BA%8E%E5%A4%8D%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">0x3 关于复数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x4-%E7%A6%BB%E6%95%A3%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2%EF%BC%88Discrete-Fourier-Transform%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">0x4 离散傅立叶变换（Discrete Fourier Transform）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x5-%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%8D%E5%8F%98%E6%8D%A2%EF%BC%88Inverse-Discrete-Fourier-Transform%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">0x5 离散傅里叶反变换（Inverse Discrete Fourier Transform）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x06-%E5%85%B3%E4%BA%8EFFT%E5%9C%A8C-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.</span> <span class="nav-text">0x06 关于FFT在C++的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">6.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Le4f</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Le4f</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
 </html>
