@@ -226,37 +226,44 @@
       
         <p>弱类型语言，自动识别合适的类型。</p>
 <a id="more"></a>
-
 <ul>
-<li><p>变量：</p>
+<li>变量：</li>
+</ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="variable">$x</span> = <span class="number">5</span>;</span><br><span class="line"><span class="variable">$y</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出</p>
+<ul>
+<li>
+<p>输出</p>
 <ul>
 <li>echo - 可以输出一个或多个字符串</li>
 <li>print - 只允许输出一个字符串，返回值总为 1</li>
 <li>注：echo 输出的速度比 print 快， echo 没有返回值，print有返回值1。</li>
 </ul>
 </li>
-<li><p>EOF（heredoc）</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;run&quot;</span></span><br><span class="line"><span class="variable">$a</span>= &lt;&lt;&lt;EOF</span><br><span class="line">		<span class="string">&quot;abc&quot;</span><span class="variable">$name</span></span><br><span class="line">		<span class="string">&quot;123&quot;</span></span><br><span class="line">EOF;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>PHP 定界符 EOF 的作用就是按照原样，包括换行格式什么的，输出在其内部的东西；</li>
-<li>可以解析变量名，双引号内的转义字符，html格式，不能解析函数。</li>
+<li>
+<p>EOF（heredoc）</p>
+</li>
 </ul>
-</li>
-<li><p>类型比较</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;run&quot;</span></span><br><span class="line"><span class="variable">$a</span>= &lt;&lt;&lt;EOF</span><br><span class="line">		<span class="string">&quot;abc&quot;</span><span class="variable">$name</span></span><br><span class="line">		<span class="string">&quot;123&quot;</span></span><br><span class="line">EOF;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>- PHP 定界符 EOF 的作用就是按照原样，包括换行格式什么的，输出在其内部的东西；
+- 可以解析变量名，双引号内的转义字符，html格式，不能解析函数。
+</code></pre>
+<ul>
+<li>类型比较</li>
+</ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">== <span class="comment">//值相等</span></span><br><span class="line">=== <span class="comment">//值和类型都相同</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字符串</p>
+<ul>
+<li>字符串
 <ul>
 <li>strlen() - 字符串长度</li>
-<li>strpos(“指定文本”,”指定查找内容”) - 返回文本中第一个指定内容的位置</li>
-<li>字符串链接，并置运算符<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="variable">$a</span> . <span class="string">&quot;world&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$b</span>; <span class="comment">//pring &quot;hello world&quot;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>strpos(“指定文本”,“指定查找内容”) - 返回文本中第一个指定内容的位置</li>
+<li>字符串链接，并置运算符</li>
 </ul>
 </li>
-<li><p>条件判断</p>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="variable">$a</span> . <span class="string">&quot;world&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$b</span>; <span class="comment">//pring &quot;hello world&quot;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>条件判断</p>
 <ul>
 <li>if</li>
 <li>if…else…</li>
@@ -264,20 +271,26 @@
 <li>switch</li>
 </ul>
 </li>
-<li><p>数组</p>
+<li>
+<p>数组</p>
+</li>
+</ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$cars</span>=<span class="keyword">array</span>(<span class="string">&quot;Volvo&quot;</span>,<span class="string">&quot;BMW&quot;</span>,<span class="string">&quot;Toyota&quot;</span>);<span class="comment">//数值数组</span></span><br><span class="line"></span><br><span class="line">count(<span class="variable">$cars</span>); <span class="comment">//get lenght of array</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$age</span>=<span class="keyword">array</span>(<span class="string">&quot;Peter&quot;</span>=&gt;<span class="string">&quot;35&quot;</span>,<span class="string">&quot;Ben&quot;</span>=&gt;<span class="string">&quot;37&quot;</span>,<span class="string">&quot;Joe&quot;</span>=&gt;<span class="string">&quot;43&quot;</span>);<span class="comment">//关联数组</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;Peter is &quot;</span> . <span class="variable">$age</span>[<span class="string">&#x27;Peter&#x27;</span>] . <span class="string">&quot; years old.&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//关联数组遍历</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$age</span>=<span class="keyword">array</span>(<span class="string">&quot;Peter&quot;</span>=&gt;<span class="string">&quot;35&quot;</span>,<span class="string">&quot;Ben&quot;</span>=&gt;<span class="string">&quot;37&quot;</span>,<span class="string">&quot;Joe&quot;</span>=&gt;<span class="string">&quot;43&quot;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$age</span> <span class="keyword">as</span> <span class="variable">$x</span>=&gt;<span class="variable">$x_value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Key=&quot;</span> . <span class="variable">$x</span> . <span class="string">&quot;, Value=&quot;</span> . <span class="variable">$x_value</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>排序</p>
+<ul>
+<li>排序</li>
+</ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数值数组排序</span></span><br><span class="line">sort(<span class="keyword">array</span>);<span class="comment">//升</span></span><br><span class="line">rsort(<span class="keyword">array</span>);<span class="comment">//降</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//关联数组排序</span></span><br><span class="line">asort(<span class="keyword">array</span>);<span class="comment">//按值升序</span></span><br><span class="line">ksort(<span class="keyword">array</span>);<span class="comment">//按key升序</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>超全局变量</p>
+<ul>
+<li>
+<p>超全局变量</p>
 <ul>
 <li>$_REQUEST - 收集html表单提交的数据</li>
 <li>$_POST</li>
 <li>$_GET - 使用get时，变量会显示在url中</li>
 </ul>
 </li>
-<li><p>魔术常量</p>
+<li>
+<p>魔术常量</p>
 <ul>
 <li>_LINE_ - 当前行号</li>
 <li>_FILE_ - 文件路径+文件名</li>
@@ -289,14 +302,11 @@
 <li>_NAMESPACE_ - 当前命名空间</li>
 </ul>
 </li>
-<li><p>面向对象</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line">fuction __construct(<span class="variable">$par1</span>,<span class="variable">$par2</span>)&#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;url = <span class="variable">$par1</span>;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;title = <span class="variable">$par2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//析构函数</span></span><br><span class="line">fuction __destruct()&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
+<li>
+<p>面向对象</p>
 </li>
 </ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line">fuction __construct(<span class="variable">$par1</span>,<span class="variable">$par2</span>)&#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;url = <span class="variable">$par1</span>;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;title = <span class="variable">$par2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//析构函数</span></span><br><span class="line">fuction __destruct()&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 

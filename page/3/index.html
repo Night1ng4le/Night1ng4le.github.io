@@ -218,7 +218,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="From-concrete-to-abstract"><a href="#From-concrete-to-abstract" class="headerlink" title="From concrete to abstract"></a>From concrete to abstract</h3><p><code>抽象语法树（AST）本质是是精简的解析树。</code>解析树的核心是一个句子语法结构的图示。编译器设计中<em>“AST”</em>和<strong>语法树</strong>是可以等价的”</p>
+          <h3 id="From-concrete-to-abstract">From concrete to abstract</h3>
+<p><code>抽象语法树（AST）本质是是精简的解析树。</code>解析树的核心是一个句子语法结构的图示。编译器设计中*“AST”*和<strong>语法树</strong>是可以等价的”</p>
 <blockquote>
 <p>语法解析树是一个句子的图解结构，任何一种语言都可以来实现这个句子，这意味着他可以遵循任何语法规则。</p>
 </blockquote>
@@ -302,7 +303,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>词法分析器 - 从输入串提取带个独立的基本语法符号（token）<br>主要提取的token有五种：</p>
+          <h3 id="概述">概述</h3>
+<p>词法分析器 - 从输入串提取带个独立的基本语法符号（token）<br>
+主要提取的token有五种：</p>
 <ul>
 <li>关键词 - 保留字</li>
 <li>标识符 - 变量名、常量名、数组名、子过程名等</li>
@@ -390,14 +393,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="文法与语言"><a href="#文法与语言" class="headerlink" title="文法与语言"></a>文法与语言</h3><p>语言是在基本符号集上按照一定规则构成的符号串的集合</p>
+          <h3 id="文法与语言">文法与语言</h3>
+<p>语言是在基本符号集上按照一定规则构成的符号串的集合</p>
 <ul>
 <li>字母表：非空有穷集合</li>
 <li>符号串：字母表中符号构成的有穷序列</li>
 <li>符号串的长度：串中符号的个数</li>
 <li>空串</li>
 <li>连接：就是简单拼接</li>
-<li>方幂：符号串a自身连接n次得到的新符号串<br><code>非空串和空串的连接，就是非空串本身</code></li>
+<li>方幂：符号串a自身连接n次得到的新符号串<br>
+<code>非空串和空串的连接，就是非空串本身</code></li>
 <li>符号串集合的乘积</li>
 </ul>
           <!--noindex-->
@@ -480,8 +485,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="自顶向下的语法分析"><a href="#自顶向下的语法分析" class="headerlink" title="自顶向下的语法分析"></a>自顶向下的语法分析</h3><p>根据生成树的不同，语法分析分为自顶向下和自底向上两种方式。</p>
-<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>自顶向下的语法分析：从文法开始符号出发，自上而下的为输入串建立一棵语法树，使语法树的末端结点与给定符号串相匹配。如果最终没有相匹配的语法树，则说明给顶符号串不符合语法规则。</p>
+          <h3 id="自顶向下的语法分析">自顶向下的语法分析</h3>
+<p>根据生成树的不同，语法分析分为自顶向下和自底向上两种方式。</p>
+<h4 id="概念">概念</h4>
+<p>自顶向下的语法分析：从文法开始符号出发，自上而下的为输入串建立一棵语法树，使语法树的末端结点与给定符号串相匹配。如果最终没有相匹配的语法树，则说明给顶符号串不符合语法规则。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/04/Compiler%20construction%20-%20Recursive%20Descent%20Parsing/#more" rel="contents">
@@ -562,8 +569,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="5323-根据数字二进制下-1-的数目排序-Easy"><a href="#5323-根据数字二进制下-1-的数目排序-Easy" class="headerlink" title="5323. 根据数字二进制下 1 的数目排序(Easy)"></a>5323. 根据数字二进制下 1 的数目排序(Easy)</h3><h4 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/">https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/</a></p>
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p>
+          <h3 id="5323-根据数字二进制下-1-的数目排序-Easy">5323. 根据数字二进制下 1 的数目排序(Easy)</h3>
+<h4 id="Problem-Link">Problem Link</h4>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/">https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/</a></p>
+<h4 id="Description">Description</h4>
+<p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p>
 <p>如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值大小升序排列。</p>
 <p>请你返回排序后的数组。</p>
           <!--noindex-->
@@ -646,8 +656,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="5169-日期之间隔几天-Easy"><a href="#5169-日期之间隔几天-Easy" class="headerlink" title="5169. 日期之间隔几天(Easy)"></a>5169. 日期之间隔几天(Easy)</h3><h4 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-days-between-two-dates/">https://leetcode-cn.com/problems/number-of-days-between-two-dates/</a></p>
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>请你编写一个程序来计算两个日期之间隔了多少天。</p>
+          <h3 id="5169-日期之间隔几天-Easy">5169. 日期之间隔几天(Easy)</h3>
+<h4 id="Problem-Link">Problem Link</h4>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-days-between-two-dates/">https://leetcode-cn.com/problems/number-of-days-between-two-dates/</a></p>
+<h4 id="Description">Description</h4>
+<p>请你编写一个程序来计算两个日期之间隔了多少天。</p>
 <p>日期以字符串形式给出，格式为 YYYY-MM-DD，如示例所示。</p>
           <!--noindex-->
             <div class="post-button">
@@ -729,8 +742,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-176">https://leetcode-cn.com/contest/weekly-contest-176</a></p>
-<h3 id="5340-Count-Negative-Numbers-in-a-Sorted-Matrix"><a href="#5340-Count-Negative-Numbers-in-a-Sorted-Matrix" class="headerlink" title="5340. Count Negative Numbers in a Sorted Matrix"></a>5340. Count Negative Numbers in a Sorted Matrix</h3><h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given a m * n matrix grid which is sorted in non-increasing order both row-wise and column-wise. </p>
+          <h3 id="Link">Link</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-176">https://leetcode-cn.com/contest/weekly-contest-176</a></p>
+<h3 id="5340-Count-Negative-Numbers-in-a-Sorted-Matrix">5340. Count Negative Numbers in a Sorted Matrix</h3>
+<h4 id="Description">Description</h4>
+<p>Given a m * n matrix grid which is sorted in non-increasing order both row-wise and column-wise.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/16/Leetcode-176%E5%91%A8%E8%B5%9B/#more" rel="contents">
@@ -811,8 +827,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/">https://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/</a></p>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Given a linked list, determine if it has a cycle in it.</p>
+          <h3 id="Problem-Link">Problem Link</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/">https://leetcode-cn.com/explore/learn/card/linked-list/194/two-pointer-technique/744/</a></p>
+<h3 id="Description">Description</h3>
+<p>Given a linked list, determine if it has a cycle in it.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/15/Leetcode-hasCircle/#more" rel="contents">
@@ -893,8 +911,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/">https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/</a></p>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Given two equal-size strings s and t. In one step you can choose any character of t and replace it with another character.</p>
+          <h3 id="Problem-Link">Problem Link</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/">https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/</a></p>
+<h3 id="Description">Description</h3>
+<p>Given two equal-size strings s and t. In one step you can choose any character of t and replace it with another character.</p>
 <p>Return the minimum number of steps to make t an anagram of s.</p>
           <!--noindex-->
             <div class="post-button">
@@ -976,7 +996,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Problem-Link"><a href="#Problem-Link" class="headerlink" title="Problem Link"></a>Problem Link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/868/">https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/868/</a></p>
+          <h3 id="Problem-Link">Problem Link</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/868/">https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/868/</a></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/05/Leetcode2020-1-18/#more" rel="contents">
