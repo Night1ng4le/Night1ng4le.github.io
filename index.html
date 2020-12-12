@@ -211,12 +211,14 @@
       
           <p><strong>核心：从时域到频域的变换，这种变换是通过一组特殊的正交基来实现的。</strong></p>
 <h3 id="时域到频域"><a href="#时域到频域" class="headerlink" title="时域到频域"></a>时域到频域</h3><h4 id="时域"><a href="#时域" class="headerlink" title="时域"></a>时域</h4><p>&emsp;&emsp;时域是描述一个数学函数或物理信号对时间的关系，这是生活中最容易感受的一种域。<br>&emsp;&emsp;很多物理量的定义都是基于时间产生的效果或者变化，以时间为参考会更容易理解，但更容易理解不意味方便使用。</p>
-<blockquote>
-<p>举个🌰～<br>一段音频波形图<br><img src="https://pic4.zhimg.com/80/v2-3c724b7aa719464bfd5dc3ac4968cb3a_1440w.jpg?source=1940ef5c" alt="alt"><br>需求1：音量大一些<br>方案：让整体振幅增大（振幅=声音强度）<br>需求2: 加强低音部分<br>方案：无法单纯的加强低音</p>
-</blockquote>
-<h4 id="频域"><a href="#频域" class="headerlink" title="频域"></a>频域</h4><p>&emsp;&emsp;频域是描述频率所用到的空间或者说坐标系。频率是物质美妙完成周期性变化的次数。<br>&emsp;&emsp;对于前面提到的低音效果，可以简化为一个<strong>低通滤波器</strong><br><img src="https://pic4.zhimg.com/80/v2-36dbf0297d9d1c75bff7291a2c321e21_1440w.jpg?source=1940ef5c" alt="alt"><br>&emsp;&emsp;上图是低通滤波器的响应曲线，横轴是频率（Hz），纵轴是声音大小（dB）。所谓的低音效果，就是对声音中低音的部分保留或增强，对应上图中左侧的横线部分；而对于人声中的高音部分进行衰减，对应上图右侧斜坡的部分。通过这个简易的低通滤波器，我们就能将低音过滤，将高音衰减。<br>&emsp;&emsp;因此，低音效果是在频率范围内考虑问题，而波形图是在时域内的图像，所以如果想在时域内解决低音效果的问题，就像对牛弹琴。<strong>所以我们要找到一个沟通时域和频域的桥梁，能够让时域和频域无障碍沟通。但，时域和频域表达的又只能是同一种信息，只是表现形式不同。</strong></p>
-<h3 id="时域转频域"><a href="#时域转频域" class="headerlink" title="时域转频域"></a>时域转频域</h3><p>傅立叶级数</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/11/FourierTransform/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
