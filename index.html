@@ -211,6 +211,14 @@
       
           <p>因为各种原因摸鱼到现在，当事人准备捡回来之前学的东西，重新开始好好学习。</p>
 <h4 id="从问题开始"><a href="#从问题开始" class="headerlink" title="从问题开始"></a>从问题开始</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/14/coder1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -368,129 +376,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="Hardware"><a href="#Hardware" class="headerlink" title="Hardware"></a>Hardware</h3><h4 id="The-Modern-Computer"><a href="#The-Modern-Computer" class="headerlink" title="The Modern Computer"></a>The Modern Computer</h4><ul>
-<li><strong>Computer</strong><ul>
-<li>calculate</li>
-<li>process</li>
-<li>store data</li>
-</ul>
-</li>
-<li><p><strong>Ports</strong>: Connection points that we can connect devices to that extend the functionality of our computer</p>
-</li>
-<li><p><strong>Deep in Computer</strong></p>
-<ul>
-<li><strong>CPU</strong>(Center Process Units)</li>
-<li><strong>RAM</strong>(Random Access Memory, short-term memory)</li>
-<li><strong>Hard drive</strong>(holds all of our data, which includes all of our music, pictures, applications)</li>
-<li><strong>Motherboard</strong> </li>
-</ul>
-</li>
-<li><p><strong>Programs</strong></p>
-</li>
-<li>CPU receive the bytes <ul>
-<li>EDB(External data bus, with different sizes, 8 bit<8 wires>, 16 bit, 32 or 64…)</li>
-<li>Registers</li>
-</ul>
-</li>
-<li>CPU &amp; RAM<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">          -------------</span><br><span class="line">         |     RAM     |</span><br><span class="line">          -------------</span><br><span class="line">                |</span><br><span class="line">                |</span><br><span class="line">                |</span><br><span class="line">          -------------    EDB      ----------</span><br><span class="line">         |     MCC     |-----------|   CPU    |</span><br><span class="line">          -------------             ----------</span><br><span class="line">                |                        |</span><br><span class="line">                 ------------------------</span><br><span class="line">                       Address Bus</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># MCC（Memory Control Chips）</span><br><span class="line"># CPU通过Address BUS告知MCC自己需要的指令地址，MCC从RAM中取数据，通过EDB传送给CPU</span><br></pre></td></tr></table></figure></li>
-<li><p>Cache：Cache存在CPU中，分为L1，L2，L3三级，L1是速度最快的。容量小于RAM，但速度比RAM更快。</p>
-</li>
-<li><p>Clock Wire</p>
-<ul>
-<li>向CPU发送数据，则clock wire上会出现电压，提醒CPU开始上班～</li>
-<li>Clock cycle - 时钟周期</li>
-<li>Clock speed（一定时间内能执行的最大时钟周期数，例如3.4ghz = 3.4 billion cycle per second。这是理论上不能超越的值，真实情况未必能够达到）</li>
-<li>overclocking(to increase CPU rate，常见于低端的CPU)</li>
-</ul>
-</li>
-</ul>
-<h4 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h4><ul>
-<li><p><strong>CPU</strong> </p>
-<ul>
-<li>instruction set(hard-coded in CPU)</li>
-<li>different CPU manufactures may use different instruction set</li>
-<li>eg: Intel、AMD、Qualcomm</li>
-<li>挑CPU的时候注意motherboard的兼容性</li>
-</ul>
-</li>
-<li><p><strong>Major Sockets</strong></p>
-<ul>
-<li>LGA(Land grid array) - 插脚突出</li>
-<li>PGA(Pin grid array) - 插脚在处理器上</li>
-<li>heat sink (避免overheating)</li>
-</ul>
-</li>
-<li><p><strong>RAM</strong></p>
-<ul>
-<li>volatile（断电即清空）</li>
-<li>Program复制到RAM中给CPU运行</li>
-<li>16g RAM means it can run 16g program at the same time</li>
-<li>DRAM(dynamic random-access memory)</li>
-<li>DIMM(dual inline memory module)</li>
-<li>SDRAM(synchronous DRAM)</li>
-<li>DDR SDRAM(double data rate SDRAM)<ul>
-<li>faster</li>
-<li>larger</li>
-<li>need less power</li>
-<li>have DDR1, DDR2, DDR3, DDR4(更快)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Motherboard</strong> (it’s a total boss)</p>
-<ul>
-<li>Chip Set（manage data between CPU、RAM &amp; peripherals[mouse、keyboard]）<ul>
-<li>Northbridge: interconnects RAM, video cards</li>
-<li>Southbridge: 支撑I/O, hard drives, USB drives</li>
-</ul>
-</li>
-<li><p>Mordern Computer: 没有独立的北桥芯片</p>
-</li>
-<li><p>Expansion Slots</p>
-<ul>
-<li>PCI Express(Peripheral Component Interconnect Express) <ul>
-<li>PCIe bus(看起来像小型母板)</li>
-<li>PCIe base expansion card(看起来像小型电路板)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Form Factor</p>
-<ul>
-<li>ATX(Advanced Technology eXtended)</li>
-<li>ITX(Information Technology eXtended)<ul>
-<li>mini-ITX</li>
-<li>nano-ITX</li>
-<li>pico-ITX</li>
-</ul>
-</li>
-<li>ITX比ATX小</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Storage</strong></p>
-<ul>
-<li>Data Sizes<ul>
-<li>A single byte can hold a letter, number or symbol</li>
-</ul>
-</li>
-<li>Hard Drive<ul>
-<li>HDD(Hard Disk Drives): 盘片+机械臂，更容易坏（活动部件多）</li>
-<li>SSD(Solid State Drives): 快且更小但贵</li>
-<li>RPM(revolution per minute)</li>
-</ul>
-</li>
-<li>Interface of Hard Drive<ul>
-<li>ATA Interfaces</li>
-<li>Serial ATA Interfaces(SATA)可热交换(插电时可换)，使用cable传输</li>
-<li>SATA满足不了SSD的需求，所以产生了NVMe(NVM Express)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Starting-It-Up"><a href="#Starting-It-Up" class="headerlink" title="Starting It Up"></a>Starting It Up</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/20/TechnicalSupportFundamentals/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
