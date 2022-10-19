@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":220,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。 覆盖和交换覆盖将程序分成若干个功能相对独立的模块，将没有调用关系的模块分成一组放入同一个共享内存区域。  必要部分：主要功能常驻内存 可选部分：不常用功能，需要时装入内存 没有调用关系的模块必要时可以相互覆盖 缺点： 增加运行时间 增加编程难度">
+  <meta name="description" content="写在最前这个我没看是不是hot100的题，借这个分类记一下刷题笔记（好像是一个后端专题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OS - 虚拟存储">
-<meta property="og:url" content="http://yoursite.com/2019/04/28/os-virtualMemory/index.html">
+<meta property="og:title" content="Hot 100🔥 Day 2">
+<meta property="og:url" content="http://yoursite.com/2022/10/19/hot100-day2/index.html">
 <meta property="og:site_name" content="Le4f x Lab">
-<meta property="og:description" content="OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。 覆盖和交换覆盖将程序分成若干个功能相对独立的模块，将没有调用关系的模块分成一组放入同一个共享内存区域。  必要部分：主要功能常驻内存 可选部分：不常用功能，需要时装入内存 没有调用关系的模块必要时可以相互覆盖 缺点： 增加运行时间 增加编程难度">
+<meta property="og:description" content="写在最前这个我没看是不是hot100的题，借这个分类记一下刷题笔记（好像是一个后端专题">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-04-28T13:09:08.372Z">
-<meta property="article:modified_time" content="2020-12-05T14:23:09.696Z">
+<meta property="article:published_time" content="2022-10-19T07:11:54.496Z">
+<meta property="article:modified_time" content="2022-10-19T07:32:47.436Z">
 <meta property="article:author" content="Le4f">
-<meta property="article:tag" content="OS">
+<meta property="article:tag" content="hot100">
+<meta property="article:tag" content="coding">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/04/28/os-virtualMemory/">
+<link rel="canonical" href="http://yoursite.com/2022/10/19/hot100-day2/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>OS - 虚拟存储 | Le4f x Lab</title>
+  <title>Hot 100🔥 Day 2 | Le4f x Lab</title>
   
 
 
@@ -168,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/os-virtualMemory/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/19/hot100-day2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
@@ -181,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          OS - 虚拟存储
+          Hot 100🔥 Day 2
         </h1>
 
         <div class="post-meta">
@@ -191,7 +192,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-04-28 21:09:08" itemprop="dateCreated datePublished" datetime="2019-04-28T21:09:08+08:00">2019-04-28</time>
+              <time title="Created: 2022-10-19 15:11:54" itemprop="dateCreated datePublished" datetime="2022-10-19T15:11:54+08:00">2022-10-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -199,7 +200,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS-base/" itemprop="url" rel="index"><span itemprop="name">CS base</span></a>
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
             </span>
 
@@ -214,89 +215,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>OS复习过程中，关于虚拟存储部分的简单笔记，描述未必准确，只是帮助自己理解。</p>
-<h3 id="覆盖和交换"><a href="#覆盖和交换" class="headerlink" title="覆盖和交换"></a>覆盖和交换</h3><h4 id="覆盖"><a href="#覆盖" class="headerlink" title="覆盖"></a>覆盖</h4><p>将程序分成若干个功能相对独立的模块，将没有调用关系的模块分成一组放入同一个共享内存区域。</p>
-<ol>
-<li>必要部分：主要功能常驻内存</li>
-<li>可选部分：不常用功能，需要时装入内存</li>
-<li>没有调用关系的模块必要时可以相互覆盖</li>
-<li>缺点：<ul>
-<li>增加运行时间</li>
-<li>增加编程难度</li>
-</ul>
-</li>
-</ol>
+        <h4 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h4><p>这个我没看是不是hot100的题，借这个分类记一下刷题笔记（好像是一个后端专题</p>
 <a id="more"></a>
-<h4 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h4><p>增加正在运行的进程的内存空间</p>
-<ol>
-<li>暂时不能运行的的进程丢进外存（挂起）</li>
-<li>换入换出的基本单位：<code>整个进程</code>的地址空间</li>
-<li>几个问题：<ul>
-<li>何时交换：内存不够/有不够的可能时</li>
-<li>交换区大小：能存放所有用户进程的所有镜像的拷贝</li>
-<li>程序换入时的重定位：动态地址映射的方法</li>
-</ul>
-</li>
-</ol>
-<h4 id="覆盖-amp-交换比较"><a href="#覆盖-amp-交换比较" class="headerlink" title="覆盖&amp;交换比较"></a>覆盖&amp;交换比较</h4><blockquote>
-<p>覆盖：（程序员）</p>
+<h3 id="459-重复的子字符串"><a href="#459-重复的子字符串" class="headerlink" title="459. 重复的子字符串"></a>459. 重复的子字符串</h3><p><strong>Solution 1:</strong> 枚举<br>假设原始的字符串是<code>s</code>，长度为<code>n</code>，重复的子字符串是<code>s&#39;</code>，长度为<code>n&#39;</code><br>如果<code>s</code>由多个重复<code>s&#39;</code>构成，则一定有：</p>
 <ul>
-<li>进程无关的模块之间</li>
-<li>需要知道模块之间的逻辑关系</li>
-<li>发生在程序内部模块间</li>
+<li><code>n</code>是<code>n&#39;</code>的倍数</li>
+<li><code>s&#39;</code>是<code>s</code>的前缀</li>
+<li>对任意的<code>i</code>属于[n’, n)，有s[i] = s[i-n]</li>
 </ul>
-<p>交换：（OS）</p>
-<ul>
-<li>以进程为单位</li>
-<li>不需要知道模块之间的逻辑关系</li>
-<li>发生在内存进程间</li>
-</ul>
-</blockquote>
-<h3 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h3><ul>
-<li>时间局部性：多次执行/访问集中在较短的周期</li>
-<li>空间局部性：当前指令/数据和相邻指令/数据集中在较小的区域中</li>
-<li>分支局部性：多次跳转可能跳到相同位置（循环）</li>
-</ul>
-<h3 id="虚拟存储的概念"><a href="#虚拟存储的概念" class="headerlink" title="虚拟存储的概念"></a>虚拟存储的概念</h3><ul>
-<li>思路：不常用的部分内存块丢到外存中</li>
-<li>原理：<ul>
-<li>程序装载时：将当前需要的页或段装入内存</li>
-<li>执行中：缺页或缺段时，OS将相应页/段调入内存</li>
-<li>OS将内存中暂时不用的页面/段保存到外存（页面置换算法）</li>
-</ul>
-</li>
-<li>实现方式：<ul>
-<li>虚拟页式存储</li>
-<li>虚拟段式存储</li>
-</ul>
-</li>
-<li>基本特征：<ul>
-<li>不连续性</li>
-<li>大用户空间</li>
-</ul>
-</li>
-<li>支持技术<ul>
-<li>硬件 - 地址转换机制</li>
-<li>OS - 管理换入换出</li>
-</ul>
-</li>
-</ul>
-<h3 id="虚拟页式存储"><a href="#虚拟页式存储" class="headerlink" title="虚拟页式存储"></a>虚拟页式存储</h3><ul>
-<li>思路：部分页面装入内存</li>
-<li>和页式存储的区别：<ul>
-<li>页式存储所有页面均在内存（不存在缺页异常）</li>
-<li>虚拟页式存储添加请求调页和缺页处理</li>
-</ul>
-</li>
-<li>页表项结构添加的标志位<ul>
-<li>访问位：该页面是否被访问过</li>
-<li>修改位：内存中的该页是否被修改</li>
-<li>保护位：读写执行权限</li>
-<li>驻留位：页面是否在内存（1:在）</li>
-</ul>
-</li>
-</ul>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution459</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">repeatedSubstringPattern</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n / <span class="number">2</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">boolean</span> match = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; n; j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (s.charAt(j) != s.charAt(j - i))</span><br><span class="line">                    &#123;</span><br><span class="line">                        match = <span class="keyword">false</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (match)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="comment">// main fuction</span></span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in); <span class="comment">//比较灵活的输入接受方式</span></span><br><span class="line">        String s = input.nextLine();</span><br><span class="line">        <span class="keyword">boolean</span> result = repeatedSubstringPattern(s);</span><br><span class="line">        System.out.println(result);</span><br><span class="line">        input.close(); <span class="comment">//最后输入需要关闭</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Solution 2:</strong> 移位和换行<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两行代码的写法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">repeatedSubstringPattern</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    String str = s + s;</span><br><span class="line">    <span class="keyword">return</span> str.substring(<span class="number">1</span>, str.length() - <span class="number">1</span>).contains(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1427-字符串左右移"><a href="#1427-字符串左右移" class="headerlink" title="1427. 字符串左右移"></a>1427. 字符串左右移</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -305,7 +234,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/OS/" rel="tag"># OS</a>
+              <a href="/tags/hot100/" rel="tag"># hot100</a>
+              <a href="/tags/coding/" rel="tag"># coding</a>
           </div>
 
         
@@ -313,11 +243,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019/11/12/os-pageAlgorithm/" rel="next" title="OS - 页面置换算法">
-      OS - 页面置换算法 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/09/18/pwn_start/" rel="prev" title="pwnable.tw - Start">
+      <i class="fa fa-chevron-left"></i> pwnable.tw - Start
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -376,7 +306,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%86%E7%9B%96%E5%92%8C%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">覆盖和交换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A6%86%E7%9B%96"><span class="nav-number">1.1.</span> <span class="nav-text">覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.2.</span> <span class="nav-text">交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A6%86%E7%9B%96-amp-%E4%BA%A4%E6%8D%A2%E6%AF%94%E8%BE%83"><span class="nav-number">1.3.</span> <span class="nav-text">覆盖&amp;交换比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">局部性原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">3.</span> <span class="nav-text">虚拟存储的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="nav-number">4.</span> <span class="nav-text">虚拟页式存储</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="nav-number">1.</span> <span class="nav-text">写在最前</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#459-%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number"></span> <span class="nav-text">459. 重复的子字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1427-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B7%A6%E5%8F%B3%E7%A7%BB"><span class="nav-number"></span> <span class="nav-text">1427. 字符串左右移</span></a></div>
       </div>
       <!--/noindex-->
 
