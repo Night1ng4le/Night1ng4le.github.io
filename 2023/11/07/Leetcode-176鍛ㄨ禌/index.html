@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/tree.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tree.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tree.png">
+  <link rel="mask-icon" href="/images/tree.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":220,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Linkhttps:&#x2F;&#x2F;leetcode-cn.com&#x2F;contest&#x2F;weekly-contest-176 5340. Count Negative Numbers in a Sorted MatrixDescriptionGiven a m * n matrix grid which is sorted in non-increasing order both row-wise and col">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode-176周赛">
+<meta property="og:url" content="http://yoursite.com/2023/11/07/Leetcode-176%E9%8D%9B%E3%84%A8%E7%A6%8C/index.html">
+<meta property="og:site_name" content="Le4f x Lab">
+<meta property="og:description" content="Linkhttps:&#x2F;&#x2F;leetcode-cn.com&#x2F;contest&#x2F;weekly-contest-176 5340. Count Negative Numbers in a Sorted MatrixDescriptionGiven a m * n matrix grid which is sorted in non-increasing order both row-wise and col">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-11-07T14:47:52.000Z">
+<meta property="article:modified_time" content="2023-11-07T14:47:52.000Z">
+<meta property="article:author" content="Le4f">
+<meta property="article:tag" content="Week Contest">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2023/11/07/Leetcode-176%E9%8D%9B%E3%84%A8%E7%A6%8C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Leetcode-176周赛 | Le4f x Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Le4f x Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Schlagwörter</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategorien</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>Über</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/11/07/Leetcode-176%E9%8D%9B%E3%84%A8%E7%A6%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+      <meta itemprop="name" content="Le4f">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Le4f x Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Leetcode-176周赛
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-176">https://leetcode-cn.com/contest/weekly-contest-176</a></p>
+<h3 id="5340-Count-Negative-Numbers-in-a-Sorted-Matrix"><a href="#5340-Count-Negative-Numbers-in-a-Sorted-Matrix" class="headerlink" title="5340. Count Negative Numbers in a Sorted Matrix"></a>5340. Count Negative Numbers in a Sorted Matrix</h3><h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given a m * n matrix grid which is sorted in non-increasing order both row-wise and column-wise. </p>
+<a id="more"></a>
+<p>Return the number of negative numbers in grid.</p>
+<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: grid &#x3D; [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: There are 8 negatives number in the matrix.</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: grid &#x3D; [[3,2],[1,0]]</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 3:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: grid &#x3D; [[1,-1],[-1,-1]]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 4:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: grid &#x3D; [[-1]]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure></p>
+<p><strong>Constraints:</strong></p>
+<blockquote>
+<ul>
+<li>m == grid.length</li>
+<li>n == grid[i].length</li>
+<li>1 &lt;= m, n &lt;= 100</li>
+<li>-100 &lt;= grid[i][j] &lt;= 100</li>
+</ul>
+</blockquote>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>我自己写周赛的时候用的是暴力循环的解法，因为最容易想，当时也没想着改进，不过显而易见，时间复杂度也比较高O(mn)。<br><strong>Version 1.0 暴力循环</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Version 暴力解法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNegatives</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;grid.size();i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;grid[i].size(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j]&lt;<span class="number">0</span>) &#123;</span><br><span class="line">                    count+=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>因为不满意O(mn)的时间复杂度，于是赛后我去啃了一下别人的思路，从易到难，逐步改进一下。</p>
+<p><strong>Version 2.0 对行做二分查找</strong><br>因为数据是排好序的，自己有想过对行做二分查找降低复杂度，时间关系赛后反过来实现一下。这种策略的时间复杂度是O(mlogn)。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//binSearch</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">       <span class="function"><span class="keyword">int</span> <span class="title">countNegatives</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>, m = grid.size(), n = grid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr = grid[i];</span><br><span class="line">            <span class="keyword">if</span> (arr[n<span class="number">-1</span>]&gt;=<span class="number">0</span>) &#123;<span class="comment">//整行非负，跳过</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (arr[<span class="number">0</span>]&lt;<span class="number">0</span>) &#123;<span class="comment">//第一个元素是负数，则整个矩阵是负数</span></span><br><span class="line">                count += (m-i)*n;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> index = binSearch(arr);</span><br><span class="line">            count = count+n-index;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//找第一个负数的下标</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">binSearch</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = arr.size();</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right-left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (arr[mid]&gt;=<span class="number">0</span>) &#123;</span><br><span class="line">                left = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[mid<span class="number">-1</span>]&gt;=<span class="number">0</span>) &#123;<span class="comment">//如果中点的前一个非负，说明找到了</span></span><br><span class="line">                    <span class="keyword">return</span> mid;</span><br><span class="line">                &#125;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Version 3.0 按对角线统计数据</strong><br>version2.0只利用到了行有序，并没有利用到列有序的特点，基于这个缺点，对上述方法提出改进，得到当前策略。因为矩阵的行列都是降序排序，所以我们从右上角出发，即grid[0][n-1]的位置，该点下面的点的值小于它，该点左侧的点的值大于它。所以这种策略的思路大致是：在每一层找一个这样的点，该点右侧均是负数。如果该层全是负数，则记为-1。从grid[0][n-1]的元素值开始，如果大于等于0，则终止，如果小于0，则左移一位，循环此过程。用变量记录每层第一个非正元素的位置，继续下一层。最后叠加次数，输出。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNegatives</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> index = grid[<span class="number">0</span>].size()<span class="number">-1</span>;<span class="comment">//从n-1开始</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;grid.size(); i++) &#123;<span class="comment">//按行循环</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = index; j&gt;=<span class="number">0</span>; j--) &#123;<span class="comment">//按列从右向左循环</span></span><br><span class="line">                <span class="keyword">if</span> (grid[i][j]&gt;=<span class="number">0</span>) &#123;</span><br><span class="line">                    index = j;</span><br><span class="line">                    count += grid[<span class="number">0</span>].size()-index<span class="number">-1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (j==<span class="number">0</span>) &#123;<span class="comment">//如果整行为负数，记为-1</span></span><br><span class="line">                    index = <span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (index==<span class="number">-1</span>) &#123;<span class="comment">//单独计数整行负数的行</span></span><br><span class="line">                count = count+grid[<span class="number">0</span>].size();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Version 3.0的参考链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-negative-numbers-in-a-sorted-matrix/solution/5340-tong-ji-you-xu-ju-zhen-zhong-de-fu-shu-by-blu/">https://leetcode-cn.com/problems/count-negative-numbers-in-a-sorted-matrix/solution/5340-tong-ji-you-xu-ju-zhen-zhong-de-fu-shu-by-blu/</a></p>
+<h3 id="5341-Product-of-the-Last-K-Numbers"><a href="#5341-Product-of-the-Last-K-Numbers" class="headerlink" title="5341. Product of the Last K Numbers"></a>5341. Product of the Last K Numbers</h3><h4 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h4><p>Implement the class ProductOfNumbers that supports two methods:</p>
+<ol>
+<li><p><code>add(int num)</code></p>
+<ul>
+<li>Adds the number num to the back of the current list of numbers.</li>
+</ul>
+</li>
+<li><p><code>getProduct(int k)</code></p>
+<ul>
+<li>Returns the product of the last k numbers in the current list.<br>You can assume that always the current list has at least k numbers.</li>
+</ul>
+</li>
+</ol>
+<p>At any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<p><strong>Input</strong><br>[“ProductOfNumbers”,”add”,”add”,”add”,”add”,”add”,”getProduct”,”getProduct”,”getProduct”,”add”,”getProduct”]<br>[[],[3],[0],[2],[5],[4],[2],[3],[4],[8],[2]]</p>
+<p><strong>Output</strong><br>[null,null,null,null,null,null,20,40,0,null,32]</p>
+<p><strong>Explanation</strong><br>ProductOfNumbers productOfNumbers = new ProductOfNumbers();<br>productOfNumbers.add(3);        // [3]<br>productOfNumbers.add(0);        // [3,0]<br>productOfNumbers.add(2);        // [3,0,2]<br>productOfNumbers.add(5);        // [3,0,2,5]<br>productOfNumbers.add(4);        // [3,0,2,5,4]<br>productOfNumbers.getProduct(2); // return 20. The product of the last 2 numbers is 5 <em> 4 = 20<br>productOfNumbers.getProduct(3); // return 40. The product of the last 3 numbers is 2 </em> 5 <em> 4 = 40<br>productOfNumbers.getProduct(4); // return 0. The product of the last 4 numbers is 0 </em> 2 <em> 5 </em> 4 = 0<br>productOfNumbers.add(8);        // [3,0,2,5,4,8]<br>productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32 </p>
+</blockquote>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>There will be at most 40000 operations considering both <code>add</code> and <code>getProduct</code>.</li>
+<li>0 &lt;= num &lt;= 100</li>
+<li>1 &lt;= k &lt;= 40000</li>
+</ul>
+<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p><strong>Version 1.0 暴力解法</strong><br>这个方法是我周赛自己搞的，本来没想着能过，结果还是那句话，cn版卡的不太严，所以就神奇的通过了orz。很显然这不是一个好方法，因为连续的非零乘法运算积会非常大，每一步也会用更久的时间，所以这个方法虽然能通过，但是不可取。当时觉得太久了，就想有没有改进的乘法运算，不过我没有这方面的知识储备，也没查到相关资料。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//暴力解法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProductOfNumbers</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> result;</span><br><span class="line">    <span class="keyword">int</span> arr[<span class="number">40000</span>];</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ProductOfNumbers() &#123;</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        arr[size] = num;</span><br><span class="line">        size+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getProduct</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size&lt;k) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        result = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;k; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (result==<span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            result = (arr[size-i<span class="number">-1</span>]*result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br><strong>Version 2.0 前缀积</strong></p>
+<p>这个方法是我赛后看来的，时间复杂度为O(1)，不过我没怎么看懂，等我看懂了再补笔记。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//前缀积</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProductOfNumbers</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> mult[<span class="number">40010</span>],isZeroPos,n;<span class="comment">//前缀连乘积(且把0视为1)</span></span><br><span class="line">    ProductOfNumbers() &#123;</span><br><span class="line">        n = <span class="number">0</span>;<span class="comment">//当前添加的数的下标</span></span><br><span class="line">        isZeroPos = <span class="number">0</span>;<span class="comment">//若包含该下标 则连乘积为0</span></span><br><span class="line">        mult[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        ++n;</span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">0</span>) </span><br><span class="line">            isZeroPos = n, mult[n] = <span class="number">1</span>;<span class="comment">//更新0点,因为该点对后面的数的乘积无影响故令此处连乘积为 1</span></span><br><span class="line">        <span class="keyword">else</span> mult[n] = mult[n<span class="number">-1</span>]*num; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getProduct</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        k = n-k+<span class="number">1</span>;<span class="comment">//也就是从前往后数的第n-k+1个数</span></span><br><span class="line">        <span class="keyword">if</span>(k &lt;= isZeroPos) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//包含了0 所以连乘积一定为0</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> mult[n]/mult[k<span class="number">-1</span>];<span class="comment">//若不包含0 则为k~n的连乘积=1~n的连乘积/1~k-1的连乘积</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your ProductOfNumbers object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * ProductOfNumbers* obj = new ProductOfNumbers();</span></span><br><span class="line"><span class="comment"> * obj-&gt;add(num);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj-&gt;getProduct(k);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>这周周赛做出两道题，比起来上一周多ac了一道（可能是因为这周的第二题能暴力解决orz），也算是有一丢丢进步。周赛里复习了vector的相关用法、二分查找，也学会了一点新的思路，后面两道题我也会做，但是不会放在周赛小结里了，会单独拎出来做明白。这周周赛的感觉是简单题的意义在于寻找更好的策略。以后遇到问题，需要注意的是，在规定时间里是否有解？如果有，自己是否能写出最优解？镜子会继续加油的～❤<br>p.s:暴力虽然很丑，但有用！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Week-Contest/" rel="tag"># Week Contest</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/11/07/Leetcode-187%E9%8D%9B%E3%84%A8%E7%A6%8C/" rel="prev" title="Leetcode 5401. 是否所有 1 都至少相隔 k 个元素">
+      <i class="fa fa-chevron-left"></i> Leetcode 5401. 是否所有 1 都至少相隔 k 个元素
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/11/07/LC_Beginner/" rel="next" title="Leetcode - 编程入门">
+      Leetcode - 编程入门 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Link"><span class="nav-number">1.</span> <span class="nav-text">Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5340-Count-Negative-Numbers-in-a-Sorted-Matrix"><span class="nav-number">2.</span> <span class="nav-text">5340. Count Negative Numbers in a Sorted Matrix</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Description"><span class="nav-number">2.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution"><span class="nav-number">2.2.</span> <span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5341-Product-of-the-Last-K-Numbers"><span class="nav-number">3.</span> <span class="nav-text">5341. Product of the Last K Numbers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Description-1"><span class="nav-number">3.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.2.</span> <span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Le4f"
+      src="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+  <p class="site-author-name" itemprop="name">Le4f</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">Kategorien</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">schlagwörter</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Night1ng4le" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Night1ng4le" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:le4f.l@foxmail.com" title="E-Mail → mailto:le4f.l@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Le4f</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
