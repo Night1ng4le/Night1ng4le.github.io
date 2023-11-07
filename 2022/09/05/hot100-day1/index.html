@@ -28,7 +28,7 @@
 <meta property="og:description" content="因为个人原因，开始Leetcode刷题之路，第一个小目标，先把Hot 100刷完一轮。（先立个flag，希望不要变成戏台上的老将军）主要涉及Java和c++，和github仓库里的leetcode_note侧重点不太一样。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-09-05T02:41:40.679Z">
-<meta property="article:modified_time" content="2022-09-06T02:40:29.000Z">
+<meta property="article:modified_time" content="2022-09-07T02:37:44.077Z">
 <meta property="article:author" content="Le4f">
 <meta property="article:tag" content="hot100">
 <meta property="article:tag" content="coding">
@@ -233,7 +233,7 @@
 <li>最后一个数字要判断是否有进位</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// Initialization</span></span><br><span class="line">		<span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">		ListNode first = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">		ListNode node = first; <span class="comment">// node as a pointers</span></span><br><span class="line">		<span class="keyword">int</span> v1 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> v2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// </span></span><br><span class="line">		<span class="keyword">while</span> (l1 || l2)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// check v1 &amp; v2 value</span></span><br><span class="line">			v1 = l1 ? l1.val : <span class="number">0</span>;</span><br><span class="line">			v2 = l2 ? l2.val : <span class="number">0</span>;</span><br><span class="line">			<span class="comment">//</span></span><br><span class="line">			<span class="keyword">if</span> (l1) &#123;</span><br><span class="line">				l1 = l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (l2) &#123;</span><br><span class="line">				l2 = l2.next;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// sum</span></span><br><span class="line">			node.val = flag ? (v1 + v2 + <span class="number">1</span>) : (v1 + v2);</span><br><span class="line">			flag = <span class="keyword">false</span>; <span class="comment">// update flag</span></span><br><span class="line"></span><br><span class="line">			<span class="comment">//update value</span></span><br><span class="line">			<span class="keyword">if</span> (node.val &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">				flag = <span class="keyword">true</span>;</span><br><span class="line">				node.val %= <span class="number">10</span>;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (l1 || l2) &#123;</span><br><span class="line">				ListNode next = <span class="keyword">new</span> ListNode(); <span class="comment">// default val = 0</span></span><br><span class="line">				node.next = next;</span><br><span class="line">				node = next;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// update last flag number</span></span><br><span class="line">		<span class="keyword">if</span> (flag) &#123;</span><br><span class="line">			ListNode next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">			node.next = next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> first;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++</span></span><br></pre></td></tr></table></figure>
+<p>链表c++我不熟，晚点补<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++ </span></span><br></pre></td></tr></table></figure></p>
 <h3 id="0x03-无重复字符最长子串"><a href="#0x03-无重复字符最长子串" class="headerlink" title="0x03 无重复字符最长子串"></a>0x03 无重复字符最长子串</h3><h3 id="0x04-寻找两个正序数组的中位数"><a href="#0x04-寻找两个正序数组的中位数" class="headerlink" title="0x04 寻找两个正序数组的中位数"></a>0x04 寻找两个正序数组的中位数</h3>
     </div>
 
@@ -334,20 +334,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
