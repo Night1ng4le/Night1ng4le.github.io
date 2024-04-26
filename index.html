@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -112,27 +112,27 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Schlagwörter</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategorien</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>Über</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
   </ul>
@@ -162,6 +162,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/03/26/reinforcementLearning1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+      <meta itemprop="name" content="Le4f">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Le4f x Lab">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/26/reinforcementLearning1/" class="post-title-link" itemprop="url">强化学习的数学原理-Notes 1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-03-26 20:17:51" itemprop="dateCreated datePublished" datetime="2024-03-26T20:17:51+08:00">2024-03-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Basic-concept"><a href="#Basic-concept" class="headerlink" title="Basic concept"></a>Basic concept</h2><ul>
+<li>Part 1: State, Action, Policy</li>
+<li>Part 2: Reward, Return, MDP</li>
+</ul>
+<h3 id="Background-A-grid-world-example"><a href="#Background-A-grid-world-example" class="headerlink" title="Background - A grid-world example"></a>Background - A grid-world example</h3><p><strong>Action set</strong>:</p>
+<ul>
+<li>$a_1$: up</li>
+<li>$a_2$: right</li>
+<li>$a_3$: down</li>
+<li>$a_4$: left</li>
+<li>$a_5$: unchage</li>
+</ul>
+<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><ul>
+<li><em>State</em>: agent’s status with respect to the environment.</li>
+<li><em>State space</em>: a set of <code>all</code> the status.</li>
+<li><em>State Space</em> denoted as $S = \{s_i\}, i = 0,1,…$</li>
+</ul>
+<h3 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h3><ul>
+<li><em>Action</em>: make agent from current status to next status.</li>
+<li><em>Action Space</em>: a set of all actions.</li>
+<li><em>Action Space</em> denoted as $A = {a_i}, i=0,1,…$</li>
+<li><strong>Different states have different action space.</strong></li>
+<li>In general, $A(s_i) = A = {a_1,a_2,…}$ for all $i$.</li>
+<li>Maybe change status, maybe not.</li>
+</ul>
+<h3 id="State-transition"><a href="#State-transition" class="headerlink" title="State transition"></a>State transition</h3><ul>
+<li><em>State transition</em>: the process of agent from one state to another.</li>
+<li>$s_i \stackrel{a}\longrightarrow s_{i+1}$</li>
+</ul>
+<h3 id="Policy"><a href="#Policy" class="headerlink" title="Policy"></a>Policy</h3><p>the action that agent choose</p>
+<h3 id="Reward"><a href="#Reward" class="headerlink" title="Reward"></a>Reward</h3><p>the feedback about each action</p>
+<ul>
+<li>Reward: a real number</li>
+</ul>
+<h3 id="Returns"><a href="#Returns" class="headerlink" title="Returns"></a>Returns</h3><p>return = sum of rewards of a policy</p>
+<h3 id="Trajectories-amp-episodes"><a href="#Trajectories-amp-episodes" class="headerlink" title="Trajectories &amp; episodes"></a>Trajectories &amp; episodes</h3><h3 id="MDP-Markov-Decision-Process"><a href="#MDP-Markov-Decision-Process" class="headerlink" title="MDP (Markov Decision Process)"></a>MDP (Markov Decision Process)</h3><p>Markov Process: MDP with determined policy<br>Markov Decision Process:</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/11/07/LC_Beginner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -184,15 +286,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+              <time title="Created: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
@@ -253,15 +355,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+              <time title="Created: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
@@ -283,7 +385,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/11/07/Leetcode-176%E9%8D%9B%E3%84%A8%E7%A6%8C/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -328,15 +430,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+              <time title="Created: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
@@ -357,7 +459,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/11/07/Leetcode-187%E9%8D%9B%E3%84%A8%E7%A6%8C/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -402,15 +504,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+              <time title="Created: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
@@ -433,7 +535,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/11/07/Leetcode-177%E9%8D%9B%E3%84%A8%E7%A6%8C/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -478,15 +580,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+              <time title="Created: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
@@ -508,7 +610,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/11/07/Leetcode%E9%97%88%E3%88%A3%E7%98%AF-Stacksort/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -553,15 +655,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+              <time title="Created: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
                 </span>
@@ -582,7 +684,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/11/07/internetProtocols/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -627,15 +729,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2022-12-13 14:22:46" itemprop="dateCreated datePublished" datetime="2022-12-13T14:22:46+08:00">2022-12-13</time>
+              <time title="Created: 2022-12-13 14:22:46" itemprop="dateCreated datePublished" datetime="2022-12-13T14:22:46+08:00">2022-12-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
@@ -656,7 +758,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/12/13/daily_test_week1/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -701,15 +803,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2022-11-19 10:44:22" itemprop="dateCreated datePublished" datetime="2022-11-19T10:44:22+08:00">2022-11-19</time>
+              <time title="Created: 2022-11-19 10:44:22" itemprop="dateCreated datePublished" datetime="2022-11-19T10:44:22+08:00">2022-11-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
@@ -730,7 +832,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/11/19/error%20notes/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -775,15 +877,15 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2022-11-14 11:07:45" itemprop="dateCreated datePublished" datetime="2022-11-14T11:07:45+08:00">2022-11-14</time>
+              <time title="Created: 2022-11-14 11:07:45" itemprop="dateCreated datePublished" datetime="2022-11-14T11:07:45+08:00">2022-11-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
@@ -804,81 +906,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/11/14/hot100-day3/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/19/hot100-day2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
-      <meta itemprop="name" content="Le4f">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Le4f x Lab">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/19/hot100-day2/" class="post-title-link" itemprop="url">Hot 100🔥 Day 2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-
-              <time title="Erstellt: 2022-10-19 15:11:54" itemprop="dateCreated datePublished" datetime="2022-10-19T15:11:54+08:00">2022-10-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h4><p>这个我没看是不是hot100的题，借这个分类记一下刷题笔记（好像是一个后端专题，专题所有内容都写在这一天了～</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/19/hot100-day2/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -900,7 +928,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -944,10 +972,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          Overview
         </li>
       </ul>
 
@@ -968,21 +996,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">Kategorien</span></a>
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
-        <span class="site-state-item-name">schlagwörter</span></a>
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -1016,7 +1044,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
