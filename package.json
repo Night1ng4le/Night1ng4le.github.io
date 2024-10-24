@@ -20,6 +20,6 @@
     "hexo-renderer-mathjax": "^0.6.0",
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^2.0.0",
-    "moment-timezone": "^0.5.32"
+    "moment-timezone": "^0.5.35"
   }
 }
