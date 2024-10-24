@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/tree.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tree.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tree.png">
+  <link rel="mask-icon" href="/images/tree.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":220,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="文法与语言语言是在基本符号集上按照一定规则构成的符号串的集合  字母表：非空有穷集合 符号串：字母表中符号构成的有穷序列 符号串的长度：串中符号的个数 空串 连接：就是简单拼接 方幂：符号串a自身连接n次得到的新符号串非空串和空串的连接，就是非空串本身 符号串集合的乘积">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Compiler construction - Base of Compiling">
+<meta property="og:url" content="http://yoursite.com/2023/11/07/Compiler%20construction%20-%20Base%20of%20compiling/index.html">
+<meta property="og:site_name" content="Le4f x Lab">
+<meta property="og:description" content="文法与语言语言是在基本符号集上按照一定规则构成的符号串的集合  字母表：非空有穷集合 符号串：字母表中符号构成的有穷序列 符号串的长度：串中符号的个数 空串 连接：就是简单拼接 方幂：符号串a自身连接n次得到的新符号串非空串和空串的连接，就是非空串本身 符号串集合的乘积">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-07T14:47:52.000Z">
+<meta property="article:modified_time" content="2024-10-24T13:07:35.619Z">
+<meta property="article:author" content="Le4f">
+<meta property="article:tag" content="Theroy &amp; Practice">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2023/11/07/Compiler%20construction%20-%20Base%20of%20compiling/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Compiler construction - Base of Compiling | Le4f x Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Le4f x Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/11/07/Compiler%20construction%20-%20Base%20of%20compiling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+      <meta itemprop="name" content="Le4f">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Le4f x Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Compiler construction - Base of Compiling
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Compiler/" itemprop="url" rel="index"><span itemprop="name">Compiler</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="文法与语言"><a href="#文法与语言" class="headerlink" title="文法与语言"></a>文法与语言</h3><p>语言是在基本符号集上按照一定规则构成的符号串的集合</p>
+<ul>
+<li>字母表：非空有穷集合</li>
+<li>符号串：字母表中符号构成的有穷序列</li>
+<li>符号串的长度：串中符号的个数</li>
+<li>空串</li>
+<li>连接：就是简单拼接</li>
+<li>方幂：符号串a自身连接n次得到的新符号串<br><code>非空串和空串的连接，就是非空串本身</code></li>
+<li>符号串集合的乘积</li>
+</ul>
+<a id="more"></a>
+<h3 id="文法和语言的形式化"><a href="#文法和语言的形式化" class="headerlink" title="文法和语言的形式化"></a>文法和语言的形式化</h3><ul>
+<li>文法包括：非终结符集，终结符集，开始符号S，产生式集</li>
+<li>大写字母非终结符，小写字母终结符（尖括号括起来非终结符，不用尖括号终结符）</li>
+<li>约定第一条文法的左部是开始符号</li>
+<li>如果x是从S推导出来的，即S=&gt;x，此时x称为文法G的句型；若x中只有终结符，则x称为文法G的句子</li>
+</ul>
+<h3 id="文法的类型"><a href="#文法的类型" class="headerlink" title="文法的类型"></a>文法的类型</h3><p>Chomsky文法的分类</p>
+<ul>
+<li>0型文法：<strong>递归可枚举语言</strong>，可以被图灵机识别</li>
+<li>1型文法：<strong>上下文有关文法（CSG）</strong>，可由线性限界自动机识别，只有上下文满足一定条件时，非终结符才能替换为终结符</li>
+<li>2型文法：<strong>上下文无关文法（CFG）</strong>，所有的非终结符推导为终结符的过程都不需要依赖上下文，可由下推自动机识别</li>
+<li>3型文法：分为右线型正规文法和左线型正规文法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A-&gt;aB, A-&gt;a  右线型正规文法</span><br><span class="line">A-&gt;Ba, A-&gt;a  左线型正规文法  </span><br></pre></td></tr></table></figure>
+<code>文法中既含有左线型正规文法，又含有右线型正规文法，则不一定是3型文法</code></li>
+</ul>
+<h3 id="上下文无关文法及其语法树"><a href="#上下文无关文法及其语法树" class="headerlink" title="上下文无关文法及其语法树"></a>上下文无关文法及其语法树</h3><p>给定文法的任意句型，都可以构造出与之关联的语法树</p>
+<h4 id="语法树"><a href="#语法树" class="headerlink" title="语法树"></a>语法树</h4><ul>
+<li>条件<ul>
+<li>每个节点都有一个符号做标记（非终结符/终结符）</li>
+<li>根的标记是开始符号S</li>
+<li>一个节点至少有一个除了自己之外的子孙，且n有对应的标记A，则A为非终结符<ul>
+<li>直接父子关系决定产生式</li>
+<li>注：</li>
+<li>语法树🌲表示推导过程中使用的产生式，但不决定推导顺序</li>
+<li>推导顺序：最左推导和最右推导，其中最右推导称为规范推导</li>
+<li>同一个句子对应不同的语法树称为文法的二义性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="句型分析"><a href="#句型分析" class="headerlink" title="句型分析"></a>句型分析</h4><p>句型分析：识别一个输入的符号串是否为语法上正确的程序🙆</p>
+<ul>
+<li>常见的分析方法:<ul>
+<li>自顶向下（自上而下）：从S开始，反复使用各种产生式，寻找<code>匹配</code>的符号串的推导过程，尝试<code>最左推导</code></li>
+<li>自底向上（自下而上）：从输入符号串开始，逐步进行<code>规约</code>，直至S<br><code>注：</code>规约是推导的逆过程<ul>
+<li>短语、直接短语、句柄</li>
+<li>短语：一个句型的语法树中任一子树叶结点所组成的符号串都是该句型的短语</li>
+<li>直接短语：子树中不再包含其他的子树，即A只能推导出b，而b不能再推出其他的式子，则b为此句型的直接短语</li>
+<li>句柄：直接短语中的最左直接短语为该句型的句柄，语法树的最左子树</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Theroy-Practice/" rel="tag"># Theroy & Practice</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/11/07/Compiler%20construction-%20AST/" rel="prev" title="Compiler construction - Abstract Syntax Trees">
+      <i class="fa fa-chevron-left"></i> Compiler construction - Abstract Syntax Trees
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/11/07/Compiler%20construction%20-%20Recursive%20Descent%20Parsing/" rel="next" title="Compiler construction - Recursive Descent Parsing">
+      Compiler construction - Recursive Descent Parsing <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%B3%95%E4%B8%8E%E8%AF%AD%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">文法与语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%B3%95%E5%92%8C%E8%AF%AD%E8%A8%80%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">文法和语言的形式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%B3%95%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">文法的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E5%8F%8A%E5%85%B6%E8%AF%AD%E6%B3%95%E6%A0%91"><span class="nav-number">4.</span> <span class="nav-text">上下文无关文法及其语法树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%91"><span class="nav-number">4.1.</span> <span class="nav-text">语法树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%A5%E5%9E%8B%E5%88%86%E6%9E%90"><span class="nav-number">4.2.</span> <span class="nav-text">句型分析</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Le4f"
+      src="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+  <p class="site-author-name" itemprop="name">Le4f</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Night1ng4le" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Night1ng4le" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:le4f.l@foxmail.com" title="E-Mail → mailto:le4f.l@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Le4f</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

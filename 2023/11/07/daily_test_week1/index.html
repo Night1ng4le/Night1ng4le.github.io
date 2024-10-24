@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/tree.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tree.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tree.png">
+  <link rel="mask-icon" href="/images/tree.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":220,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="上周每日一题的笔记小结（没有涉及困难题）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日一题笔记 - Week 1">
+<meta property="og:url" content="http://yoursite.com/2023/11/07/daily_test_week1/index.html">
+<meta property="og:site_name" content="Le4f x Lab">
+<meta property="og:description" content="上周每日一题的笔记小结（没有涉及困难题）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-07T14:47:52.000Z">
+<meta property="article:modified_time" content="2024-10-24T13:14:35.750Z">
+<meta property="article:author" content="Le4f">
+<meta property="article:tag" content="每日一题">
+<meta property="article:tag" content="Coding">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2023/11/07/daily_test_week1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>每日一题笔记 - Week 1 | Le4f x Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Le4f x Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/11/07/daily_test_week1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+      <meta itemprop="name" content="Le4f">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Le4f x Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          每日一题笔记 - Week 1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>上周每日一题的笔记小结（没有涉及困难题）</p>
+<a id="more"></a>
+<h3 id="1774-最接近目标价格的甜点成本（Medium）"><a href="#1774-最接近目标价格的甜点成本（Medium）" class="headerlink" title="1774. 最接近目标价格的甜点成本（Medium）"></a>1774. 最接近目标价格的甜点成本（Medium）</h3><p><strong>题目描述：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/closest-dessert-cost/">https://leetcode.cn/problems/closest-dessert-cost/</a></p>
+<p>算是动态规划？<br>是一道写完也没有完全懂的题，我是按0-1背包的思路理解的代码，后续可能需要再多看几次，努力掌握精髓。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> curCost, <span class="keyword">int</span>&amp; minAns, <span class="keyword">int</span>&amp; target, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; toppingCosts, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ((curCost - target) &gt; <span class="built_in">abs</span>(minAns - target)) &#123; <span class="comment">// curCost &gt; target &amp;&amp;  calculate difference</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">abs</span>(curCost - target) &lt;= <span class="built_in">abs</span>(minAns - target)) &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">abs</span>(curCost - target) &lt; <span class="built_in">abs</span>(minAns - target)) &#123;</span><br><span class="line">                minAns = curCost;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                minAns = min(curCost, minAns);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p == toppingCosts.size()) <span class="keyword">return</span>;</span><br><span class="line">        dfs(curCost + toppingCosts[p], minAns, target, toppingCosts, p+<span class="number">1</span>);</span><br><span class="line">        dfs(curCost + toppingCosts[p] * <span class="number">2</span>, minAns, target, toppingCosts, p+<span class="number">1</span>);</span><br><span class="line">        dfs(curCost, minAns, target, toppingCosts, p+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">closestCost</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; baseCosts, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; toppingCosts, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 回溯</span></span><br><span class="line">        <span class="keyword">int</span> minAns = *min_element(baseCosts.begin(), baseCosts.end()); <span class="comment">// 最小是只有一个base的时候</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; a : baseCosts) &#123;</span><br><span class="line">            dfs(a, minAns, target, toppingCosts, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minAns;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="1805-字符串中不同整数的数目（Easy）"><a href="#1805-字符串中不同整数的数目（Easy）" class="headerlink" title="1805. 字符串中不同整数的数目（Easy）"></a>1805. 字符串中不同整数的数目（Easy）</h3><p><strong>题目描述：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-different-integers-in-a-string/">https://leetcode.cn/problems/number-of-different-integers-in-a-string/</a></p>
+<h4 id="Solution-1-一种只适合python，但c-和Java就会溢出的方法"><a href="#Solution-1-一种只适合python，但c-和Java就会溢出的方法" class="headerlink" title="Solution 1 一种只适合python，但c++和Java就会溢出的方法"></a>Solution 1 一种只适合python，但c++和Java就会溢出的方法</h4><p>如果一个很长的字符串都是数字，就会出现溢出（累了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numDifferentIntegers</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = word.length();</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">long</span>&gt; nums;</span><br><span class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>; <span class="comment">// calculate number</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// check first number</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&#x27;1&#x27;</span> &lt;= word[<span class="number">0</span>] &amp;&amp; word[<span class="number">0</span>] &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">            sum = word[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (word[i] &lt; <span class="string">&#x27;0&#x27;</span> || word[i] &gt; <span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="string">&#x27;0&#x27;</span> &lt;= word[i<span class="number">-1</span>] &amp;&amp; word[i<span class="number">-1</span>] &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">                    nums.emplace(sum); <span class="comment">// record different number</span></span><br><span class="line">                    sum = <span class="number">0</span>; <span class="comment">// reset sum</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// printf(&quot;%c&quot;, word[i-1]);</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                sum = sum * <span class="number">10</span> + word[i]<span class="number">-48</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum) &#123;</span><br><span class="line">            nums.emplace(sum);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Solution-2-不得不学习的c-双指针法"><a href="#Solution-2-不得不学习的c-双指针法" class="headerlink" title="Solution 2 不得不学习的c++双指针法"></a>Solution 2 不得不学习的c++双指针法</h4><p>一开始想到过双指针（人还是要相信一闪而过的念头），但我自己不知道怎么精妙的使用双指针，直到看见大佬的解决方案</p>
+<ul>
+<li>从第一个是数字的字符开始循环，右指针停在后续第一个不是数字的字符的位置。</li>
+<li>更新左指针位置的时候，跳过已经录入的数字部分，避免无效遍历</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numDifferentIntegers</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// initialize</span></span><br><span class="line">        <span class="keyword">int</span> n = word.length();</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="built_in">string</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isdigit</span>(word[i]))&#123;</span><br><span class="line">                <span class="keyword">int</span> j = i;</span><br><span class="line">                <span class="keyword">while</span>(j &lt; n &amp;&amp; <span class="built_in">isdigit</span>(word[j])) j++;</span><br><span class="line">                <span class="keyword">while</span>(word[i] == <span class="string">&#x27;0&#x27;</span>) i++;  <span class="comment">// remove &#x27;0&#x27;</span></span><br><span class="line">                <span class="built_in">map</span>.emplace(word.substr(i, j-i)); <span class="comment">// trick</span></span><br><span class="line">                i = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">map</span>.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>Note:</code></p>
+<ol>
+<li>substr(begin_pos, len) - 这个函数len = 0 时，substr返回空字符串，emplace()会把空字符串当作0处理，所以只有一个0的情况也不会发生错误。</li>
+<li>emplace()的效率高于insert()</li>
+</ol>
+<h3 id="144-二叉树前序遍历（乱入的Easy）"><a href="#144-二叉树前序遍历（乱入的Easy）" class="headerlink" title="144. 二叉树前序遍历（乱入的Easy）"></a>144. 二叉树前序遍历（乱入的Easy）</h3><p>只是复习一下前序遍历的写法</p>
+<h4 id="Solution-1-递归"><a href="#Solution-1-递归" class="headerlink" title="Solution 1 递归"></a>Solution 1 递归</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归版</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">travel</span><span class="params">(TreeNode* root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        arr.push_back(root-&gt;val);</span><br><span class="line">        travel(root-&gt;left, arr);</span><br><span class="line">        travel(root-&gt;right, arr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr;</span><br><span class="line">        travel(root, arr);</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Solution-2-迭代"><a href="#Solution-2-迭代" class="headerlink" title="Solution 2 迭代"></a>Solution 2 迭代</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="1775-通过最少操作次数使数组的和相等（Medium）"><a href="#1775-通过最少操作次数使数组的和相等（Medium）" class="headerlink" title="1775. 通过最少操作次数使数组的和相等（Medium）"></a>1775. 通过最少操作次数使数组的和相等（Medium）</h3><p><strong>题目描述：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/equal-sum-arrays-with-minimum-number-of-operations/">https://leetcode.cn/problems/equal-sum-arrays-with-minimum-number-of-operations/</a></p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><blockquote>
+<ul>
+<li>判断什么情况下数组的和有可能相等:将和较小的数组每个数字变成6，将和较大的数组每个数字变成1。如果此时较小的数组之和仍小于较大的数组，则<code>return -1</code></li>
+<li>假设nums1的和大于nums2，否则交换两个数组</li>
+<li>nums1每个元素值可以变化<code>nums[i]-1</code>， nums2每个元素的值可以变化<code>6-nums2[i]</code></li>
+<li>使用一个大小为6的数组，记录差值为0，1，2，3，4，5的个数；反向遍历即可找到最少的步数。</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minOperations</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// check impossible</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="number">6</span> * nums1.size() &lt; nums2.size() || <span class="number">6</span> * nums2.size() &lt; nums1.size()) <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 优化，这种情况肯定无解</span></span><br><span class="line">        <span class="comment">// initialize</span></span><br><span class="line">        <span class="keyword">int</span> sum = accumulate(nums1.begin(), nums1.end(), <span class="number">0</span>) - accumulate(nums2.begin(), nums2.end(), <span class="number">0</span>); <span class="comment">// 假设nums1的和大于nums2</span></span><br><span class="line">        <span class="keyword">if</span> (sum &lt; <span class="number">0</span>) &#123; <span class="comment">// 强制nums1和大，nums2的和小</span></span><br><span class="line">            sum = -sum;</span><br><span class="line">            swap(nums1, nums2);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// count</span></span><br><span class="line">        <span class="keyword">int</span> count[<span class="number">6</span>]&#123;&#125;; <span class="comment">// 使用一个长度为6的数组作为计数器，统计差值出现的频次，下标是差值，值是频次</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> x : nums2) count[<span class="number">6</span>-x]++; <span class="comment">// nums2所有元素替换为6</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> x : nums1) count[x<span class="number">-1</span>]++; <span class="comment">// nums1所有元素替换为1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">5</span>, res = <span class="number">0</span>; ; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i * count[i] &gt;= sum) &#123;</span><br><span class="line">                <span class="keyword">return</span> res + (sum + i <span class="number">-1</span>) / i; <span class="comment">// (sum + i -1) / i，这里+i是因为结果向上取整，-1时考虑到如果sum是i的倍数，向上取整结果会多1，-1就可以避免这种情况的发生。</span></span><br><span class="line">            &#125;</span><br><span class="line">            res += count[i];</span><br><span class="line">            sum -= i * count[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="1812-判断国际象棋棋盘格子的颜色（Easy）"><a href="#1812-判断国际象棋棋盘格子的颜色（Easy）" class="headerlink" title="1812. 判断国际象棋棋盘格子的颜色（Easy）"></a>1812. 判断国际象棋棋盘格子的颜色（Easy）</h3><p><strong>题目描述：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/determine-color-of-a-chessboard-square/">https://leetcode.cn/problems/determine-color-of-a-chessboard-square/</a></p>
+<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 傻瓜式写法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">squareIsWhite</span><span class="params">(<span class="built_in">string</span> coordinates)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>((coordinates[<span class="number">0</span>] - <span class="string">&#x27;a&#x27;</span>) % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(coordinates[<span class="number">1</span>] % <span class="number">2</span> == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(coordinates[<span class="number">1</span>] % <span class="number">2</span> == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 题解的写法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">squareIsWhite</span><span class="params">(<span class="built_in">string</span> coordinates)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (coordinates[<span class="number">0</span>] + coordinates[<span class="number">1</span>]) % <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="1780-判断一个数字是否可以表示成三的幂的和（Medium）"><a href="#1780-判断一个数字是否可以表示成三的幂的和（Medium）" class="headerlink" title="1780. 判断一个数字是否可以表示成三的幂的和（Medium）"></a>1780. 判断一个数字是否可以表示成三的幂的和（Medium）</h3><p><strong>题目描述：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three/">https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three/</a></p>
+<p>两种思路本质上都以进制转换为基础写的，区别在于我自己写进制转换的脑回路和大多数人不一样orz</p>
+<h4 id="Solution-1-模拟进制转换（我的思路）"><a href="#Solution-1-模拟进制转换（我的思路）" class="headerlink" title="Solution 1 模拟进制转换（我的思路）"></a>Solution 1 模拟进制转换（我的思路）</h4><p>我是按照我手写10进制转2进制的思路来的。</p>
+<ul>
+<li>先找到一个不大于n的最大的3的次幂，记做subNum</li>
+<li>从最大的subNum开始，进行以3为基数的二进制转换（因为每个subNum只能使用一次）</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findI</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (n &gt;= i) &#123;</span><br><span class="line">            i = i * <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i / <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkPowersOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> subNum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        subNum = findI(n);</span><br><span class="line">        <span class="keyword">while</span> (n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (subNum &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (n &gt;= subNum) &#123;</span><br><span class="line">                    n = n - subNum;</span><br><span class="line">                &#125;</span><br><span class="line">                subNum = subNum / <span class="number">3</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Solution-2-更普遍的解法（题解里大家的写法）"><a href="#Solution-2-更普遍的解法（题解里大家的写法）" class="headerlink" title="Solution 2 更普遍的解法（题解里大家的写法）"></a>Solution 2 更普遍的解法（题解里大家的写法）</h4><p>直接进行10进制转3进制，3进制的结果中一旦出现2，即<code>return false</code>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkPowersOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n % <span class="number">3</span> == <span class="number">2</span>)&#123;   </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            n = n / <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="1796-字符串中第二大的数字（Easy）"><a href="#1796-字符串中第二大的数字（Easy）" class="headerlink" title="1796. 字符串中第二大的数字（Easy）"></a>1796. 字符串中第二大的数字（Easy）</h3><p><strong>题目描述：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/second-largest-digit-in-a-string/">https://leetcode.cn/problems/second-largest-digit-in-a-string/</a></p>
+<h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h4><p>用两个指针记录最大值和次大值，每次比较更新即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">secondHighest</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> f_max = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> s_max = <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">// unordered_set&lt;int&gt; num;</span></span><br><span class="line">        <span class="keyword">while</span> (s[i] != <span class="string">&#x27;\0&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">&#x27;0&#x27;</span> &lt;= s[i] &amp;&amp; s[i] &lt;= <span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> temp = s[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                <span class="keyword">if</span> (f_max &lt; temp) &#123;</span><br><span class="line">                    s_max = f_max;</span><br><span class="line">                    f_max = temp;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s_max &lt; temp &amp;&amp; temp &lt; f_max) &#123;</span><br><span class="line">                    s_max = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (s_max &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> s_max;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>希望这周一切顺利🎐</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag"># 每日一题</a>
+              <a href="/tags/Coding/" rel="tag"># Coding</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/11/07/error%20notes/" rel="prev" title="《一些证明自己很菜的错题记录I》">
+      <i class="fa fa-chevron-left"></i> 《一些证明自己很菜的错题记录I》
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/11/07/TechnicalSupportFundamentals/" rel="next" title="Technical Support Fundamentals">
+      Technical Support Fundamentals <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1774-%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9B%AE%E6%A0%87%E4%BB%B7%E6%A0%BC%E7%9A%84%E7%94%9C%E7%82%B9%E6%88%90%E6%9C%AC%EF%BC%88Medium%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">1774. 最接近目标价格的甜点成本（Medium）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1805-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0%E7%9A%84%E6%95%B0%E7%9B%AE%EF%BC%88Easy%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">1805. 字符串中不同整数的数目（Easy）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-1-%E4%B8%80%E7%A7%8D%E5%8F%AA%E9%80%82%E5%90%88python%EF%BC%8C%E4%BD%86c-%E5%92%8CJava%E5%B0%B1%E4%BC%9A%E6%BA%A2%E5%87%BA%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">Solution 1 一种只适合python，但c++和Java就会溢出的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-2-%E4%B8%8D%E5%BE%97%E4%B8%8D%E5%AD%A6%E4%B9%A0%E7%9A%84c-%E5%8F%8C%E6%8C%87%E9%92%88%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">Solution 2 不得不学习的c++双指针法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#144-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86%EF%BC%88%E4%B9%B1%E5%85%A5%E7%9A%84Easy%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">144. 二叉树前序遍历（乱入的Easy）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-1-%E9%80%92%E5%BD%92"><span class="nav-number">3.1.</span> <span class="nav-text">Solution 1 递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-2-%E8%BF%AD%E4%BB%A3"><span class="nav-number">3.2.</span> <span class="nav-text">Solution 2 迭代</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1775-%E9%80%9A%E8%BF%87%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%AC%A1%E6%95%B0%E4%BD%BF%E6%95%B0%E7%BB%84%E7%9A%84%E5%92%8C%E7%9B%B8%E7%AD%89%EF%BC%88Medium%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">1775. 通过最少操作次数使数组的和相等（Medium）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution"><span class="nav-number">4.1.</span> <span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1812-%E5%88%A4%E6%96%AD%E5%9B%BD%E9%99%85%E8%B1%A1%E6%A3%8B%E6%A3%8B%E7%9B%98%E6%A0%BC%E5%AD%90%E7%9A%84%E9%A2%9C%E8%89%B2%EF%BC%88Easy%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">1812. 判断国际象棋棋盘格子的颜色（Easy）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-1"><span class="nav-number">5.1.</span> <span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1780-%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E8%A1%A8%E7%A4%BA%E6%88%90%E4%B8%89%E7%9A%84%E5%B9%82%E7%9A%84%E5%92%8C%EF%BC%88Medium%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">1780. 判断一个数字是否可以表示成三的幂的和（Medium）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-1-%E6%A8%A1%E6%8B%9F%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%EF%BC%88%E6%88%91%E7%9A%84%E6%80%9D%E8%B7%AF%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">Solution 1 模拟进制转换（我的思路）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-2-%E6%9B%B4%E6%99%AE%E9%81%8D%E7%9A%84%E8%A7%A3%E6%B3%95%EF%BC%88%E9%A2%98%E8%A7%A3%E9%87%8C%E5%A4%A7%E5%AE%B6%E7%9A%84%E5%86%99%E6%B3%95%EF%BC%89"><span class="nav-number">6.2.</span> <span class="nav-text">Solution 2 更普遍的解法（题解里大家的写法）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1796-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%BA%8C%E5%A4%A7%E7%9A%84%E6%95%B0%E5%AD%97%EF%BC%88Easy%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">1796. 字符串中第二大的数字（Easy）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-2"><span class="nav-number">7.1.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Le4f"
+      src="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+  <p class="site-author-name" itemprop="name">Le4f</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Night1ng4le" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Night1ng4le" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:le4f.l@foxmail.com" title="E-Mail → mailto:le4f.l@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Le4f</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
