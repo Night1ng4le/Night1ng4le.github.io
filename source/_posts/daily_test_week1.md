@@ -1,7 +1,7 @@
 ---
 title: 每日一题笔记 - Week 1
 categories: [Leetcode]
-tags: [每日一题,coding]
+tags: [每日一题,Coding]
 ---
 
 上周每日一题的笔记小结（没有涉及困难题）

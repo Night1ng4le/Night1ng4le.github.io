@@ -1,7 +1,7 @@
 ---
 title: 《一些证明自己很菜的错题记录I》
 categories: [Leetcode]
-tags: [coding,Array,note,Data Structure]
+tags: [Coding,Array,Note,Data Structure]
 ---
 
 有种当年学c++刷题库的感觉。所有错误答案分析来自于某论坛。

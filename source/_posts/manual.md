@@ -1,7 +1,7 @@
 ---
 title: Manual Java & C++
 categories: [API]
-tags: [Java, C++, coding]
+tags: [Java, C++, Coding]
 ---
 
 一个备忘手册（无视我）

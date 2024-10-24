@@ -1,7 +1,7 @@
 ---
 title: Hot 100🔥 Day 1
 categories: [Leetcode]
-tags: [hot100,coding]
+tags: [Hot100,Coding]
 ---
 
 因为个人原因，开始Leetcode刷题之路，第一个小目标，先把Hot 100刷完一轮。（先立个flag，希望不要变成戏台上的老将军）

@@ -1,7 +1,7 @@
 ---
 title: Leetcode - 8. 字符串转换整数 (atoi)
 categories: [Leetcode]
-tags: [Array,sort]
+tags: [Array,Sort]
 ---
 
 ### Description

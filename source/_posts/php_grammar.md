@@ -1,7 +1,7 @@
 ---
 title: PHP grammar
 categories: [Memo]
-tags: [php,note]
+tags: [PHP,Note]
 ---
 
 弱类型语言，自动识别合适的类型。

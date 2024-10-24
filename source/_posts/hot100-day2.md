@@ -1,7 +1,7 @@
 ---
 title: Hot 100🔥 Day 2
 categories: [Leetcode]
-tags: [hot100,coding]
+tags: [Hot100,Coding]
 ---
 
 #### 写在最前

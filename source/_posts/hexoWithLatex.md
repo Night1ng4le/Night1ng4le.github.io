@@ -1,3 +1,4 @@
+---
 title: hexo的Next主题支持Latex
 categories: [Memo]
 tags: [hexo]

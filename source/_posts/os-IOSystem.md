@@ -1,6 +1,6 @@
 ---
 title: OS - I/O系统
-categories: [CS base]
+categories: [CS Basis]
 tags: [OS]
 ---
 

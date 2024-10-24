@@ -1,6 +1,6 @@
 ---
 title: Network - 数链层
-categories: [CS base]
+categories: [CS Basis]
 tags: [Network]
 ---
 

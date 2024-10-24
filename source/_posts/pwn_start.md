@@ -1,7 +1,7 @@
 ---
 title: pwnable.tw - Start
 categories: [pwn]
-tags: [pwnable, ctf]
+tags: [pwnable, CTF]
 ---
 我觉得我住在了start...
 

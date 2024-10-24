@@ -1,7 +1,7 @@
 ---
 title: Hot 100🔥 Day 3
 categories: [Leetcode]
-tags: [hot100,coding,Array]
+tags: [Hot100,Coding,Array]
 ---
 
 #### 11. 盛水最多的容器

@@ -1,6 +1,6 @@
 ---
 title: OS - 虚拟存储
-categories: [CS base]
+categories: [CS Basis]
 tags: [OS]
 ---
 

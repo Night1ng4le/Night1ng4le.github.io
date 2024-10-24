@@ -1,6 +1,6 @@
 ---
 title: OS - 页面置换算法
-categories: [CS base]
+categories: [CS Basis]
 tags: [OS]
 ---
 

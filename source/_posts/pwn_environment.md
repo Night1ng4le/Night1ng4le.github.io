@@ -1,7 +1,7 @@
 ---
 title: 安装完ubuntu虚拟机之后要做的事
 categories: [Memo]
-tags: [ctf,tool]
+tags: [CTF,Tool]
 ---
 
 #### 写在最前

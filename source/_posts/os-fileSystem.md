@@ -1,6 +1,6 @@
 ---
 title: OS - 文件系统
-categories: [CS base]
+categories: [CS Basis]
 tags: [OS]
 ---
 这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。

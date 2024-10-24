@@ -1,7 +1,7 @@
 ---
 title: 6.S081 Lab: Xv6 and Unix utilities
-categories: [CS base]
-tags: [MIT OS,OS,xv6]
+categories: [CS Basis]
+tags: [MIT,OS,xv6]
 ---
 
 #### 配置6.S081的实验环境
