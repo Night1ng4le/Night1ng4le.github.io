@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/tree.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tree.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tree.png">
+  <link rel="mask-icon" href="/images/tree.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":220,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。视频来源：学堂在线本章笔记主要是I&#x2F;O系统相关知识，更为详细的内容推荐阅读课本 I&#x2F;O特点设备接口类型及特征 字符设备  存取速度慢，如：键盘鼠标串口 特征：以字节为单位顺序访问 I&#x2F;O命令：get(),put()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OS - I&#x2F;O系统">
+<meta property="og:url" content="http://yoursite.com/2024/10/25/os-IOSystem/index.html">
+<meta property="og:site_name" content="Le4f x Lab">
+<meta property="og:description" content="这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。视频来源：学堂在线本章笔记主要是I&#x2F;O系统相关知识，更为详细的内容推荐阅读课本 I&#x2F;O特点设备接口类型及特征 字符设备  存取速度慢，如：键盘鼠标串口 特征：以字节为单位顺序访问 I&#x2F;O命令：get(),put()">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-24T16:54:48.367Z">
+<meta property="article:modified_time" content="2024-10-24T16:54:48.367Z">
+<meta property="article:author" content="Le4f">
+<meta property="article:tag" content="OS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2024/10/25/os-IOSystem/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>OS - I/O系统 | Le4f x Lab</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Le4f x Lab</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/10/25/os-IOSystem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+      <meta itemprop="name" content="Le4f">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Le4f x Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OS - I/O系统
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-10-25 00:54:48" itemprop="dateCreated datePublished" datetime="2024-10-25T00:54:48+08:00">2024-10-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS-Basis/" itemprop="url" rel="index"><span itemprop="name">CS Basis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这个系列的文章都是学习清华《操作系统》（向勇、陈渝老师）的时候自己做的课程笔记。<br>视频来源：学堂在线<br>本章笔记主要是I/O系统相关知识，更为详细的内容推荐阅读课本</p>
+<h3 id="I-O特点"><a href="#I-O特点" class="headerlink" title="I/O特点"></a>I/O特点</h3><h4 id="设备接口类型及特征"><a href="#设备接口类型及特征" class="headerlink" title="设备接口类型及特征"></a>设备接口类型及特征</h4><ul>
+<li>字符设备 <ul>
+<li>存取速度慢，如：键盘鼠标串口</li>
+<li>特征：以字节为单位顺序访问</li>
+<li>I/O命令：get(),put() </li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>块设备 <ul>
+<li>存储设备，如：磁盘驱动器、磁带驱动器、光驱</li>
+<li>特征：以均匀数据块为单位</li>
+<li>I/O命令：文件接口、原始I/O接口（以便提速）、内存映射文件访问</li>
+</ul>
+</li>
+<li>网络设备 <ul>
+<li>计算机和外界沟通的设备，如：以太网、无线、蓝牙等</li>
+<li>特征：格式化的报文交换</li>
+<li>I/O命令：send/receive报文、接口下支持多种网络协议</li>
+</ul>
+</li>
+</ul>
+<h4 id="同步和异步I-O"><a href="#同步和异步I-O" class="headerlink" title="同步和异步I/O"></a>同步和异步I/O</h4><ul>
+<li>阻塞I/O - wait，读写一定成功</li>
+<li>非阻塞I/O - don’t wait，读写不一定成功</li>
+<li>异步I/O - tell me later，二者结合</li>
+</ul>
+<h3 id="I-O结构"><a href="#I-O结构" class="headerlink" title="I/O结构"></a>I/O结构</h3><p>北桥 - 高速设备<br>南桥 - I/O设备</p>
+<h4 id="CPU与设备的连接"><a href="#CPU与设备的连接" class="headerlink" title="CPU与设备的连接"></a>CPU与设备的连接</h4><ul>
+<li>设备控制器<ul>
+<li>CPU和I/O设备间的接口</li>
+<li>向CPU提供特殊指令和寄存器（数据交互/状态交互）</li>
+</ul>
+</li>
+<li>I/O地址<ul>
+<li>CPU用来控制I/O硬件</li>
+<li>内存地址或端口号<ul>
+<li>I/O指令</li>
+<li>内存映射I/O</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CPU与设备的通信方式<ul>
+<li>轮询、设备中断、DMA</li>
+</ul>
+</li>
+</ul>
+<h4 id="I-O指令和内存映射I-O"><a href="#I-O指令和内存映射I-O" class="headerlink" title="I/O指令和内存映射I/O"></a>I/O指令和内存映射I/O</h4><ul>
+<li>I/O指令<ul>
+<li>通过I/O端口号访问设备寄存器（即通过端口号来区分所访问的设备及相应功能）</li>
+<li>特殊的CPU指令 - out/in</li>
+</ul>
+</li>
+<li>内存映射I/O<ul>
+<li>设备寄存器/存储被映射到内存物理地址空间中</li>
+<li>相应指令 - load/store</li>
+<li>MMU设置映射，或硬件跳线，或程序启动时地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="I-O数据传输"><a href="#I-O数据传输" class="headerlink" title="I/O数据传输"></a>I/O数据传输</h3><h4 id="CPU与设备控制器的数据传输"><a href="#CPU与设备控制器的数据传输" class="headerlink" title="CPU与设备控制器的数据传输"></a>CPU与设备控制器的数据传输</h4><ul>
+<li>程序直接控制I/O（PIO）<ul>
+<li>通过in/out或者load/store传输所有数据</li>
+<li>特点<ul>
+<li>硬件简单，编程容易</li>
+<li>消耗CPU时间和数据量成正比</li>
+</ul>
+</li>
+<li>适用于简单的、小型的设备I/O</li>
+</ul>
+</li>
+<li>直接内存访问（DMA）<ul>
+<li>设备控制器可直接访问系统总线</li>
+<li>控制器直接与内存互相传输数据</li>
+<li>特点<ul>
+<li>基本单位是控制块</li>
+<li>所传送的数据是设备直接到内存，或相反</li>
+<li>设备传输数据不影响CPU</li>
+<li>需要CPU参与设置，仅在一个或多个数据块开始或结束的时候</li>
+</ul>
+</li>
+<li>适用于高吞吐量的设备I/O</li>
+</ul>
+</li>
+<li>中断驱动访问</li>
+</ul>
+<h4 id="I-O设备通知OS的机制"><a href="#I-O设备通知OS的机制" class="headerlink" title="I/O设备通知OS的机制"></a>I/O设备通知OS的机制</h4><ul>
+<li>OS需要了解设备状态<ul>
+<li>I/O操作完成的时间</li>
+<li>I/O操作中遇到的错误</li>
+</ul>
+</li>
+<li>两种方式<ul>
+<li>CPU主动轮询<ul>
+<li>I/O设备在特定的<code>状态寄存器</code>中放置状态和错误信息</li>
+<li>OS<code>定期检测</code>状态寄存器</li>
+<li>特点：<ul>
+<li>简单</li>
+<li>I/O操作频繁或不可预测时，开销大（操作频繁）和延时长（不知道什么时候发生状态改变）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设备中断<ul>
+<li>中断处理流程<ul>
+<li>CPU在I/O之前设置任务参数</li>
+<li>CPU发出I/O请求后，继续执行其他任务</li>
+<li>I/O设备处理I/O请求</li>
+<li>I/O设备处理完成时，触发CPU中断请求</li>
+<li>CPU接收中断，分发到相应中断处理例程</li>
+</ul>
+</li>
+<li>特点<ul>
+<li>处理不可预测时间效果好</li>
+<li>开销相对较高</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实际中会结合设备中断和CPU轮询</li>
+</ul>
+<h3 id="磁盘调度"><a href="#磁盘调度" class="headerlink" title="磁盘调度"></a>磁盘调度</h3><ul>
+<li>FCFS</li>
+<li>SSTF（最短寻道时间优先）</li>
+<li>SCAN<ul>
+<li>CSCAN（循环扫描，单向移动）</li>
+<li>FSCAN（NStepSCAN的优化，两个子列）</li>
+<li>NStepSCAN（n个子列）</li>
+</ul>
+</li>
+</ul>
+<h3 id="磁盘缓存"><a href="#磁盘缓存" class="headerlink" title="磁盘缓存"></a>磁盘缓存</h3><ul>
+<li>磁盘冗余阵列<br>  -raid0</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OS/" rel="tag"># OS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/10/25/os-fileSystem/" rel="prev" title="OS - 文件系统">
+      <i class="fa fa-chevron-left"></i> OS - 文件系统
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/10/25/os-virtualMemory/" rel="next" title="OS - 虚拟存储">
+      OS - 虚拟存储 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%E7%89%B9%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">I&#x2F;O特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%89%B9%E5%BE%81"><span class="nav-number">1.1.</span> <span class="nav-text">设备接口类型及特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5I-O"><span class="nav-number">1.2.</span> <span class="nav-text">同步和异步I&#x2F;O</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">I&#x2F;O结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU%E4%B8%8E%E8%AE%BE%E5%A4%87%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="nav-number">2.1.</span> <span class="nav-text">CPU与设备的连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#I-O%E6%8C%87%E4%BB%A4%E5%92%8C%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84I-O"><span class="nav-number">2.2.</span> <span class="nav-text">I&#x2F;O指令和内存映射I&#x2F;O</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="nav-number">3.</span> <span class="nav-text">I&#x2F;O数据传输</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU%E4%B8%8E%E8%AE%BE%E5%A4%87%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="nav-number">3.1.</span> <span class="nav-text">CPU与设备控制器的数据传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#I-O%E8%AE%BE%E5%A4%87%E9%80%9A%E7%9F%A5OS%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="nav-number">3.2.</span> <span class="nav-text">I&#x2F;O设备通知OS的机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text">磁盘调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%BC%93%E5%AD%98"><span class="nav-number">5.</span> <span class="nav-text">磁盘缓存</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Le4f"
+      src="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
+  <p class="site-author-name" itemprop="name">Le4f</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Night1ng4le" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Night1ng4le" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:le4f.l@foxmail.com" title="E-Mail → mailto:le4f.l@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Le4f</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
