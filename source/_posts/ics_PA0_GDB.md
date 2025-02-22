@@ -1,5 +1,5 @@
 ---
-title: ICS-PA0:GDB for Beginners
+title: 'ICS-PA0: GDB for Beginners'
 categories: [BASIC]
 tags: [ICS,Debug,Coding,BaseCS]
 ---
