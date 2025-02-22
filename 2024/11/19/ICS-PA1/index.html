@@ -20,25 +20,24 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":220,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="核心：从时域到频域的变换，这种变换是通过一组特殊的正交基来实现的。 时域到频域时域&amp;emsp;&amp;emsp;时域是描述一个数学函数或物理信号对时间的关系，这是生活中最容易感受的一种域。&amp;emsp;&amp;emsp;很多物理量的定义都是基于时间产生的效果或者变化，以时间为参考会更容易理解，但更容易理解不意味方便使用。">
+  <meta name="description" content="1st Part: A game 事实上我自己做这个part的时候由于太忙就没写实验心得，确实错过了一些有趣的脑洞瞬间（快乐-1）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="傅立叶变换">
-<meta property="og:url" content="http://yoursite.com/2023/11/07/FourierTransform/index.html">
+<meta property="og:title" content="ICS: PA1">
+<meta property="og:url" content="http://yoursite.com/2024/11/19/ICS-PA1/index.html">
 <meta property="og:site_name" content="Le4f x Lab">
-<meta property="og:description" content="核心：从时域到频域的变换，这种变换是通过一组特殊的正交基来实现的。 时域到频域时域&amp;emsp;&amp;emsp;时域是描述一个数学函数或物理信号对时间的关系，这是生活中最容易感受的一种域。&amp;emsp;&amp;emsp;很多物理量的定义都是基于时间产生的效果或者变化，以时间为参考会更容易理解，但更容易理解不意味方便使用。">
+<meta property="og:description" content="1st Part: A game 事实上我自己做这个part的时候由于太忙就没写实验心得，确实错过了一些有趣的脑洞瞬间（快乐-1）">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-3c724b7aa719464bfd5dc3ac4968cb3a_1440w.jpg?source=1940ef5c">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-36dbf0297d9d1c75bff7291a2c321e21_1440w.jpg?source=1940ef5c">
-<meta property="og:image" content="https://pic4.zhimg.com/50/v2-04985711b48fc218b5d6101e5f6cf4cc_hd.webp?source=1940ef5c">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-8baab69933bff60fc4a5bc80cf05345c_1440w.jpg?source=1940ef5c">
-<meta property="article:published_time" content="2023-11-07T14:47:52.000Z">
-<meta property="article:modified_time" content="2023-11-07T14:47:52.000Z">
+<meta property="og:image" content="https://cdn-fusion.imgcdn.store/i/2024/385358761565cc5d.png">
+<meta property="article:published_time" content="2024-11-19T14:39:42.000Z">
+<meta property="article:modified_time" content="2024-11-19T14:55:24.672Z">
 <meta property="article:author" content="Le4f">
-<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="ICS">
+<meta property="article:tag" content="Debug">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-3c724b7aa719464bfd5dc3ac4968cb3a_1440w.jpg?source=1940ef5c">
+<meta name="twitter:image" content="https://cdn-fusion.imgcdn.store/i/2024/385358761565cc5d.png">
 
-<link rel="canonical" href="http://yoursite.com/2023/11/07/FourierTransform/">
+<link rel="canonical" href="http://yoursite.com/2024/11/19/ICS-PA1/">
 
 
 <script id="page-configurations">
@@ -51,7 +50,7 @@
   };
 </script>
 
-  <title>傅立叶变换 | Le4f x Lab</title>
+  <title>ICS: PA1 | Le4f x Lab</title>
   
 
 
@@ -173,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/11/07/FourierTransform/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/11/19/ICS-PA1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19544795?s=400&u=9ee5080d4cb44baabaf5b4af09769c17e14b1fcc&v=4">
@@ -186,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          傅立叶变换
+          ICS: PA1
         </h1>
 
         <div class="post-meta">
@@ -196,7 +195,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2023-11-07 22:47:52" itemprop="dateCreated datePublished" datetime="2023-11-07T22:47:52+08:00">2023-11-07</time>
+              <time title="Created: 2024-11-19 22:39:42" itemprop="dateCreated datePublished" datetime="2024-11-19T22:39:42+08:00">2024-11-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -204,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Advanced/" itemprop="url" rel="index"><span itemprop="name">Advanced</span></a>
+                  <a href="/categories/BASIC/" itemprop="url" rel="index"><span itemprop="name">BASIC</span></a>
                 </span>
             </span>
 
@@ -219,16 +218,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>核心：从时域到频域的变换，这种变换是通过一组特殊的正交基来实现的。</strong></p>
-<h3 id="时域到频域"><a href="#时域到频域" class="headerlink" title="时域到频域"></a>时域到频域</h3><h4 id="时域"><a href="#时域" class="headerlink" title="时域"></a>时域</h4><p>&emsp;&emsp;时域是描述一个数学函数或物理信号对时间的关系，这是生活中最容易感受的一种域。<br>&emsp;&emsp;很多物理量的定义都是基于时间产生的效果或者变化，以时间为参考会更容易理解，但更容易理解不意味方便使用。</p>
-<a id="more"></a>
-<blockquote>
-<p>举个🌰～<br>一段音频波形图<br><img src="https://pic4.zhimg.com/80/v2-3c724b7aa719464bfd5dc3ac4968cb3a_1440w.jpg?source=1940ef5c" alt="alt"><br>需求1：音量大一些<br>方案：让整体振幅增大（振幅=声音强度）<br>需求2: 加强低音部分<br>方案：无法单纯的加强低音</p>
-</blockquote>
-<h4 id="频域"><a href="#频域" class="headerlink" title="频域"></a>频域</h4><p>&emsp;&emsp;频域是描述频率所用到的空间或者说坐标系。频率是物质美妙完成周期性变化的次数。<br>&emsp;&emsp;对于前面提到的低音效果，可以简化为一个<strong>低通滤波器</strong><br><img src="https://pic4.zhimg.com/80/v2-36dbf0297d9d1c75bff7291a2c321e21_1440w.jpg?source=1940ef5c" alt="alt"><br>&emsp;&emsp;上图是低通滤波器的响应曲线，横轴是频率（Hz），纵轴是声音大小（dB）。所谓的低音效果，就是对声音中低音的部分保留或增强，对应上图中左侧的横线部分；而对于人声中的高音部分进行衰减，对应上图右侧斜坡的部分。通过这个简易的低通滤波器，我们就能将低音过滤，将高音衰减。<br>&emsp;&emsp;因此，低音效果是在频率范围内考虑问题，而波形图是在时域内的图像，所以如果想在时域内解决低音效果的问题，就像对牛弹琴。<strong>所以我们要找到一个沟通时域和频域的桥梁，能够让时域和频域无障碍沟通。但，时域和频域表达的又只能是同一种信息，只是表现形式不同。</strong></p>
-<h3 id="时域转频域"><a href="#时域转频域" class="headerlink" title="时域转频域"></a>时域转频域</h3><h4 id="傅立叶级数"><a href="#傅立叶级数" class="headerlink" title="傅立叶级数"></a>傅立叶级数</h4><p>&emsp;&emsp;首先看一下标准正弦函数，时域中的方程为 <script type="math/tex">y=sin \left( x \right)</script> ，图像如下<br><img src="https://pic4.zhimg.com/50/v2-04985711b48fc218b5d6101e5f6cf4cc_hd.webp?source=1940ef5c" alt="alt"><br>&emsp;&emsp;而它的频率 <script type="math/tex">f = \frac{1}{T} = \frac{1}{2\pi}</script> 。所以，上面这个函数在频域中的图像如下<br><img src="https://pic4.zhimg.com/80/v2-8baab69933bff60fc4a5bc80cf05345c_1440w.jpg?source=1940ef5c" alt="alt"><br>&emsp;&emsp;更一般的有 <script type="math/tex">y=Asin\left( 2\pi fx+\phi\right)</script> ，其中<script type="math/tex">f</script>是正弦函数频率，<script type="math/tex">\phi</script>是初始相位，<script type="math/tex">A</script>是幅度。在广义的频率中，<script type="math/tex">f</script>可正可负，上图中旋转臂顺时针旋转，<script type="math/tex">f</script>为负值。旋转臂状的越快，则频率越高，零时刻旋转臂和水平方向的夹角，就是初始相位。<br>&emsp;&emsp;由于正弦函数是单一频率，在频域中只需要一根竖线就能表现出来。我们期望的也是将时域的信号转换成一个个单一频率的正弦函数的组合，这样我们就能够在频域中用一根根竖线表示出来，也就完成了从时域到频域的转换。而上面提到的正弦函数表达式可以转换成 </p>
-<script type="math/tex; mode=display">y=Asin \left( 2\pi fx+ \theta \right)cos \left( 2\pi fx \right)+Acos \left( \theta\right) sin \left( 2\pi fx\right)=a_ncos \left( 2\pi fx \right)+b_nsin \left( 2\pi fx\right)</script><p>&lt;未完待续…&gt;</p>
-
+        <h2 id="1st-Part-A-game"><a href="#1st-Part-A-game" class="headerlink" title="1st Part: A game"></a>1st Part: A game</h2><p><img src="https://cdn-fusion.imgcdn.store/i/2024/385358761565cc5d.png" alt="alt"></p>
+<p>事实上我自己做这个part的时候由于太忙就没写实验心得，确实错过了一些有趣的脑洞瞬间（快乐-1）</p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2>
     </div>
 
     
@@ -237,7 +229,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+              <a href="/tags/Coding/" rel="tag"># Coding</a>
+              <a href="/tags/ICS/" rel="tag"># ICS</a>
+              <a href="/tags/Debug/" rel="tag"># Debug</a>
           </div>
 
         
@@ -246,13 +240,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/11/07/Day1/" rel="prev" title="365 - Day1：学习CTF Wiki栈溢出基础和ROP基础">
-      <i class="fa fa-chevron-left"></i> 365 - Day1：学习CTF Wiki栈溢出基础和ROP基础
+    <a href="/2024/10/25/php_grammar/" rel="prev" title="PHP grammar">
+      <i class="fa fa-chevron-left"></i> PHP grammar
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/03/26/reinforcementLearning1/" rel="next" title="强化学习的数学原理-Notes 1">
-      强化学习的数学原理-Notes 1 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -311,7 +302,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E5%88%B0%E9%A2%91%E5%9F%9F"><span class="nav-number">1.</span> <span class="nav-text">时域到频域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F"><span class="nav-number">1.1.</span> <span class="nav-text">时域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text">频域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E8%BD%AC%E9%A2%91%E5%9F%9F"><span class="nav-number">2.</span> <span class="nav-text">时域转频域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%82%85%E7%AB%8B%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">傅立叶级数</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1st-Part-A-game"><span class="nav-number">1.</span> <span class="nav-text">1st Part: A game</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"> </span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -327,20 +318,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -375,7 +366,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -432,59 +423,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
